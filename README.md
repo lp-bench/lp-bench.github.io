@@ -1,17 +1,18 @@
 # proof-bench.github.io
 
 Website of **ProofBench**, a Lean 4 benchmark for AI in research mathematics.
-A plain static site (HTML, CSS, vanilla JS) served by GitHub Pages. There is no build step and nothing to install.
+A plain static site (HTML, CSS, vanilla JS) in the style of a LaTeX article, served by GitHub Pages. There is no build step and nothing to install.
 
 ## Layout
 
 ```
 index.html                 all page content and copy
-assets/css/style.css       design (light and dark theme tokens at the top)
+assets/css/style.css       design (colour tokens at the top; dark mode follows the OS setting)
 assets/js/config.js        launch switches: release flag, arXiv id, repo cards, leaderboard rows, contact
-assets/js/main.js          interactions: hero, problem explorer, waffle, landscape, sandwich, session replay
+assets/js/main.js          interactions: Figure 1 examples, problem list, Figure 2, Table 2, Figure 3, Figure 4
 assets/js/problems.js      GENERATED problem data, do not edit by hand
 assets/img/                bench sketch, favicon, social preview (og.png)
+assets/fonts/              Computer Modern Unicode (CMU Serif, CMU Typewriter), subset to woff2, SIL OFL (see OFL.txt)
 scripts/build_problems.py  regenerates problems.js from proofbench-statements
 ```
 
@@ -30,7 +31,7 @@ python -m http.server 8000
 | Repositories went public | `config.js`: set `released: true` (repo cards become links, explorer links to files) |
 | First results | `config.js`: add rows to `results` (the leaderboard replaces the placeholder) |
 | Problem set changed | `python scripts/build_problems.py ../proofbench-statements/ProofBench/DATABASE/Database.json` |
-| Headline numbers (114, 32, 82, 87, …) | `index.html`, hero `.stats` and the composition cards |
+| Numbers in the text (114, 32, 82, 87, …) | `index.html`, Sections 1–4 and Table 1 |
 | Text, people, workshop | `index.html` |
 
 Single problems can be linked directly: `https://proof-bench.github.io/#P042`.
