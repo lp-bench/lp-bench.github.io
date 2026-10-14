@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ProofBench — Research mathematics, machine-checked</title>
+  <meta name="description" content="ProofBench is a Lean 4 benchmark of 114 research-level problems in combinatorics and graph theory, 32 of them open conjectures. A proof counts only if Lean accepts it.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ProofBench — Research mathematics, machine-checked">
+  <meta property="og:description" content="114 research-level problems in combinatorics and graph theory, stated in Lean 4. A proof counts only if Lean accepts it.">
+  <meta property="og:image" content="https://proof-bench.github.io/assets/img/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>
+    try { var t = localStorage.getItem("pb-theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav" id="top">
+    <div class="nav-inner">
+      <a class="brand" href="#top" aria-label="ProofBench home"><span class="qed" aria-hidden="true"></span>ProofBench</a>
+      <nav aria-label="Sections">
+        <ul class="nav-links">
+          <li><a href="#problems">Problems</a></li>
+          <li><a href="#method">Method</a></li>
+          <li><a href="#evaluation">Evaluation</a></li>
+          <li><a href="#code">Code</a></li>
+          <li><a href="#paper">Paper</a></li>
+          <li><a href="#people">People</a></li>
+        </ul>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z" fill="currentColor"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <canvas class="hero-graph" aria-hidden="true"></canvas>
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">A Lean 4 benchmark for AI in research mathematics</p>
+          <h1>Research mathematics,<br><em>machine-checked.</em></h1>
+          <p class="lede">
+            ProofBench asks AI systems to prove research-level theorems: 114 problems in combinatorics
+            and graph theory, 32 of them open conjectures. A proof counts only if Lean accepts it
+            against the unchanged statement.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-solid" href="#problems">Browse the 114 problems</a>
+            <a class="btn btn-ghost" href="#paper" data-paper-cta>Read the paper</a>
+          </div>
+          <p class="hero-meta">TU Bergakademie Freiberg · Universität Hamburg</p>
+        </div>
+
+        <figure class="editor" aria-label="A ProofBench challenge file">
+          <div class="editor-bar">
+            <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="editor-file" data-hero-file>P042.lean</span>
+          </div>
+          <pre class="editor-code"><code data-hero-code></code></pre>
+          <div class="editor-status">
+            <span class="warn-dot" aria-hidden="true"></span>
+            <span data-hero-status>declaration uses 'sorry'</span>
+          </div>
+          <figcaption class="editor-caption">
+            <span data-hero-caption>The Riemann Hypothesis · Open</span>
+            <a href="#problems" data-hero-link>Open in explorer →</a>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="wrap">
+        <dl class="stats">
+          <div><dt>problems</dt><dd data-count="114">114</dd></div>
+          <div><dt>open conjectures</dt><dd data-count="32">32</dd></div>
+          <div><dt>in graph theory</dt><dd data-count="82">82</dd></div>
+          <div><dt>with a full theorem sandwich</dt><dd data-count="87">87</dd></div>
+          <div><dt>sessions per attempt, at most</dt><dd data-count="10">10</dd></div>
+          <div><dt>LLM judges</dt><dd>0</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ============ WHY NOW ============ -->
+    <section class="why">
+      <div class="wrap narrow">
+        <p class="kicker">Why now</p>
+        <p class="why-text">
+          On <strong>6 October 2026</strong>, OpenAI released several hundred manuscripts written by an internal
+          model, many with Lean proofs checked by Comparator. Four of them resolve conjectures that were open
+          problems in ProofBench at the time:
+        </p>
+        <ul class="resolved-list">
+          <li><span class="tag tag-refuted">refuted</span><span>Hadwiger’s conjecture</span></li>
+          <li><span class="tag tag-refuted">refuted</span><span>Sidorenko’s conjecture <span class="muted">(bipartite graphs with bounded sides)</span></span></li>
+          <li><span class="tag tag-refuted">refuted</span><span>Ryser’s hypergraph conjecture</span></li>
+          <li><span class="tag tag-proved">proved</span><span>Seymour’s second neighbourhood conjecture</span></li>
+        </ul>
+        <p class="why-note">Comparator-checked Lean proofs, not yet independently verified.</p>
+        <p class="why-coda">
+          AI in research mathematics is no longer hypothetical. It now needs to be measured reliably, by
+          people with no stake in the outcome.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ PROBLEMS ============ -->
+    <section id="problems" class="section">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="kicker">§1 · The problem set</p>
+          <h2>114 problems. Each one is a single&nbsp;<code>sorry</code>.</h2>
+          <p class="section-lede">
+            Every problem is one Lean 4 file with the definitions it needs and one main theorem whose proof is
+            replaced by <code>sorry</code>. The task is to replace it with a complete proof. Open problems are
+            posed in prove-or-disprove form: we also ship the negation, so the formulation does not reveal which
+            side we expect to hold.
+          </p>
+        </header>
+
+        <div class="composition reveal">
+          <div class="card waffle-card">
+            <div class="card-head">
+              <h3>Every square is a problem</h3>
+              <p class="muted small">Hover to identify, click to open it below.</p>
+            </div>
+            <div class="waffle" role="img" aria-label="Waffle chart of 114 problems: 32 open, 68 research, 14 calibration"></div>
+            <ul class="legend" aria-label="Problems by category">
+              <li><span class="sw sw-open"></span><b>Open</b><span class="num">32</span><span class="legend-desc">open conjectures, prove or disprove</span></li>
+              <li><span class="sw sw-research"></span><b>Research</b><span class="num">68</span><span class="legend-desc">results proved in the research literature</span></li>
+              <li><span class="sw sw-calibration"></span><b>Calibration</b><span class="num">14</span><span class="legend-desc">elementary, most with a Lean reference proof</span></li>
+            </ul>
+            <p class="muted small ring-note"><span class="ring-demo" aria-hidden="true"></span> ringed: resolved in October 2026</p>
+            <div class="libs waffle-facts">
+              <div>
+                <p class="lib-num">18</p>
+                <p class="lib-name">with a Lean reference proof</p>
+                <p class="muted small">Including ten of the fourteen calibration problems. They test the grading pipeline end to end.</p>
+              </div>
+              <div>
+                <p class="lib-num">4</p>
+                <p class="lib-name">resolved during the project</p>
+                <p class="muted small">Now that their solutions are public, they measure reproduction rather than discovery, and we report them separately.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card areas-card">
+            <div class="card-head">
+              <h3>By area <span class="muted small">(primary MSC)</span></h3>
+            </div>
+            <ul class="bars" aria-label="Problems by area">
+              <li><span class="bar-label">Graph theory <code>05C</code></span><span class="bar"><i style="--v:82"></i></span><span class="num">82</span></li>
+              <li><span class="bar-label">Designs &amp; matroids <code>05B</code></span><span class="bar"><i style="--v:8"></i></span><span class="num">8</span></li>
+              <li><span class="bar-label">Extremal set theory <code>05D</code></span><span class="bar"><i style="--v:5"></i></span><span class="num">5</span></li>
+              <li><span class="bar-label">Everything else</span><span class="bar"><i style="--v:19"></i></span><span class="num">19</span></li>
+            </ul>
+            <p class="muted small">
+              “Everything else” spans number theory, discrete and convex geometry, group theory, probability, order
+              theory, set theory and theoretical computer science, including the Riemann Hypothesis and the Collatz
+              conjecture.
+            </p>
+            <div class="libs">
+              <div>
+                <p class="lib-num">47</p>
+                <p class="lib-name">statement modules</p>
+                <p class="muted small">Definitions missing from Mathlib that are needed to <em>state</em> problems. Visible to every system.</p>
+              </div>
+              <div>
+                <p class="lib-num">89</p>
+                <p class="lib-name">proctor modules</p>
+                <p class="muted small">Theorem sandwiches, reference proofs and auxiliary results. They never enter the evaluation environment.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Explorer -->
+        <div class="explorer reveal" id="explorer">
+          <div class="explorer-controls">
+            <label class="search">
+              <span class="visually-hidden">Search problems</span>
+              <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              <input type="search" placeholder="Search: Hamiltonian, Ramsey, 05C15…" data-search>
+            </label>
+            <div class="chips" role="group" aria-label="Filter by category">
+              <button class="chip is-on" data-cat="all" aria-pressed="true">All</button>
+              <button class="chip" data-cat="open" aria-pressed="false"><span class="sw sw-open"></span>Open</button>
+              <button class="chip" data-cat="research" aria-pressed="false"><span class="sw sw-research"></span>Research</button>
+              <button class="chip" data-cat="calibration" aria-pressed="false"><span class="sw sw-calibration"></span>Calibration</button>
+            </div>
+            <label class="select">
+              <span class="visually-hidden">Filter by area</span>
+              <select data-area>
+                <option value="all">All areas</option>
+                <option>Graph theory</option>
+                <option>Designs &amp; matroids</option>
+                <option>Extremal set theory</option>
+                <option>Other areas</option>
+              </select>
+            </label>
+          </div>
+          <p class="explorer-count muted small" aria-live="polite" data-count-label></p>
+          <ol class="problem-list" data-list></ol>
+          <button class="btn btn-ghost show-more" type="button" data-more hidden>Show all</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ METHOD ============ -->
+    <section id="method" class="section alt">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="kicker">§2 · Where ProofBench sits</p>
+          <h2>Proofs, not answers. Lean, not judges.</h2>
+          <p class="section-lede">
+            Benchmarks for AI mathematics differ along two axes: whether the output is <em>formal</em> (checked by
+            a proof assistant) or <em>informal</em>, and whether it is a full <em>proof</em> or a <em>final answer</em>.
+            Competition-level formal proving is close to saturation. At the research level, the field thins out.
+          </p>
+        </header>
+
+        <div class="landscape reveal">
+          <div class="land-grid" role="table" aria-label="Benchmarks by format and level">
+            <div class="land-row land-header" role="row">
+              <span role="columnheader"></span>
+              <span role="columnheader">Competition</span>
+              <span role="columnheader">Undergraduate</span>
+              <span role="columnheader">Graduate</span>
+              <span role="columnheader">Research</span>
+            </div>
+            <!-- rows rendered by main.js -->
+          </div>
+          <aside class="land-detail" aria-live="polite">
+            <p class="land-detail-name">Hover or tap a benchmark</p>
+            <p class="land-detail-text muted">Descriptions follow the survey in Section 2 of the paper.</p>
+          </aside>
+        </div>
+
+        <div class="desiderata reveal">
+          <h3 class="center">What an ideal benchmark needs</h3>
+          <ol class="desi-grid">
+            <li><span class="roman">i</span><h4>Research-level depth</h4><p>Problems whose difficulty and significance active research mathematicians recognise, selected by domain experts.</p></li>
+            <li><span class="roman">ii</span><h4>Disciplinary breadth</h4><p>Fields under-represented in the formalization ecosystem. We begin with combinatorics and graph theory.</p></li>
+            <li><span class="roman">iii</span><h4>Reproducible, objective evaluation</h4><p>Unambiguous criteria: a proof is correct if and only if Lean says so, the same way for every system.</p></li>
+            <li><span class="roman">iv</span><h4>Independence</h4><p>Designed and governed by researchers with no commercial stake in the systems under evaluation.</p></li>
+          </ol>
+        </div>
+
+        <!-- Sandwich -->
+        <div class="sandwich-block reveal" id="sandwich">
+          <header class="section-head">
+            <p class="kicker">§3 · The theorem sandwich</p>
+            <h2>How do you know the Lean statement says what the mathematician meant?</h2>
+            <p class="section-lede">
+              A formal statement can silently miss its author’s intended meaning, a recurring problem for formal
+              benchmarks. We pin each statement between two layers of independent evidence.
+              87 of the 114 problems currently have both bounds.
+            </p>
+          </header>
+
+          <div class="sandwich">
+            <div class="sw-controls" role="group" aria-label="Simulate a formalization">
+              <span class="small muted">What if the formalization is…</span>
+              <button class="chip is-on" data-sw="ok" aria-pressed="true">correct</button>
+              <button class="chip" data-sw="strong" aria-pressed="false">too strong</button>
+              <button class="chip" data-sw="weak" aria-pressed="false">too weak</button>
+            </div>
+
+            <div class="sw-stack" data-state="ok">
+              <div class="sw-layer sw-upper">
+                <p class="sw-tag">Upper bound</p>
+                <p class="sw-title">Key lemmata, or a stronger known or conjectured statement</p>
+                <p class="sw-sub">Some lemmata may stay <code>sorry</code>: proving all of them would solve the problem.</p>
+              </div>
+              <div class="sw-arrow" data-arrow="up">
+                <span class="sw-imp">⟹</span>
+                <span class="sw-verdict" data-verdict="up"></span>
+              </div>
+              <div class="sw-layer sw-statement">
+                <p class="sw-tag">The statement</p>
+                <p class="sw-title"><code>theorem Pxxx : … := by sorry</code></p>
+                <p class="sw-sub" data-sw-desc>The formal statement the AI system must prove.</p>
+              </div>
+              <div class="sw-arrow" data-arrow="down">
+                <span class="sw-imp">⟹</span>
+                <span class="sw-verdict" data-verdict="down"></span>
+              </div>
+              <div class="sw-layer sw-lower">
+                <p class="sw-tag">Lower bound</p>
+                <p class="sw-title">A handful of easily derivable corollaries</p>
+                <p class="sw-sub">Each derived from the statement in Lean.</p>
+              </div>
+            </div>
+            <p class="sw-explain" data-sw-explain></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EVALUATION ============ -->
+    <section id="evaluation" class="section">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="kicker">§4 · Evaluation</p>
+          <h2>Same sandbox, same tools, same budget, for every model.</h2>
+          <p class="section-lede">
+            Systems run in a uniform harness built on <a href="https://inspect.aisi.org.uk/">Inspect AI</a>, not in
+            each vendor’s own agent product, so that results are comparable and reproducible.
+          </p>
+        </header>
+
+        <div class="eval-grid reveal">
+          <article class="card eval-card">
+            <p class="step-num">1</p>
+            <h3>A sealed sandbox</h3>
+            <p>One container per problem holding the Lean toolchain, Mathlib and the statement library. It has no network, no API keys, and no grading material. Docker on workstations, Apptainer on HPC clusters.</p>
+          </article>
+          <article class="card eval-card">
+            <p class="step-num">2</p>
+            <h3>Real research tools</h3>
+            <ul class="tool-list">
+              <li>bash with the Lean toolchain</li>
+              <li>Lean language server via <code>lean-lsp-mcp</code></li>
+              <li>Python with sympy and networkx</li>
+              <li>SageMath (GAP, nauty) and the SAT solver CaDiCaL</li>
+              <li>optional web search through a single shared provider</li>
+            </ul>
+          </article>
+          <article class="card eval-card">
+            <p class="step-num">3</p>
+            <h3>Up to ten fresh sessions</h3>
+            <p>Each session starts from a clean context with the current files, the compiler output and a fixed-format handoff note listing proved lemmas, open goals and failed approaches.</p>
+          </article>
+        </div>
+
+        <!-- session animation -->
+        <div class="run card reveal" aria-label="Illustration of an attempt">
+          <div class="run-head">
+            <h3>Anatomy of an attempt</h3>
+            <span class="muted small">illustration · not a real result</span>
+          </div>
+          <ol class="sessions" data-sessions></ol>
+          <div class="run-log" data-runlog>
+            <pre><code data-runlog-code></code></pre>
+          </div>
+        </div>
+
+        <div class="grading reveal">
+          <article class="card layer">
+            <p class="kicker">Layer 1 · static check &amp; compilation</p>
+            <ul class="checks">
+              <li>theorem statement and every definition unchanged</li>
+              <li>imports restricted to Mathlib, the statement library and the agent’s own files</li>
+              <li>no <code>sorry</code>, new axioms, <code>native_decide</code> or kernel-skipping options</li>
+              <li>compiles, depending only on <code>propext</code>, <code>Classical.choice</code>, <code>Quot.sound</code></li>
+            </ul>
+          </article>
+          <article class="card layer">
+            <p class="kicker">Layer 2 · Comparator</p>
+            <ul class="checks">
+              <li>the Lean FRO’s adversarial checker, run in a Landlock sandbox</li>
+              <li>builds the trusted statement and the submission separately</li>
+              <li>requires the statements and their definitions to be identical</li>
+              <li>replays the proof through the Lean kernel and checks the axioms</li>
+            </ul>
+          </article>
+          <article class="card layer layer-measure">
+            <p class="kicker">Recorded for every attempt</p>
+            <ul class="measure-tags">
+              <li>verdict</li><li>sessions used</li><li>input &amp; output tokens</li><li>cost</li>
+              <li>total &amp; working time</li><li>tool &amp; model calls</li><li>proof length</li>
+            </ul>
+            <p class="muted small">Per run we freeze the harness commit, sandbox image, Lean &amp; Mathlib commit, problem-set commit, model identifier, reasoning effort and search setting. Solutions to open problems are also checked by hand before any claim is made.</p>
+          </article>
+        </div>
+
+        <div class="results reveal" id="results">
+          <div class="results-head">
+            <h3>Leaderboard</h3>
+            <p class="muted small" data-results-note></p>
+          </div>
+          <div class="results-body" data-results></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CODE ============ -->
+    <section id="code" class="section alt">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="kicker">§5 · Open source</p>
+          <h2>Everything you need to run ProofBench yourself.</h2>
+          <p class="section-lede">
+            The problems, the harness and the HPC sandbox are released together with the paper. The theorem
+            sandwiches and reference proofs stay in a separate proctor library, so that the benchmark stays
+            meaningful.
+          </p>
+        </header>
+        <div class="repo-grid reveal" data-repos></div>
+      </div>
+    </section>
+
+    <!-- ============ PAPER ============ -->
+    <section id="paper" class="section">
+      <div class="wrap narrow">
+        <header class="section-head">
+          <p class="kicker">§6 · The paper</p>
+        </header>
+        <article class="paper card reveal">
+          <h2 class="paper-title">ProofBench: A Lean-based Formal Benchmark for AI&nbsp;Capabilities in Combinatorics</h2>
+          <p class="authors">
+            <span>Vaibhav Bajpai<sup>1</sup></span>, <span>Nathan Bowler<sup>3</sup></span>, <span>Johannes Carmesin<sup>1</sup></span>,
+            <span>Jinghua Groppe<sup>2</sup></span>, <span>Sven Groppe<sup>2</sup></span>, <span>Utku Okur<sup>1</sup></span>
+          </p>
+          <ol class="affils">
+            <li>Institute of Discrete Mathematics and Algebra, TU Bergakademie Freiberg</li>
+            <li>Professorship for Artificial Intelligence, TU Bergakademie Freiberg</li>
+            <li>Department of Mathematics, Universität Hamburg</li>
+          </ol>
+          <div class="paper-actions" data-paper-actions></div>
+          <details class="abstract">
+            <summary>Abstract</summary>
+            <p>
+              We survey benchmarks to test Artificial Intelligence (AI) capabilities in mathematics. Our survey classifies
+              benchmarks along the axes informal/formal and whether they accept a single answer or a proof. Next, we
+              introduce ProofBench, a benchmark initiative aimed at measuring the ability of artificial intelligence systems
+              to perform research-level mathematical reasoning. ProofBench consists of 114 problems, most of them in
+              combinatorics and 82 in graph theory. It is designed as a formal-to-formal benchmark suite in Lean 4,
+              requiring systems to produce mechanically checkable proofs of research-level mathematical statements. We
+              position ProofBench within the landscape of existing AI mathematics benchmarks, describe our construction
+              pipeline, introduce the theorem sandwich methodology for validating formalized statements, and report on an
+              inaugural proof-of-concept workshop.
+            </p>
+            <p>
+              We specify the protocol by which AI systems are evaluated on ProofBench: agents work in a sandboxed harness
+              with a uniform set of tools, over a bounded number of fresh sessions linked by structured handoff notes, and a
+              submission counts as a solution only if it compiles in Lean 4 against the unchanged formal statement. For every
+              attempt we record cost, tokens, time and proof length. Our evaluation harness is built on Inspect AI and
+              designed to work on both a local PC and a high-performance computing (HPC) cluster.
+            </p>
+          </details>
+          <div class="bibtex">
+            <div class="bibtex-bar">
+              <span class="small muted">BibTeX</span>
+              <button class="copy-btn" type="button" data-copy="bibtex">Copy</button>
+            </div>
+            <pre><code data-bibtex></code></pre>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ PEOPLE ============ -->
+    <section id="people" class="section alt">
+      <div class="wrap">
+        <div class="people-grid">
+          <figure class="bench reveal">
+            <img src="assets/img/bench.jpg" width="760" height="760" loading="lazy"
+                 alt="Pencil sketch of two QED boxes with arms and legs sitting on a park bench; one reads a book.">
+            <figcaption>Two proofs on a bench. The original ProofBench sketch.</figcaption>
+          </figure>
+          <div class="people-copy reveal">
+            <p class="kicker">§7 · People</p>
+            <h2>Built by mathematicians, with the Lean community.</h2>
+            <p>
+              The inaugural ProofBench workshop took place at TU Bergakademie Freiberg from
+              <strong>22 September to 3 October 2025</strong>. About twenty research mathematicians with
+              combinatorics backgrounds and a smaller group of Lean experts formalized a recent result together:
+              a counterexample to Andreae’s ubiquity conjecture. The workshop tested the construction pipeline and the
+              theorem sandwich, and it showed how hard research-level formalization is, even for experts.
+            </p>
+            <pre class="lean-snippet"><code data-lean>theorem exists_countable_simpleGraph_not_isUbiquitous :
+    ∃ (W : Type) (_ : Countable W) (H : SimpleGraph W), ¬ IsUbiquitous H := by
+  refine ⟨_, inferInstance, barbellRay, fun h ↦ ?_⟩
+  exact not_foldedUnion_barbellRay_nat_isMinor_decoratedGrid &lt;|
+    h _ _ foldedUnion_barbellRay_fin_isMinor_decoratedGrid</code></pre>
+            <p class="muted small">From the workshop formalization (paper, Appendix).</p>
+
+            <h3>Authors</h3>
+            <ul class="names">
+              <li>Vaibhav Bajpai <span>TU Freiberg</span></li>
+              <li>Nathan Bowler <span>Hamburg</span></li>
+              <li>Johannes Carmesin <span>TU Freiberg</span></li>
+              <li>Jinghua Groppe <span>TU Freiberg</span></li>
+              <li>Sven Groppe <span>TU Freiberg</span></li>
+              <li>Utku Okur <span>TU Freiberg</span></li>
+            </ul>
+
+            <details class="participants">
+              <summary>Workshop participants</summary>
+              <ul class="names names-small">
+                <li>Justin Asher</li>
+                <li>Nathan Bowler <span>Hamburg</span></li>
+                <li>Johannes Carmesin <span>TU Freiberg</span></li>
+                <li>Joseph Devine <span>TU Freiberg</span></li>
+                <li>Sarah Frenkel <span>Birmingham</span></li>
+                <li>Matthias Hamann <span>Hamburg</span></li>
+                <li>Julian Holstein <span>Hamburg</span></li>
+                <li>Nicolai Kraus <span>Nottingham</span></li>
+                <li>Matt Kroeker <span>TU Freiberg</span></li>
+                <li>Jan Kurkofka <span>TU Freiberg</span></li>
+                <li>Nicola Lorenz <span>Hamburg</span></li>
+                <li>Aref Mohammadzadeh <span>Nottingham</span></li>
+                <li>Felix Pernegger <span>Bonn</span></li>
+                <li>Tim Planken <span>TU Freiberg</span></li>
+                <li>Auguste Poiroux <span>EPFL</span></li>
+                <li>Martin Schneider <span>TU Freiberg</span></li>
+                <li>Jacob Stegemann <span>Hamburg</span></li>
+                <li>Will Turner <span>TU Freiberg</span></li>
+                <li>Martin Winter <span>TU Berlin</span></li>
+              </ul>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTRIBUTE ============ -->
+    <section id="contribute" class="section">
+      <div class="wrap">
+        <header class="section-head center">
+          <p class="kicker">§8 · Get involved</p>
+          <h2>Have a theorem AI should try to prove?</h2>
+          <p class="section-lede">Problems enter ProofBench from working mathematicians. Here is how.</p>
+        </header>
+        <ol class="pipeline reveal">
+          <li>
+            <span class="pipe-num">1</span>
+            <h3>You propose</h3>
+            <p>A result, a conjecture or a question from your field, ideally one whose significance experts recognise.</p>
+          </li>
+          <li>
+            <span class="pipe-num">2</span>
+            <h3>We formalize</h3>
+            <p>Our team states it in Lean 4, with you or independently, and builds its theorem sandwich.</p>
+          </li>
+          <li>
+            <span class="pipe-num">3</span>
+            <h3>It enters the benchmark</h3>
+            <p>The statement and the definitions it needs go public. The sandwich and any reference proof stay in the proctor library.</p>
+          </li>
+        </ol>
+        <div class="contact reveal">
+          <a class="btn btn-solid" data-contact href="#">Propose a problem</a>
+          <a class="btn btn-ghost" href="https://tenchallenges.github.io/ten-challenges/">Sister project: Ten Challenges →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div>
+        <p class="brand"><span class="qed" aria-hidden="true"></span>ProofBench</p>
+        <p class="muted small">A Lean 4 benchmark for AI in research mathematics.</p>
+      </div>
+      <div class="footer-links">
+        <p class="small"><a href="https://www.tu-freiberg.de/">TU Bergakademie Freiberg</a> · <a href="https://www.uni-hamburg.de/">Universität Hamburg</a></p>
+        <p class="small muted">© 2026 the ProofBench authors · <a href="https://github.com/proof-bench">github.com/proof-bench</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="tooltip" role="tooltip" hidden></div>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/problems.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
