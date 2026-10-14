@@ -1,4 +1,4 @@
-"""Generate assets/js/problems.js from the ProofBench problem database.
+"""Generate assets/js/problem-data.js from the ProofBench problem database.
 
 Usage:
     python scripts/build_problems.py path/to/proofbench-statements/ProofBench/DATABASE/Database.json
@@ -18,7 +18,7 @@ AREAS = {
     "05D": "Extremal set theory",
 }
 
-OUT = Path(__file__).resolve().parent.parent / "assets" / "js" / "problems.js"
+OUT = Path(__file__).resolve().parent.parent / "assets" / "js" / "problem-data.js"
 
 
 def category(difficulty: str) -> str:

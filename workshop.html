@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Inaugural Workshop · ProofBench</title>
+  <meta name="description" content="Two weeks in Freiberg in autumn 2025: research mathematicians and Lean experts formalizing a recent result together, and what it taught us about building ProofBench.">
+  <meta property="og:title" content="The Inaugural ProofBench Workshop">
+  <meta property="og:image" content="https://proof-bench.github.io/assets/img/og.png">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/cmunrm.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="header">
+    <a class="brand" href="index.html"><span class="qed" aria-hidden="true"></span>ProofBench</a>
+    <nav aria-label="Main">
+      <ul class="header-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="problems.html">Problems</a></li>
+        <li><a href="ten-challenges.html">Ten Challenges</a></li>
+        <li><a href="workshop.html" aria-current="page">Workshop</a></li>
+        <li><span class="btn btn-small" aria-disabled="true" data-paper-link data-label-live="Paper ↗">Paper · Oct 2026</span></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" class="main">
+    <section class="ws-hero">
+      <div class="page-intro">
+        <h1>The Inaugural ProofBench Workshop</h1>
+        <p>
+          Before asking machines to formalize research mathematics, we wanted to know what it takes for people to
+          do it. For two weeks, research mathematicians and Lean experts worked side by side on one recent result,
+          and the experience shaped how ProofBench builds and checks its problems today.
+        </p>
+        <p class="meta-line">22 September – 3 October 2025 · TU Bergakademie Freiberg, Germany</p>
+      </div>
+      <figure>
+        <img src="assets/img/bench.jpg" width="760" height="760" alt="Pencil sketch of two QED boxes with arms and legs sitting on a park bench; one is reading a book.">
+      </figure>
+    </section>
+
+    <dl class="facts">
+      <div><dt>weeks in Freiberg</dt><dd>2</dd></div>
+      <div><dt>mathematicians and Lean experts</dt><dd>≈ 20</dd></div>
+      <div><dt>recent research result in focus</dt><dd>1</dd></div>
+    </dl>
+
+    <h2 class="rule">The mathematics</h2>
+    <div class="prose">
+      <p>
+        The workshop centred on a question from infinite graph theory. Call a graph <i>H</i> <em>ubiquitous</em> if
+        every graph that contains <i>n</i> disjoint copies of <i>H</i> as minors, for each finite <i>n</i>, must also
+        contain infinitely many disjoint copies. In 2002 Thomas Andreae conjectured that every locally finite graph is
+        ubiquitous. In 2023 Johannes Carmesin showed that this fails by constructing a counterexample
+        (<i>Journal of Combinatorial Theory, Series B</i> 162).
+      </p>
+      <p>
+        Carrying that construction all the way into Lean&nbsp;4 was the shared goal. The argument fills only a few
+        pages on paper, but it rests on infinite graphs, minors and disjoint unions, areas where Mathlib offers little
+        ready-made support.
+      </p>
+    </div>
+    <div class="code-block nowrap">
+      <pre><code data-lean>theorem exists_countable_simpleGraph_not_isUbiquitous :
+    ∃ (W : Type) (_ : Countable W) (H : SimpleGraph W), ¬ IsUbiquitous H := by
+  refine ⟨_, inferInstance, barbellRay, fun h ↦ ?_⟩
+  exact not_foldedUnion_barbellRay_nat_isMinor_decoratedGrid &lt;|
+    h _ _ foldedUnion_barbellRay_fin_isMinor_decoratedGrid</code></pre>
+    </div>
+    <p class="tt muted" style="font-size:12px;margin-top:8px">An excerpt of the Lean 4 code written during the workshop.</p>
+
+    <h2 class="rule">How we worked</h2>
+    <ol class="timeline">
+      <li>
+        <b>Mixed teams</b>
+        <p>Participants formed teams that paired combinatorial expertise with Lean experience, and each team took on part of the argument.</p>
+      </li>
+      <li>
+        <b>Smaller units</b>
+        <p>As the work progressed, the teams shrank. Small groups moved more easily between the mathematics and its formal verification.</p>
+      </li>
+      <li>
+        <b>Lean experts on call</b>
+        <p>The Lean specialists gradually left their fixed teams and became a shared resource, joining whichever group was stuck.</p>
+      </li>
+      <li>
+        <b>A tested workflow</b>
+        <p>Along the way the group developed procedures for splitting a complex proof into manageable formalization tasks, and gave the theorem sandwich its first trial.</p>
+      </li>
+    </ol>
+
+    <h2 class="rule">What we learned</h2>
+    <div class="lessons">
+      <div class="problem-item">
+        <span class="problem-title">Formalization is hard, even for experts</span>
+        <p>Even with a strong team, turning a recent research proof into checked Lean code took sustained effort. The gap between a convincing argument and a verified one is real.</p>
+      </div>
+      <div class="problem-item">
+        <span class="problem-title">Statements are where errors hide</span>
+        <p>Writing Lean statements that say exactly what the mathematics says was the most delicate step. Small slips were easy to make and hard to spot, which is why ProofBench now guards every statement with a theorem sandwich.</p>
+      </div>
+      <div class="problem-item">
+        <span class="problem-title">Plan before you formalize</span>
+        <p>Graph theory in Mathlib is still thin, so much time went into basic definitions. Mapping out the proof and its dependencies in advance with a blueprint catches problems early.</p>
+      </div>
+    </div>
+
+    <h2 class="rule">Why it mattered</h2>
+    <div class="prose">
+      <p>
+        The workshop showed that research-level formalization is a workable, and demanding, yardstick for AI
+        systems. It validated the pipeline that ProofBench uses to construct its problems and was the first real
+        test of the theorem sandwich, bringing pure mathematicians, Lean users and machine-learning researchers
+        to the same table.
+      </p>
+    </div>
+
+    <h2 class="rule">Participants</h2>
+    <ul class="participants">
+      <li>Justin Asher <span></span></li>
+      <li>Nathan Bowler <span>Hamburg</span></li>
+      <li>Johannes Carmesin <span>TU Freiberg</span></li>
+      <li>Joseph Devine <span>TU Freiberg</span></li>
+      <li>Sarah Frenkel <span>Birmingham</span></li>
+      <li>Matthias Hamann <span>Hamburg</span></li>
+      <li>Julian Holstein <span>Hamburg</span></li>
+      <li>Nicolai Kraus <span>Nottingham</span></li>
+      <li>Matt Kroeker <span>TU Freiberg</span></li>
+      <li>Jan Kurkofka <span>TU Freiberg</span></li>
+      <li>Nicola Lorenz <span>Hamburg</span></li>
+      <li>Aref Mohammadzadeh <span>Nottingham</span></li>
+      <li>Felix Pernegger <span>Bonn</span></li>
+      <li>Tim Planken <span>TU Freiberg</span></li>
+      <li>Auguste Poiroux <span>EPFL</span></li>
+      <li>Martin Schneider <span>TU Freiberg</span></li>
+      <li>Jacob Stegemann <span>Hamburg</span></li>
+      <li>Will Turner <span>TU Freiberg</span></li>
+      <li>Martin Winter <span>TU Berlin</span></li>
+    </ul>
+
+    <div class="cta-box">
+      <div>
+        <h3>Interested in a future workshop?</h3>
+        <p>We are glad to hear from mathematicians and Lean users who would like to take part in, or host, a future ProofBench workshop.</p>
+      </div>
+      <a class="btn" data-contact data-subject="ProofBench workshop" href="#">Get in touch</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <span>ProofBench · a formal benchmark for research-level mathematics</span>
+    <nav aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="problems.html">Problems</a>
+      <a href="ten-challenges.html">Ten Challenges</a>
+      <a href="https://github.com/proof-bench">GitHub</a>
+    </nav>
+  </footer>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/common.js"></script>
+</body>
+</html>
