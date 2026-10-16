@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ProofBench — Research-level mathematics benchmark, verified by Lean</title>
+  <meta name="description" content="ProofBench measures whether AI systems can prove research-level theorems. 114 problems in combinatorics and graph theory, stated in Lean 4 and checked automatically.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ProofBench — Research-level mathematics benchmark, verified by Lean">
+  <meta property="og:description" content="114 problems in combinatorics and graph theory, from classical theorems to open conjectures, stated in Lean 4 and checked automatically.">
+  <meta property="og:image" content="https://proof-bench.github.io/assets/img/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/cmunrm.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="header">
+    <a class="brand" href="index.html"><span class="qed" aria-hidden="true"></span>ProofBench</a>
+    <nav aria-label="Main">
+      <ul class="header-nav">
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="problems.html">Problems</a></li>
+        <li><a href="ten-challenges.html">Ten Challenges</a></li>
+        <li><a href="workshop.html">Workshop</a></li>
+        <li><span class="btn btn-small" aria-disabled="true" data-paper-link data-label-live="Paper ↗">Paper · Oct 2026</span></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <canvas class="hero-graph" aria-hidden="true"></canvas>
+      <div class="hero-inner">
+        <div>
+          <p class="eyebrow">Lean 4 · Combinatorics · Graph theory</p>
+          <h1>ProofBench</h1>
+          <p class="tagline">Research-level mathematics benchmark, <em>verified by Lean.</em></p>
+          <p class="lede">
+            ProofBench evaluates whether AI systems can generate complete, mechanically checked proofs of
+            meaningful mathematical statements. Its philosophy is simple: progress in AI mathematics should be
+            measured not only by raw performance, but by the ability to reason through deep ideas and formalize
+            expert mathematical insights. By expressing these insights as precise Lean&nbsp;4 statements,
+            ProofBench enables objective comparison across AI systems and advances reliable proof generation
+            and verification.
+          </p>
+          <div class="hero-ctas">
+            <a class="btn" href="problems.html">Explore the problems →</a>
+            <span class="btn btn-secondary" aria-disabled="true" data-paper-link data-label-live="Read the paper ↗">Paper · October 2026</span>
+          </div>
+          <p class="hero-inst">Technische Universität Bergakademie Freiberg · Universität Hamburg</p>
+        </div>
+
+        <figure class="lean-card" id="showcase" aria-label="Example challenge file">
+          <div class="lean-card-head">
+            <span data-hero-file>P042.lean</span>
+            <span class="lean-card-nav">
+              <button type="button" data-hero-prev aria-label="Previous example">‹</button>
+              <span data-hero-pos>1 / 7</span>
+              <button type="button" data-hero-next aria-label="Next example">›</button>
+            </span>
+          </div>
+          <pre><code data-hero-code></code></pre>
+          <div class="lean-card-status"><i aria-hidden="true"></i><span>declaration uses 'sorry'</span></div>
+          <figcaption class="lean-card-foot">
+            <span data-hero-caption>The Riemann Hypothesis · open</span>
+            <a href="problems.html#P042" data-hero-link>Open in problem list →</a>
+          </figcaption>
+        </figure>
+      </div>
+
+      <dl class="stats">
+        <div><dt>problems in Lean 4</dt><dd data-count="114">114</dd></div>
+        <div><dt>open conjectures</dt><dd data-count="32">32</dd></div>
+        <div><dt>in graph theory</dt><dd data-count="82">82</dd></div>
+        <div><dt>guarded by a theorem sandwich</dt><dd data-count="87">87</dd></div>
+        <div><dt>sessions per attempt, at most</dt><dd data-count="10">10</dd></div>
+      </dl>
+    </section>
+
+    <!-- ============ WHY ============ -->
+    <section class="section">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="label">Why ProofBench</p>
+          <h2>Built to measure real mathematical progress</h2>
+          <p>
+            Competition benchmarks are close to saturation, and informal proofs are expensive to grade reliably.
+            ProofBench takes a different route: research-level problems, exact formal statements and fully
+            automatic verification.
+          </p>
+        </header>
+
+        <div class="pillars reveal">
+          <article class="pillar">
+            <svg viewBox="0 0 120 84" preserveAspectRatio="xMinYMid meet" aria-hidden="true">
+              <g fill="none" stroke="currentColor" stroke-width="1.2">
+                <polygon points="42,6 77,31 64,72 20,72 7,31"/>
+                <polygon points="42,24 59,36 52,56 32,56 25,36"/>
+                <path d="M42,6V24M77,31L59,36M64,72L52,56M20,72L32,56M7,31L25,36"/>
+                <path d="M42,24L52,56L25,36L59,36L32,56Z" stroke-opacity=".35"/>
+              </g>
+              <g fill="currentColor">
+                <circle cx="42" cy="6" r="3"/><circle cx="77" cy="31" r="3"/><circle cx="64" cy="72" r="3"/><circle cx="20" cy="72" r="3"/><circle cx="7" cy="31" r="3"/>
+                <circle cx="59" cy="36" r="3"/><circle cx="52" cy="56" r="3"/><circle cx="32" cy="56" r="3"/><circle cx="25" cy="36" r="3"/>
+                <circle cx="42" cy="24" r="3.6" fill="#9b1c1c"/>
+              </g>
+            </svg>
+            <h3>Research-level by design</h3>
+            <p>Problems are chosen by mathematicians active in the field: recent theorems, classical results and conjectures that are still open. No competition puzzles.</p>
+          </article>
+          <article class="pillar">
+            <svg viewBox="0 0 120 84" preserveAspectRatio="xMinYMid meet" aria-hidden="true">
+              <g fill="none" stroke="currentColor" stroke-width="1.2">
+                <rect x="4" y="8" width="58" height="68"/>
+                <path d="M12,22H50M12,32H44M12,42H52M12,52H38M12,62H46" stroke-opacity=".4"/>
+              </g>
+              <g stroke="currentColor" stroke-width="2.4" fill="none">
+                <path d="M80,22V62M80,42H106"/>
+              </g>
+              <path d="M88,52l6,6l12,-14" fill="none" stroke="#9b1c1c" stroke-width="2.6"/>
+            </svg>
+            <h3>Verified, not graded</h3>
+            <p>There is no human grader and no LLM judge. A submission counts only if it compiles against the untouched statement and passes an independent proof checker.</p>
+          </article>
+          <article class="pillar">
+            <svg viewBox="0 0 120 84" preserveAspectRatio="xMinYMid meet" aria-hidden="true">
+              <g fill="none" stroke="currentColor" stroke-width="1.2">
+                <rect x="6" y="4" width="100" height="18" fill="#f2f2f2"/>
+                <rect x="6" y="33" width="100" height="18"/>
+                <rect x="9" y="36" width="94" height="12" stroke="#9b1c1c"/>
+                <rect x="6" y="62" width="100" height="18" fill="#f2f2f2"/>
+                <path d="M56,23V31M53,28l3,3l3,-3M56,52V60M53,57l3,3l3,-3"/>
+              </g>
+            </svg>
+            <h3>Statements you can trust</h3>
+            <p>Every formal statement is checked against results that should imply it and consequences it should imply, so mis-formalizations are caught before any model sees them.</p>
+          </article>
+          <article class="pillar">
+            <svg viewBox="0 0 120 84" preserveAspectRatio="xMinYMid meet" aria-hidden="true">
+              <g fill="none" stroke="currentColor" stroke-width="1.2">
+                <rect x="4" y="30" width="18" height="18" stroke="#9b1c1c"/>
+                <rect x="27" y="30" width="18" height="18" stroke="#9b1c1c"/>
+                <rect x="50" y="30" width="18" height="18" stroke="#9b1c1c"/>
+                <rect x="96" y="30" width="18" height="18" stroke-opacity=".3"/>
+              </g>
+              <rect x="73" y="30" width="18" height="18" fill="currentColor"/>
+              <path d="M4,62H114" stroke="currentColor" stroke-width="1.2"/>
+              <path d="M4,58V66M114,58V66" stroke="currentColor" stroke-width="1.2"/>
+            </svg>
+            <h3>A level playing field</h3>
+            <p>Every model runs in the same sealed sandbox with the same tools, budget and session limit, and every run is logged so it can be reproduced.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROBLEM SET ============ -->
+    <section class="section soft">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="label">The problem set</p>
+          <h2>114 problems, from classical theorems to open conjectures</h2>
+          <p>
+            Every problem is a single Lean file with one theorem whose proof is left as <code>sorry</code>. The
+            collection is anchored in graph theory and reaches into matroids, extremal set theory, number theory
+            and geometry.
+          </p>
+        </header>
+
+        <div class="set-grid">
+          <figure class="set-figure reveal">
+            <div class="waffle" role="img" aria-label="114 problems: 32 open, 68 research, 14 calibration"></div>
+            <ul class="legend">
+              <li data-legend="open"><span class="sw sw-open"></span><b>Open</b><span class="num">32</span><span class="desc">unsolved; prove it or its negation</span></li>
+              <li data-legend="research"><span class="sw sw-research"></span><b>Research</b><span class="num">68</span><span class="desc">theorems from the research literature</span></li>
+              <li data-legend="calibration"><span class="sw sw-calibration"></span><b>Calibration</b><span class="num">14</span><span class="desc">classical results that test the pipeline</span></li>
+            </ul>
+            <figcaption class="caption">Each square is one problem. Hover to identify it, click to open it.</figcaption>
+          </figure>
+
+          <div class="featured reveal">
+            <h3>A few highlights</h3>
+            <div data-featured></div>
+            <p class="tt muted" style="font-size:13px;margin-top:14px">By primary MSC class: 82 graph theory · 8 designs &amp; matroids · 5 extremal set theory · 19 other</p>
+            <a class="more-link" href="problems.html">Browse all 114 problems →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SANDWICH ============ -->
+    <section class="section">
+      <div class="wrap sandwich-grid">
+        <div class="reveal">
+          <div class="section-head" style="margin-bottom:0">
+            <p class="label">Theorem sandwich</p>
+            <h2>Statements you can trust</h2>
+            <p>
+              One misplaced quantifier can turn a deep conjecture into a trivial exercise, or into a false
+              statement. To catch such slips before any model sees a problem, each statement is bracketed by two
+              independent layers of Lean code.
+            </p>
+          </div>
+          <div class="sw-controls" role="group" aria-label="Try a formalization">
+            <button class="lb-tab active" data-sw="ok" aria-pressed="true">Correct</button>
+            <button class="lb-tab" data-sw="strong" aria-pressed="false">Too strong</button>
+            <button class="lb-tab" data-sw="weak" aria-pressed="false">Too weak</button>
+          </div>
+          <p class="sw-explain" data-sw-explain aria-live="polite"></p>
+          <p class="sw-note">87 of the 114 problems are fully bracketed today.</p>
+        </div>
+
+        <div class="sw-stack reveal" data-state="ok">
+          <div class="sw-box sw-bound">
+            <p class="sw-tag">Upper layer</p>
+            <p class="sw-title">Key lemmata, or a stronger known result</p>
+            <p class="sw-desc">Some may stay unproved. Proving all of them would solve the problem.</p>
+          </div>
+          <div class="sw-arrow" data-arrow="up"><span class="sw-imp">⟹</span><span class="sw-verdict" data-verdict="up"></span></div>
+          <div class="sw-box sw-statement">
+            <p class="sw-tag">The statement</p>
+            <p class="sw-title"><code>theorem Pxxx : … := by sorry</code></p>
+            <p class="sw-desc" data-sw-desc></p>
+          </div>
+          <div class="sw-arrow" data-arrow="down"><span class="sw-imp">⟹</span><span class="sw-verdict" data-verdict="down"></span></div>
+          <div class="sw-box sw-bound">
+            <p class="sw-tag">Lower layer</p>
+            <p class="sw-title">Easy corollaries</p>
+            <p class="sw-desc">Each one derived from the statement in Lean.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EVALUATION ============ -->
+    <section class="section soft">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="label">Evaluation</p>
+          <h2>Every model, the same conditions</h2>
+          <p>
+            AI systems are evaluated in one shared harness built on <a href="https://inspect.aisi.org.uk/">Inspect AI</a>,
+            not inside each vendor’s own agent product, so results stay comparable across models and reproducible
+            over time.
+          </p>
+        </header>
+
+        <ol class="steps reveal">
+          <li>
+            <p class="step-num">01</p>
+            <h3>A sealed workspace</h3>
+            <p>Each attempt runs in its own container with Lean, Mathlib and the statement library. No internet, no credentials, no route to reference solutions.</p>
+          </li>
+          <li>
+            <p class="step-num">02</p>
+            <h3>Real research tools</h3>
+            <p>A shell, the Lean language server, Python, SageMath and a SAT solver. Web search only in dedicated runs, through one shared provider.</p>
+          </li>
+          <li>
+            <p class="step-num">03</p>
+            <h3>Fresh sessions</h3>
+            <p>Up to ten sessions per problem. Each starts from a clean context and inherits only the current files and a structured handoff note.</p>
+          </li>
+          <li>
+            <p class="step-num">04</p>
+            <h3>Two independent checks</h3>
+            <p>Lean must compile the untouched statement using standard axioms only. Comparator then rebuilds and replays the proof in isolation.</p>
+          </li>
+        </ol>
+
+        <div class="run reveal" id="run">
+          <div class="run-head"><b>Anatomy of an attempt</b><span>illustrative run, not a real result</span></div>
+          <ol class="sessions" data-sessions></ol>
+          <div class="code-block"><pre><code data-runlog></code></pre></div>
+        </div>
+
+        <div class="recorded reveal">
+          <b>Logged for every attempt:</b>
+          <span>verdict</span><span>sessions used</span><span>tokens in &amp; out</span><span>cost</span>
+          <span>total &amp; working time</span><span>tool calls</span><span>proof length</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ LANDSCAPE ============ -->
+    <section class="section">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="label">Landscape</p>
+          <h2>Where ProofBench fits</h2>
+          <p>
+            Benchmarks for AI mathematics differ in what they ask for, a final answer or a full proof, and in how
+            the answer is checked. At the research level, formal and proof-based evaluation is still rare.
+          </p>
+        </header>
+        <div class="reveal">
+          <div class="table-scroll">
+            <table class="data-table landscape">
+              <thead><tr><th>Format</th><th>Competition</th><th>Undergraduate</th><th>Graduate</th><th>Research</th></tr></thead>
+              <tbody data-landscape></tbody>
+            </table>
+          </div>
+          <p class="land-note" data-land-note aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ LEADERBOARD ============ -->
+    <section class="section soft" id="leaderboard">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="label">Results</p>
+          <h2>Leaderboard</h2>
+          <p>
+            The first evaluation results will be published here together with the paper. An open problem counts
+            as solved when a system proves either the statement or its negation.
+          </p>
+        </header>
+        <div class="reveal">
+          <div class="lb-tabs" role="group" aria-label="Rank by">
+            <button class="lb-tab active" data-rank="total">All</button>
+            <button class="lb-tab" data-rank="open">Open</button>
+            <button class="lb-tab" data-rank="research">Research</button>
+            <button class="lb-tab" data-rank="calibration">Calibration</button>
+          </div>
+          <div class="table-scroll">
+            <table class="data-table">
+              <thead><tr><th>Rank</th><th>Model</th><th>Web search</th><th class="num">Open /32</th><th class="num">Research /68</th><th class="num">Calibration /14</th><th class="num">Total</th><th class="num">Cost</th></tr></thead>
+              <tbody data-results></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EXPLORE ============ -->
+    <section class="section">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="label">More from ProofBench</p>
+          <h2>Keep exploring</h2>
+        </header>
+        <div class="explore">
+          <a class="explore-card reveal" href="ten-challenges.html">
+            <div class="explore-visual">
+              <div class="ten-grid" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span></div>
+            </div>
+            <div class="explore-body">
+              <p class="label">Sister project</p>
+              <h3>Ten Challenges</h3>
+              <p>Ten celebrated open problems in combinatorics, each broken into an infinite ladder of special cases. Every rung climbed is recorded on a public leaderboard, open to people and machines alike.</p>
+              <span class="go">Visit Ten Challenges →</span>
+            </div>
+          </a>
+          <a class="explore-card reveal" href="workshop.html">
+            <div class="explore-visual">
+              <img src="assets/img/bench.jpg" width="760" height="760" loading="lazy" alt="Pencil sketch of two QED boxes sitting on a park bench.">
+            </div>
+            <div class="explore-body">
+              <p class="label">Freiberg, autumn 2025</p>
+              <h3>The inaugural workshop</h3>
+              <p>Two weeks, about twenty mathematicians and Lean experts, and a recent research result taken into Lean together. The first real test of the ProofBench method.</p>
+              <span class="go">Read about the workshop →</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ OPEN SOURCE ============ -->
+    <section class="section soft" id="code">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="label">Open source</p>
+          <h2>Run ProofBench yourself</h2>
+          <p>
+            The problem statements, the evaluation harness and the HPC sandbox will be released together with the
+            paper. The sandwich layers and reference proofs stay private, so the benchmark keeps its value.
+          </p>
+        </header>
+        <div class="repo-list reveal" data-repos></div>
+      </div>
+    </section>
+
+    <!-- ============ TEAM ============ -->
+    <section class="section" id="team">
+      <div class="wrap team-grid">
+        <div class="reveal">
+          <div class="section-head" style="margin-bottom:28px">
+            <p class="label">Team</p>
+            <h2>The people behind ProofBench</h2>
+          </div>
+          <ul class="people">
+            <li><b>Vaibhav Bajpai</b><span>Technische Universität Bergakademie Freiberg</span></li>
+            <li><b>Nathan Bowler</b><span>Universität Hamburg</span></li>
+            <li><b>Johannes Carmesin</b><span>Technische Universität Bergakademie Freiberg</span></li>
+            <li><b>Jinghua Groppe</b><span>Technische Universität Bergakademie Freiberg</span></li>
+            <li><b>Sven Groppe</b><span>Technische Universität Bergakademie Freiberg</span></li>
+            <li><b>Utku Okur</b><span>Technische Universität Bergakademie Freiberg</span></li>
+          </ul>
+          <p class="team-note">
+            ProofBench is an academic initiative of the Institute of Discrete Mathematics and Algebra at
+            Technische Universität Bergakademie Freiberg, together with the Department of Mathematics at
+            Universität Hamburg.
+          </p>
+        </div>
+        <div class="reveal">
+          <div class="section-head" style="margin-bottom:20px">
+            <p class="label">Contribute</p>
+            <h2>Propose a problem</h2>
+          </div>
+          <ol class="contribute">
+            <li>Send us a result, a conjecture or a question from your area of research.</li>
+            <li>We formalize it in Lean&nbsp;4, with you or independently, and build its theorem sandwich.</li>
+            <li>The statement joins the benchmark. The sandwich and any reference proof stay behind closed doors.</li>
+          </ol>
+          <a class="btn" data-contact data-subject="ProofBench: problem proposal" href="#">Propose a problem</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>ProofBench · a formal benchmark for research-level mathematics</span>
+    <nav aria-label="Footer">
+      <a href="problems.html">Problems</a>
+      <a href="ten-challenges.html">Ten Challenges</a>
+      <a href="workshop.html">Workshop</a>
+      <a href="https://github.com/proof-bench">GitHub</a>
+    </nav>
+  </footer>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/problem-data.js"></script>
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/home.js"></script>
+</body>
+</html>

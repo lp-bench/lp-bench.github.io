@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Problems · ProofBench</title>
+  <meta name="description" content="All 114 ProofBench problems with plain-language summaries and their exact Lean 4 statements.">
+  <meta property="og:title" content="ProofBench problems">
+  <meta property="og:image" content="https://proof-bench.github.io/assets/img/og.png">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/cmunrm.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="header">
+    <a class="brand" href="index.html"><span class="qed" aria-hidden="true"></span>ProofBench</a>
+    <nav aria-label="Main">
+      <ul class="header-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="problems.html" aria-current="page">Problems</a></li>
+        <li><a href="ten-challenges.html">Ten Challenges</a></li>
+        <li><a href="workshop.html">Workshop</a></li>
+        <li><span class="btn btn-small" aria-disabled="true" data-paper-link data-label-live="Paper ↗">Paper · Oct 2026</span></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" class="main">
+    <section class="page-intro">
+      <h1>Problems</h1>
+      <p>
+        The complete ProofBench problem set: 114 theorems and conjectures, each with a plain-language summary and
+        the exact Lean&nbsp;4 statement that an AI system has to prove.
+      </p>
+      <p class="meta-line">Lean 4.33.1 · Mathlib · one challenge file per problem</p>
+    </section>
+
+    <section class="overview">
+      <figure>
+        <div class="waffle" role="img" aria-label="114 problems: 32 open, 68 research, 14 calibration"></div>
+        <ul class="legend">
+          <li data-legend="open"><span class="sw sw-open"></span><b>Open</b><span class="num">32</span><span class="desc">unsolved; prove it or its negation</span></li>
+          <li data-legend="research"><span class="sw sw-research"></span><b>Research</b><span class="num">68</span><span class="desc">theorems from the research literature</span></li>
+          <li data-legend="calibration"><span class="sw sw-calibration"></span><b>Calibration</b><span class="num">14</span><span class="desc">classical results that test the pipeline</span></li>
+        </ul>
+      </figure>
+      <div class="prose">
+        <p>
+          <b>How to read this list.</b> Every entry is a single Lean file whose main theorem is left as
+          <code>sorry</code>. Open problems also come with their negation, so a system can settle them in
+          either direction without the formulation giving away which side we expect.
+        </p>
+        <p>
+          Definitions that Mathlib does not yet offer live in a shared statement library that every system may
+          use. Anything that would help to <em>solve</em> a problem stays out of reach.
+        </p>
+        <p>Select a problem to see its summary and formal statement. Every problem has a permanent link.</p>
+      </div>
+    </section>
+
+    <h2 class="rule">All problems</h2>
+    <div class="controls">
+      <label class="search">
+        <span class="visually-hidden">Search problems</span>
+        <input type="search" placeholder="Search by name, MSC code or keyword" data-search>
+      </label>
+      <label>
+        <span class="visually-hidden">Filter by area</span>
+        <select data-area>
+          <option value="all">All areas</option>
+        </select>
+      </label>
+    </div>
+    <div class="lb-tabs" role="group" aria-label="Filter by category">
+      <button class="lb-tab active" data-cat="all" aria-pressed="true">All</button>
+      <button class="lb-tab" data-cat="open" aria-pressed="false">Open</button>
+      <button class="lb-tab" data-cat="research" aria-pressed="false">Research</button>
+      <button class="lb-tab" data-cat="calibration" aria-pressed="false">Calibration</button>
+    </div>
+    <p class="count-line" aria-live="polite" data-count></p>
+    <div data-list></div>
+  </main>
+
+  <footer class="footer">
+    <span>ProofBench · a formal benchmark for research-level mathematics</span>
+    <nav aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="ten-challenges.html">Ten Challenges</a>
+      <a href="workshop.html">Workshop</a>
+      <a href="https://github.com/proof-bench">GitHub</a>
+    </nav>
+  </footer>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/problem-data.js"></script>
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/problems-page.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+// Everything that changes on launch day lives here.
+window.PB_CONFIG = {
+  // Flip to true when the paper is on arXiv and the repositories are public.
+  released: false,
+
+  paper: {
+    arxivId: "",      // e.g. "2610.12345" — turns the "Paper" buttons into links
+    year: 2026,
+  },
+
+  repos: [
+    {
+      name: "proofbench-statements",
+      url: "https://github.com/proof-bench/proofbench-statements",
+      lang: "Lean 4",
+      blurb: "Everything a model is allowed to see: one challenge file per problem, the negated form of every open problem, and the library of definitions that Mathlib does not yet provide.",
+      facts: "114 challenge files · Lean 4.33.1",
+    },
+    {
+      name: "proofbench-eval-apptainer",
+      url: "https://github.com/proof-bench/proofbench-eval-apptainer",
+      lang: "Python",
+      blurb: "The evaluation harness on Inspect AI: one agent loop, one toolset and one budget for every model, with grading by Lean and Comparator.",
+      facts: "Docker or Apptainer · Slurm-ready",
+    },
+    {
+      name: "inspect-apptainer",
+      url: "https://github.com/proof-bench/inspect-apptainer",
+      lang: "Python",
+      blurb: "A drop-in Apptainer sandbox for Inspect AI, for HPC clusters where Docker is unavailable and users have no root access.",
+      facts: "Works with any Inspect evaluation",
+    },
+  ],
+
+  // Leaderboard rows. Leave empty until results are published.
+  // { model: "provider/name", search: false, open: 0, research: 0, calibration: 0, cost: "$0" }
+  results: [],
+
+  contact: "vaibhav.bajpai@math.tu-freiberg.de",
+
+  // Ten Challenges (sister project). Statements and leaderboard are read live from its own site.
+  tenChallenges: {
+    site: "https://tenchallenges.github.io/ten-challenges/",
+    problemsRepo: "https://github.com/TenChallenges/ten-challenges",
+    submissionsRepo: "utkuokur/ten-challenges-submissions",
+    lean: "v4.33.0-rc1",
+    mathlib: "9e47bf70e26518025a5db9598f5368c23360150e",
+    contacts: ["utkuokur@gmail.com", "vaibhav.bajpai@math.tu-freiberg.de"],
+  },
+};
