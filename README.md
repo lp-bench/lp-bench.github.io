@@ -16,7 +16,7 @@ There is no build step and nothing to install.
 ## Layout
 
 ```
-assets/css/style.css          shared design (Computer Modern, black and white, Ten Challenges components)
+assets/css/style.css          shared design (Computer Modern, black and white, deep navy front-page hero, Ten Challenges components)
 assets/js/config.js           launch switches: release flag, arXiv id, repositories, leaderboard rows, contacts
 assets/js/common.js           shared helpers: Lean highlighting, tooltip, copy, paper and contact links
 assets/js/home.js             front page interactions
@@ -26,6 +26,7 @@ assets/js/problem-data.js     GENERATED problem data, do not edit by hand
 assets/fonts/                 Computer Modern Unicode (CMU Serif, CMU Typewriter), subset to woff2, SIL OFL (see OFL.txt)
 assets/img/                   bench sketch, favicon, social preview (og.png)
 scripts/build_problems.py     regenerates problem-data.js from proofbench-statements
+scripts/og.html               source of the link preview image og.png (render instructions inside)
 ```
 
 ## Preview locally
@@ -43,6 +44,7 @@ python -m http.server 8000
 | Repositories went public | `config.js`: set `released: true`; repository cards and problem files become links |
 | First results | `config.js`: add rows to `results`; the leaderboard replaces its placeholder |
 | Problem set changed | `python scripts/build_problems.py ../proofbench-statements/ProofBench/DATABASE/Database.json` |
+| Area shown for a problem | `scripts/build_problems.py`: `AREA_OVERRIDES` (area and graph theory subarea), then re-run it |
 | Headline numbers (114, 32, 82, 87) | `index.html` hero statistics and section text |
 | Text on any page | the page's `.html` file |
 

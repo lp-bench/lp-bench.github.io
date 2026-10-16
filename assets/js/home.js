@@ -190,7 +190,7 @@
             <span class="problem-title">${esc(p.name)}</span>
             <span class="problem-meta-inline">P${id} · ${esc(p.msc.slice(0, 5))}</span>
           </div>
-          <p class="problem-desc"><span class="sw sw-${p.cat}"></span>${CAT_LABEL[p.cat]} · ${esc(p.area)}</p>
+          <p class="problem-desc"><span class="sw sw-${p.cat}"></span>${CAT_LABEL[p.cat]} · ${esc(p.sub || p.area)}</p>
         </a>`;
     }).join("");
   }

@@ -30,12 +30,21 @@
     li.addEventListener("pointerleave", () => waffle.classList.remove("dim"));
   });
 
+  /* area filter, built from the data: graph theory first, then by size */
+  const areaCount = {};
+  PROBLEMS.forEach((p) => { areaCount[p.area] = (areaCount[p.area] || 0) + 1; });
+  const rank = (a) => (a === "Graph theory" ? 0 : a === "Other areas" ? 2 : 1);
+  $("[data-area]").insertAdjacentHTML("beforeend", Object.keys(areaCount)
+    .sort((a, b) => rank(a) - rank(b) || areaCount[b] - areaCount[a] || a.localeCompare(b))
+    .map((a) => `<option value="${esc(a)}">${esc(a)} (${areaCount[a]})</option>`)
+    .join(""));
+
   /* list */
   function matches(p) {
     if (state.cat !== "all" && p.cat !== state.cat) return false;
     if (state.area !== "all" && p.area !== state.area) return false;
     if (!state.q) return true;
-    const hay = fold(`P${p.id} ${p.id} ${p.name} ${p.msc} ${p.area} ${p.summary}`);
+    const hay = fold(`P${p.id} ${p.id} ${p.name} ${p.msc} ${p.area} ${p.sub || ""} ${p.summary}`);
     return fold(state.q).split(/\s+/).filter(Boolean).every((w) => hay.includes(w));
   }
 
@@ -70,7 +79,7 @@
           <span class="problem-title">${esc(p.name)}</span>
           <span class="problem-meta-inline">P${p.id} · ${esc(p.msc.slice(0, 5))}</span>
         </div>
-        <p class="problem-desc"><span class="sw sw-${p.cat}"></span>${CAT_LABEL[p.cat]} · ${esc(p.area)}</p>
+        <p class="problem-desc"><span class="sw sw-${p.cat}"></span>${CAT_LABEL[p.cat]} · ${esc(p.sub || p.area)}</p>
       </div>
       ${on ? detailHTML(p) : ""}`;
   }
