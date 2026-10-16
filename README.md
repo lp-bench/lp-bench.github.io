@@ -10,18 +10,17 @@ There is no build step and nothing to install.
 |---|---|
 | `index.html` | Home: hero, why ProofBench, problem set, theorem sandwich, evaluation, landscape, leaderboard, open source, team |
 | `problems.html` | All 114 problems with summaries and Lean statements; each has a permanent link such as `problems.html#P042` |
-| `ten-challenges.html` | The Ten Challenges sister project. Statements and leaderboard load live from its own site; submissions open a pre-filled GitHub issue in `utkuokur/ten-challenges-submissions` |
+| `ten-challenges.html` | A card introducing the Ten Challenges sister project; it links to the project's own site, tenchallenges.github.io |
 | `workshop.html` | The inaugural ProofBench workshop (Freiberg, September–October 2025) |
 
 ## Layout
 
 ```
 assets/css/style.css          shared design (Computer Modern, black and white, deep navy front-page hero, Ten Challenges components)
-assets/js/config.js           launch switches: release flag, arXiv id, repositories, leaderboard rows, contacts
+assets/js/config.js           launch switches: release flag, arXiv id, repositories, leaderboard rows, contact
 assets/js/common.js           shared helpers: Lean highlighting, tooltip, copy, paper and contact links
 assets/js/home.js             front page interactions
 assets/js/problems-page.js    problem list, filters and deep links
-assets/js/ten-challenges.js   Ten Challenges list, live statements, leaderboard and submission forms
 assets/js/problem-data.js     GENERATED problem data, do not edit by hand
 assets/fonts/                 Computer Modern Unicode (CMU Serif, CMU Typewriter), subset to woff2, SIL OFL (see OFL.txt)
 assets/img/                   bench sketch, favicon, social preview (og.png)

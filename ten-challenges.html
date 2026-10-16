@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ten Challenges · ProofBench</title>
-  <meta name="description" content="Ten famous open problems in combinatorics, each turned into an infinite ladder of special cases and formalized in Lean 4, with a public leaderboard.">
+  <meta name="description" content="Ten celebrated open problems in combinatorics, each broken into an infinite ladder of special cases. Every rung climbed is recorded on a public leaderboard, open to people and machines alike.">
   <meta property="og:title" content="Ten Challenges · ProofBench">
   <meta property="og:image" content="https://proof-bench.github.io/assets/img/og.png">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
@@ -28,94 +28,19 @@
   </header>
 
   <main id="main" class="main">
-    <section class="page-intro">
-      <h1>Ten Challenges</h1>
-      <p>
-        Ten famous open problems in combinatorics, each turned into an infinite ladder of special cases and
-        formalized in Lean&nbsp;4. Every challenge carries a parameter <i>r</i>: proving a case that nobody has proved
-        before earns a place on the leaderboard, and proving or refuting the conjecture for every <i>r</i> settles it.
-      </p>
-      <p class="meta-line" data-tc-versions></p>
-      <ul class="subnav">
-        <li><a href="#challenges">Challenges</a></li>
-        <li><a href="#leaderboard">Leaderboard</a></li>
-        <li><a href="#take-part">Take part</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </section>
-
-    <div class="info-box">
-      <p class="info-box-label">Sister project</p>
-      <p>
-        Ten Challenges is run by members of the ProofBench team. The statements and the leaderboard on this page
-        are loaded live from the project’s own site, <a data-tc-site href="https://tenchallenges.github.io/ten-challenges/">tenchallenges.github.io</a>.
-      </p>
-    </div>
-
-    <h2 class="rule" id="challenges">The challenges</h2>
-    <p class="muted" style="font-size:15px;margin-bottom:16px">Select a challenge to read its full statement.</p>
-    <div data-tc-list></div>
-
-    <h2 class="rule" id="leaderboard">Leaderboard</h2>
-    <div class="lb-tabs" role="group" aria-label="Filter leaderboard" data-tc-tabs></div>
-    <p class="muted" style="font-size:13px" data-tc-note hidden>Entries marked “—” are waiting for an ordinal comparison and are not ranked yet.</p>
-    <div class="table-scroll">
-      <table class="data-table">
-        <thead><tr><th>Rank</th><th>Nickname</th><th>Name</th><th>Challenge</th><th>Result</th><th>Date</th><th>Proof</th></tr></thead>
-        <tbody data-tc-rows><tr><td class="empty-row" colspan="7">Loading the leaderboard…</td></tr></tbody>
-      </table>
-    </div>
-
-    <h2 class="rule" id="take-part">Take part</h2>
-    <div class="prose">
-      <ol>
-        <li>Start from the challenge files in <a data-tc-problems href="https://github.com/TenChallenges/ten-challenges">TenChallenges/ten-challenges</a> and write your proof in the <code>Submission/</code> folder.</li>
-        <li>Put the main result in <code>Submission/Main.lean</code>, inside <code>namespace Submission</code>, as <code>theorem challenge_N</code> for the value of <i>r</i> you are claiming. Helper files go next to it as <code>Submission/&lt;Name&gt;.lean</code>.</li>
-        <li>Push your work to a GitHub repository you own. Public repositories work as they are. For a private one, install the <code>ten-challenges-bot</code> GitHub App on that repository only, with read access to its contents.</li>
-        <li>Fill in one of the forms below. It opens a pre-filled GitHub issue in which you add the URL of your repository.</li>
-      </ol>
-      <p>
-        Proofs must compile without errors and without any <code>sorry</code>. So that accepted proofs keep working
-        as Lean and Mathlib evolve, the form asks for permission to maintain compatible copies of your code. See the
-        <a data-tc-policy href="#">maintenance policy</a>.
-      </p>
-    </div>
-
-    <form class="submit-section" data-form="specific" novalidate>
-      <h3>Prove a special case</h3>
-      <p>Claim a specific value of the parameter <i>r</i>, for example <i>r</i>&nbsp;=&nbsp;5. For Challenge&nbsp;2, also give the bound <i>B</i> that your proof certifies.</p>
-      <div class="form-row">
-        <div class="form-group"><label for="s-nick">Nickname *</label><input id="s-nick" name="nickname" placeholder="e.g. lemma_hunter" autocomplete="nickname"></div>
-        <div class="form-group"><label for="s-name">Name <span class="optional">(optional)</span></label><input id="s-name" name="full_name" autocomplete="name"></div>
-      </div>
-      <div class="form-row">
-        <div class="form-group"><label for="s-prob">Challenge *</label><select id="s-prob" name="problem_id" data-problem-select></select></div>
-        <div class="form-group"><label for="s-r">Parameter r *</label><input id="s-r" name="parameter" placeholder="e.g. 5"></div>
-      </div>
-      <div class="form-row" data-bound-row hidden>
-        <div class="form-group"><label for="s-b">Bound B *</label><input id="s-b" name="bound" inputmode="numeric" placeholder="e.g. 1000"></div>
-      </div>
-      <div class="form-actions"><a class="btn" data-submit aria-disabled="true">Submit on GitHub →</a><span class="form-hint" data-hint>Fill in the fields marked *.</span></div>
-    </form>
-
-    <form class="submit-section" data-form="universal" novalidate>
-      <h3>Settle a whole conjecture</h3>
-      <p>Prove the conjecture for every value of <i>r</i>, or disprove it with a counterexample.</p>
-      <div class="form-row">
-        <div class="form-group"><label for="u-nick">Nickname *</label><input id="u-nick" name="nickname" placeholder="e.g. lemma_hunter" autocomplete="nickname"></div>
-        <div class="form-group"><label for="u-name">Name <span class="optional">(optional)</span></label><input id="u-name" name="full_name" autocomplete="name"></div>
-      </div>
-      <div class="form-row">
-        <div class="form-group"><label for="u-prob">Challenge *</label><select id="u-prob" name="problem_id" data-problem-select></select></div>
-        <div class="form-group"><label for="u-claim">Claim *</label>
-          <select id="u-claim" name="claim"><option value="">Prove or disprove…</option><option value="prove">Prove</option><option value="disprove">Disprove</option></select>
+    <div class="tc-card">
+      <a class="explore-card" href="https://tenchallenges.github.io/ten-challenges/">
+        <div class="explore-visual">
+          <div class="ten-grid" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span></div>
         </div>
-      </div>
-      <div class="form-actions"><a class="btn" data-submit aria-disabled="true">Submit on GitHub →</a><span class="form-hint" data-hint>Fill in the fields marked *.</span></div>
-    </form>
-
-    <h2 class="rule" id="contact">Contact</h2>
-    <p class="prose" data-tc-contact></p>
+        <div class="explore-body">
+          <p class="label">Sister project</p>
+          <h1>Ten Challenges</h1>
+          <p>Ten celebrated open problems in combinatorics, each broken into an infinite ladder of special cases. Every rung climbed is recorded on a public leaderboard, open to people and machines alike.</p>
+          <span class="go">Visit Ten Challenges →</span>
+        </div>
+      </a>
+    </div>
   </main>
 
   <footer class="footer">
@@ -124,12 +49,11 @@
       <a href="index.html">ProofBench</a>
       <a href="problems.html">Problems</a>
       <a href="workshop.html">Workshop</a>
-      <a data-tc-site href="https://tenchallenges.github.io/ten-challenges/">Original site</a>
+      <a href="https://tenchallenges.github.io/ten-challenges/">Ten Challenges site</a>
     </nav>
   </footer>
 
   <script src="assets/js/config.js"></script>
   <script src="assets/js/common.js"></script>
-  <script src="assets/js/ten-challenges.js"></script>
 </body>
 </html>
