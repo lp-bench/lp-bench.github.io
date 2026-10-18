@@ -14,7 +14,7 @@ window.PB_CONFIG = {
       url: "https://github.com/proof-bench/proofbench-statements",
       lang: "Lean 4",
       blurb: "Everything a model is allowed to see: one challenge file per problem, the negated form of every open problem, and the library of definitions that Mathlib does not yet provide.",
-      facts: "114 challenge files · Lean 4.33.1",
+      facts: "114 challenge files · Lean 4.34.1",
     },
     {
       name: "proofbench-eval-apptainer",
