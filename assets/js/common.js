@@ -88,6 +88,19 @@
     }
   });
 
+  /* GitHub menus (header and hero): one open at a time, close on outside click or Escape */
+  const ghMenus = $$(".gh-menu");
+  ghMenus.forEach((m) => m.addEventListener("toggle", () => {
+    if (m.open) ghMenus.forEach((o) => { if (o !== m) o.open = false; });
+  }));
+  document.addEventListener("click", (e) => {
+    ghMenus.forEach((m) => { if (m.open && !m.contains(e.target)) m.open = false; });
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key !== "Escape") return;
+    ghMenus.forEach((m) => { if (m.open) { m.open = false; $("summary", m).focus(); } });
+  });
+
   /* contact */
   $$("[data-contact]").forEach((a) => {
     const to = [].concat(CFG.contact || []);
