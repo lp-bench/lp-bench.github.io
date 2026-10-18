@@ -53,6 +53,14 @@
           <div class="hero-ctas">
             <a class="btn" href="problems.html">Explore the problems →</a>
             <span class="btn btn-secondary" aria-disabled="true" data-paper-link data-label-live="Read the paper ↗">Paper · October 2026</span>
+            <details class="gh-menu">
+              <summary class="btn btn-secondary">GitHub</summary>
+              <ul class="gh-menu-list">
+                <li><a href="https://github.com/proof-bench/proofbench-statements"><b>proofbench-statements</b><span>The 114 problem statements in Lean 4</span></a></li>
+                <li><a href="https://github.com/proof-bench/proofbench-eval-apptainer"><b>proofbench-eval-apptainer</b><span>The evaluation harness</span></a></li>
+                <li><a href="https://github.com/proof-bench/inspect-apptainer"><b>inspect-apptainer</b><span>An Apptainer sandbox for Inspect AI</span></a></li>
+              </ul>
+            </details>
           </div>
           <p class="hero-inst">Technische Universität Bergakademie Freiberg · Universität Hamburg</p>
         </div>
@@ -289,26 +297,18 @@
       </div>
     </section>
 
-    <!-- ============ LANDSCAPE ============ -->
-    <section class="section">
+    <!-- ============ OPEN SOURCE ============ -->
+    <section class="section" id="code">
       <div class="wrap">
         <header class="section-head reveal">
-          <p class="label">Landscape</p>
-          <h2>Where ProofBench fits</h2>
+          <p class="label">Open source</p>
+          <h2>Run ProofBench yourself</h2>
           <p>
-            Benchmarks for AI mathematics differ in what they ask for, a final answer or a full proof, and in how
-            the answer is checked. At the research level, formal and proof-based evaluation is still rare.
+            The problem statements, the evaluation harness and the HPC sandbox will be released together with the
+            paper. The sandwich layers and reference proofs stay private, so the benchmark keeps its value.
           </p>
         </header>
-        <div class="reveal">
-          <div class="table-scroll">
-            <table class="data-table landscape">
-              <thead><tr><th>Format</th><th>Competition</th><th>Undergraduate</th><th>Graduate</th><th>Research</th></tr></thead>
-              <tbody data-landscape></tbody>
-            </table>
-          </div>
-          <p class="land-note" data-land-note aria-live="polite"></p>
-        </div>
+        <div class="repo-list reveal" data-repos></div>
       </div>
     </section>
 
@@ -348,14 +348,14 @@
           <h2>Keep exploring</h2>
         </header>
         <div class="explore">
-          <a class="explore-card reveal" href="ten-challenges.html">
+          <a class="explore-card reveal" href="https://tenchallenges.github.io/ten-challenges/">
             <div class="explore-visual">
               <div class="ten-grid" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span></div>
             </div>
             <div class="explore-body">
               <p class="label">Sister project</p>
               <h3>Ten Challenges</h3>
-              <p>Ten celebrated open problems in combinatorics, each broken into an infinite ladder of special cases. Every rung climbed is recorded on a public leaderboard, open to people and machines alike.</p>
+              <p>The Ten Challenges comprise the first ten problems of ProofBench, which are parameterized open problems in combinatorics.</p>
               <span class="go">Visit Ten Challenges →</span>
             </div>
           </a>
@@ -374,18 +374,26 @@
       </div>
     </section>
 
-    <!-- ============ OPEN SOURCE ============ -->
-    <section class="section soft" id="code">
+    <!-- ============ LANDSCAPE ============ -->
+    <section class="section soft">
       <div class="wrap">
         <header class="section-head reveal">
-          <p class="label">Open source</p>
-          <h2>Run ProofBench yourself</h2>
+          <p class="label">Landscape</p>
+          <h2>Where ProofBench fits</h2>
           <p>
-            The problem statements, the evaluation harness and the HPC sandbox will be released together with the
-            paper. The sandwich layers and reference proofs stay private, so the benchmark keeps its value.
+            Benchmarks for AI mathematics differ in what they ask for, a final answer or a full proof, and in how
+            the answer is checked. At the research level, formal and proof-based evaluation is still rare.
           </p>
         </header>
-        <div class="repo-list reveal" data-repos></div>
+        <div class="reveal">
+          <div class="table-scroll">
+            <table class="data-table landscape">
+              <thead><tr><th>Format</th><th>Competition</th><th>Undergraduate</th><th>Graduate</th><th>Research</th></tr></thead>
+              <tbody data-landscape></tbody>
+            </table>
+          </div>
+          <p class="land-note" data-land-note aria-live="polite"></p>
+        </div>
       </div>
     </section>
 
@@ -433,7 +441,7 @@
       <a href="problems.html">Problems</a>
       <a href="ten-challenges.html">Ten Challenges</a>
       <a href="workshop.html">Workshop</a>
-      <a href="https://github.com/proof-bench">GitHub</a>
+      <a data-contact href="mailto:Vaibhav.Bajpai@math.tu-freiberg.de,Utku.Okur@math.tu-freiberg.de">Contact</a>
     </nav>
   </footer>
 

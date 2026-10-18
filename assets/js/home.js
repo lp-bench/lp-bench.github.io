@@ -4,6 +4,16 @@
   const { CFG, reduceMotion, $, $$, esc, highlightLean, showTip, hideTip, PROBLEMS, BY_ID, CAT_LABEL, CAT_ORDER } = window.PB;
   const problemUrl = (id) => `problems.html#P${id}`;
 
+  /* ---------- hero: GitHub menu ---------- */
+  (function githubMenu() {
+    const menu = $(".gh-menu");
+    if (!menu) return;
+    document.addEventListener("click", (e) => { if (menu.open && !menu.contains(e.target)) menu.open = false; });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && menu.open) { menu.open = false; $("summary", menu).focus(); }
+    });
+  })();
+
   /* ---------- hero: drifting graph ---------- */
   (function heroGraph() {
     const canvas = $(".hero-graph");

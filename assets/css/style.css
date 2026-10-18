@@ -203,7 +203,18 @@ h3 { font-size: 17px; font-weight: 700; margin: 26px 0 10px; }
 .hero .tagline { font-size: clamp(22px, 2.6vw, 31px); font-style: italic; line-height: 1.3; color: #fff; margin-bottom: 22px; text-wrap: balance; }
 .hero .tagline em { color: #f0a08c; }
 .hero .lede { font-size: 18px; line-height: 1.65; color: #dce6f0; max-width: 34em; margin-bottom: 30px; }
-.hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 26px; }
+.hero-ctas { position: relative; display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 26px; }
+.gh-menu { position: relative; z-index: 5; }
+.gh-menu summary { list-style: none; display: inline-flex; align-items: center; gap: 10px; }
+.gh-menu summary::-webkit-details-marker { display: none; }
+.gh-menu summary::after { content: ""; width: 6px; height: 6px; border-right: 1px solid currentColor; border-bottom: 1px solid currentColor; transform: translateY(-2px) rotate(45deg); transition: transform .15s ease; }
+.gh-menu[open] summary::after { transform: translateY(1px) rotate(-135deg); }
+.hero .gh-menu[open] summary { border-color: #fff; }
+.gh-menu-list { list-style: none; position: absolute; left: 0; top: calc(100% + 8px); z-index: 5; width: min(340px, calc(100vw - 2 * var(--gutter))); padding: 6px 0; background: var(--hero-card); border: 1px solid rgba(255, 255, 255, .18); box-shadow: 0 24px 60px -24px rgba(0, 0, 0, .7); }
+.gh-menu-list a { display: block; padding: 10px 16px; color: #fff; }
+.gh-menu-list a:hover, .gh-menu-list a:focus-visible { background: rgba(255, 255, 255, .08); text-decoration: none; }
+.gh-menu-list b { display: block; font-family: var(--tt); font-weight: 400; font-size: 13px; }
+.gh-menu-list span { display: block; margin-top: 2px; font-size: 14px; color: var(--hero-dim); }
 .hero .btn { background: #fff; color: #000; border-color: #fff; }
 .hero .btn:hover { background: transparent; color: #fff; }
 .hero .btn-secondary { background: transparent; color: #fff; border-color: rgba(255, 255, 255, .45); }
@@ -330,7 +341,8 @@ h3 { font-size: 17px; font-weight: 700; margin: 26px 0 10px; }
 .explore-card:hover .ten-grid span:nth-child(odd) { background: var(--ink); color: #fff; }
 .explore-body { padding: 24px 26px 28px; }
 .explore-body .label { margin-bottom: 8px; }
-.explore-body h3 { font-size: 24px; font-weight: 400; margin: 0 0 10px; }
+.explore-body h3, .explore-body h1 { font-size: 24px; font-weight: 400; line-height: 1.3; margin: 0 0 10px; }
+.tc-card { max-width: 600px; margin: 24px auto 40px; }
 .explore-body p { font-size: 15px; color: #333; margin-bottom: 14px; }
 .explore-body .go { font-family: var(--tt); font-size: 13px; border-bottom: 1px solid var(--ink); }
 
@@ -422,6 +434,9 @@ h3 { font-size: 17px; font-weight: 700; margin: 26px 0 10px; }
 .cta-box { margin-top: 56px; border: 1px solid var(--ink); padding: 28px; display: flex; justify-content: space-between; align-items: center; gap: 18px; flex-wrap: wrap; }
 .cta-box h3 { margin: 0 0 4px; font-size: 21px; font-weight: 400; font-style: italic; }
 .cta-box p { color: #333; font-size: 15px; }
+.cta-box .cta-mails { display: flex; flex-wrap: wrap; gap: 4px 18px; margin-top: 10px; font-family: var(--tt); font-size: 13px; }
+.cta-mails a { color: var(--ink); border-bottom: 1px solid var(--line); }
+.cta-mails a:hover { border-bottom-color: var(--ink); text-decoration: none; }
 
 /* ---------- motion & responsive ---------- */
 @media (prefers-reduced-motion: reduce) {
@@ -431,6 +446,7 @@ h3 { font-size: 17px; font-weight: 700; margin: 26px 0 10px; }
 }
 
 @media (max-width: 980px) {
+  .gh-menu { position: static; }
   .hero-inner, .set-grid, .sandwich-grid, .team-grid, .overview, .ws-hero { grid-template-columns: 1fr; }
   .pillars { grid-template-columns: 1fr 1fr; }
   .pillar:nth-child(3) { border-left: 0; }

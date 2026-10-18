@@ -1,0 +1,67 @@
+<!doctype html>
+<!--
+  Source of assets/img/og.png, the 1200x630 link preview image.
+  Render it with a headless Chromium browser from the repository root, for example:
+    msedge --headless=new --hide-scrollbars --window-size=1200,630 --virtual-time-budget=3000 \
+           --screenshot=assets/img/og.png scripts/og.html
+  Keep the colours in step with the front-page hero in assets/css/style.css.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ProofBench preview image</title>
+<style>
+  @font-face { font-family: "CMU Serif"; src: url("../assets/fonts/cmunrm.woff2") format("woff2"); font-weight: 400; font-style: normal; }
+  @font-face { font-family: "CMU Serif"; src: url("../assets/fonts/cmunti.woff2") format("woff2"); font-weight: 400; font-style: italic; }
+  @font-face { font-family: "CMU Typewriter"; src: url("../assets/fonts/cmuntt.woff2") format("woff2"); font-weight: 400; font-style: normal; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; background: #00264c; color: #f2f2f2; }
+  body { position: relative; font-family: "CMU Serif", serif; }
+  canvas { position: absolute; inset: 0; }
+  .card { position: absolute; left: 90px; right: 90px; top: 92px; }
+  .eyebrow { font-family: "CMU Typewriter", monospace; font-size: 17px; letter-spacing: .14em; text-transform: uppercase; color: #b9cde0; }
+  h1 { font-weight: 400; font-size: 132px; line-height: 1; letter-spacing: -.01em; margin-top: 30px; }
+  .tagline { font-style: italic; font-size: 37px; line-height: 1.25; margin-top: 30px; color: #fff; }
+  .tagline em { color: #f0a08c; }
+  .stats { display: grid; grid-template-columns: repeat(4, auto) 1fr; margin-top: 40px; border-top: 1px solid rgba(255, 255, 255, .22); }
+  .stats div { padding: 22px 34px 0; border-left: 1px solid rgba(255, 255, 255, .22); }
+  .stats div:first-child { padding-left: 0; border-left: 0; }
+  .stats div:last-child { border-left: 0; }
+  .stats b { display: block; font-weight: 400; font-size: 44px; line-height: 1; }
+  .stats span { display: block; margin-top: 10px; font-family: "CMU Typewriter", monospace; font-size: 15px; color: #b9cde0; }
+</style>
+</head>
+<body>
+  <canvas width="1200" height="630"></canvas>
+  <div class="card">
+    <p class="eyebrow">Lean 4 · Combinatorics · Graph theory</p>
+    <h1>ProofBench</h1>
+    <p class="tagline">Research-level mathematics benchmark, <em>verified by Lean.</em></p>
+    <div class="stats">
+      <div><b>114</b><span>problems in Lean 4</span></div>
+      <div><b>32</b><span>open conjectures</span></div>
+      <div><b>82</b><span>in graph theory</span></div>
+      <div><b>0</b><span>LLM judges</span></div>
+      <div></div>
+    </div>
+  </div>
+<script>
+  // The same drifting graph as the front page, frozen with a fixed seed and kept to the right-hand side.
+  const ctx = document.querySelector("canvas").getContext("2d");
+  let seed = 7;
+  const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+  const nodes = Array.from({ length: 46 }, () => ({ x: 560 + rnd() * 660, y: -10 + rnd() * 650, red: rnd() < 0.09 }));
+  const R = 150;
+  ctx.strokeStyle = "#ffffff"; ctx.lineWidth = 1;
+  for (let i = 0; i < nodes.length; i++) for (let j = i + 1; j < nodes.length; j++) {
+    const a = nodes[i], b = nodes[j], d = Math.hypot(a.x - b.x, a.y - b.y);
+    if (d < R) { ctx.globalAlpha = 0.2 * (1 - d / R); ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); }
+  }
+  nodes.forEach((n) => {
+    ctx.globalAlpha = n.red ? 0.85 : 0.4;
+    ctx.fillStyle = n.red ? "#e0705a" : "#ffffff";
+    ctx.beginPath(); ctx.arc(n.x, n.y, n.red ? 3 : 2.2, 0, Math.PI * 2); ctx.fill();
+  });
+</script>
+</body>
+</html>
