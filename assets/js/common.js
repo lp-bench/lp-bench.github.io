@@ -90,9 +90,10 @@
 
   /* contact */
   $$("[data-contact]").forEach((a) => {
-    if (!CFG.contact) return;
-    a.href = `mailto:${CFG.contact}${a.dataset.subject ? `?subject=${encodeURIComponent(a.dataset.subject)}` : ""}`;
-    if (!a.textContent.trim()) a.textContent = CFG.contact;
+    const to = [].concat(CFG.contact || []);
+    if (!to.length) return;
+    a.href = `mailto:${to.join(",")}${a.dataset.subject ? `?subject=${encodeURIComponent(a.dataset.subject)}` : ""}`;
+    if (!a.textContent.trim()) a.textContent = to.join(", ");
   });
 
   /* Lean snippets written into the page */

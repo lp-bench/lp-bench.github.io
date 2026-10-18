@@ -36,5 +36,6 @@ window.PB_CONFIG = {
   // { model: "provider/name", search: false, open: 0, research: 0, calibration: 0, cost: "$0" }
   results: [],
 
-  contact: "vaibhav.bajpai@math.tu-freiberg.de",
+  // Every "Contact" and "Get in touch" link writes to all of these.
+  contact: ["Vaibhav.Bajpai@math.tu-freiberg.de", "Utku.Okur@math.tu-freiberg.de"],
 };
