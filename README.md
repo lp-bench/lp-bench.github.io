@@ -5,5 +5,5 @@ Plain HTML, CSS and JavaScript; no build step. Open `index.html` locally to prev
 
 * `assets/js/config.js`: everything that changes on launch day (`released`, arXiv id,
   repositories, leaderboard rows, contact).
-* `assets/js/problem-data.js`: problem list, generated from proofbench-statements;
+* `assets/js/problem-data.js`: problem list, generated from the proofbench repo;
   do not edit by hand.
