@@ -4,6 +4,31 @@
   const { CFG, reduceMotion, $, $$, esc, highlightLean, showTip, hideTip, PROBLEMS, BY_ID, CAT_LABEL, CAT_ORDER } = window.PB;
   const problemUrl = (id) => `problems.html#P${id}`;
 
+  /* ---------- workshop panel under the "Keep exploring" cards ---------- */
+  (function workshop() {
+    const panel = $("#workshop");
+    if (!panel) return;
+    const card = $("[data-ws-toggle]");
+    const scrollTo = (el) => el.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+    const set = (open) => {
+      panel.hidden = !open;
+      if (card) card.setAttribute("aria-expanded", String(open));
+    };
+    const open = () => { set(true); history.replaceState(null, "", "#workshop"); scrollTo(panel); };
+    const close = () => {
+      set(false);
+      history.replaceState(null, "", location.pathname + location.search);
+      if (card) scrollTo(card);
+    };
+    // Visible without JavaScript; collapsed on load unless the address asks for it.
+    set(location.hash === "#workshop");
+    if (!panel.hidden) setTimeout(() => scrollTo(panel), 60);
+    if (card) card.addEventListener("click", (e) => { e.preventDefault(); panel.hidden ? open() : close(); });
+    $$('a[href="#workshop"]:not([data-ws-toggle])').forEach((a) => a.addEventListener("click", (e) => { e.preventDefault(); open(); }));
+    $$("[data-ws-close]", panel).forEach((b) => b.addEventListener("click", close));
+    window.addEventListener("hashchange", () => { if (location.hash === "#workshop") { set(true); scrollTo(panel); } });
+  })();
+
   /* ---------- hero: drifting graph ---------- */
   (function heroGraph() {
     const canvas = $(".hero-graph");

@@ -27,12 +27,12 @@
         <li><a href="index.html" aria-current="page">Home</a></li>
         <li><a href="problems.html">Problems</a></li>
         <li><a href="ten-challenges.html">Ten Challenges</a></li>
-        <li><a href="workshop.html">Workshop</a></li>
+        <li><a href="#workshop">Workshop</a></li>
         <li>
           <details class="gh-menu nav-gh">
             <summary aria-label="GitHub repositories" title="GitHub repositories"><svg class="gh-icon" viewBox="0 0 16 16" width="20" height="20" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></summary>
             <ul class="gh-menu-list">
-              <li><a href="https://github.com/proof-bench/proofbench"><b>proofbench</b><span>The 114 problem statements in Lean 4</span></a></li>
+              <li><a href="https://github.com/proof-bench/proofbench-statements"><b>proofbench-statements</b><span>The 114 problem statements in Lean 4</span></a></li>
               <li><a href="https://github.com/proof-bench/proofbench-eval-apptainer"><b>proofbench-eval-apptainer</b><span>The evaluation harness</span></a></li>
               <li><a href="https://github.com/proof-bench/inspect-apptainer"><b>inspect-apptainer</b><span>An Apptainer sandbox for Inspect AI</span></a></li>
             </ul>
@@ -66,7 +66,7 @@
             <details class="gh-menu">
               <summary class="btn btn-secondary">GitHub</summary>
               <ul class="gh-menu-list">
-                <li><a href="https://github.com/proof-bench/proofbench"><b>proofbench</b><span>The 114 problem statements in Lean 4</span></a></li>
+                <li><a href="https://github.com/proof-bench/proofbench-statements"><b>proofbench-statements</b><span>The 114 problem statements in Lean 4</span></a></li>
                 <li><a href="https://github.com/proof-bench/proofbench-eval-apptainer"><b>proofbench-eval-apptainer</b><span>The evaluation harness</span></a></li>
                 <li><a href="https://github.com/proof-bench/inspect-apptainer"><b>inspect-apptainer</b><span>An Apptainer sandbox for Inspect AI</span></a></li>
               </ul>
@@ -350,42 +350,8 @@
       </div>
     </section>
 
-    <!-- ============ EXPLORE ============ -->
-    <section class="section">
-      <div class="wrap">
-        <header class="section-head reveal">
-          <p class="label">More from ProofBench</p>
-          <h2>Keep exploring</h2>
-        </header>
-        <div class="explore">
-          <a class="explore-card reveal" href="https://tenchallenges.github.io/ten-challenges/">
-            <div class="explore-visual">
-              <div class="ten-grid" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span></div>
-            </div>
-            <div class="explore-body">
-              <p class="label">Sister project</p>
-              <h3>Ten Challenges</h3>
-              <p>The Ten Challenges comprise the first ten problems of ProofBench, which are parameterized open problems in combinatorics.</p>
-              <span class="go">Visit Ten Challenges →</span>
-            </div>
-          </a>
-          <a class="explore-card reveal" href="workshop.html">
-            <div class="explore-visual">
-              <img src="assets/img/bench.jpg" width="760" height="760" loading="lazy" alt="Pencil sketch of two QED boxes sitting on a park bench.">
-            </div>
-            <div class="explore-body">
-              <p class="label">Freiberg, autumn 2025</p>
-              <h3>The inaugural workshop</h3>
-              <p>Two weeks, about twenty mathematicians and Lean experts, and a recent research result taken into Lean together. The first real test of the ProofBench method.</p>
-              <span class="go">Read about the workshop →</span>
-            </div>
-          </a>
-        </div>
-      </div>
-    </section>
-
     <!-- ============ LANDSCAPE ============ -->
-    <section class="section soft">
+    <section class="section">
       <div class="wrap">
         <header class="section-head reveal">
           <p class="label">Landscape</p>
@@ -403,6 +369,166 @@
             </table>
           </div>
           <p class="land-note" data-land-note aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EXPLORE ============ -->
+    <section class="section soft">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="label">More from ProofBench</p>
+          <h2>Keep exploring</h2>
+        </header>
+        <div class="explore">
+          <a class="explore-card reveal" href="https://tenchallenges.github.io/ten-challenges/">
+            <div class="explore-visual">
+              <div class="ten-grid" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span></div>
+            </div>
+            <div class="explore-body">
+              <p class="label">Sister project</p>
+              <h3>Ten Challenges</h3>
+              <p>The Ten Challenges comprise the first ten problems of ProofBench, which are parameterized open problems in combinatorics.</p>
+              <span class="go">Visit Ten Challenges →</span>
+            </div>
+          </a>
+          <a class="explore-card reveal" href="#workshop" data-ws-toggle aria-controls="workshop" aria-expanded="true">
+            <div class="explore-visual">
+              <img src="assets/img/bench.jpg" width="760" height="760" loading="lazy" alt="Pencil sketch of two QED boxes sitting on a park bench.">
+            </div>
+            <div class="explore-body">
+              <p class="label">Freiberg, autumn 2025</p>
+              <h3>The inaugural workshop</h3>
+              <p>Two weeks, about twenty mathematicians and Lean experts, and a recent research result taken into Lean together. The first real test of the ProofBench method.</p>
+              <span class="go">Read about the workshop ↓</span>
+            </div>
+          </a>
+        </div>
+        <div class="ws-panel" id="workshop" role="region" aria-labelledby="workshop-title">
+          <button class="ws-close" type="button" data-ws-close>Close ×</button>
+          <section class="ws-hero">
+            <div class="page-intro">
+              <h3 class="ws-title" id="workshop-title">The Inaugural ProofBench Workshop</h3>
+              <p>
+                Before asking machines to formalize research mathematics, we wanted to know what it takes for people to
+                do it. For two weeks, research mathematicians and Lean experts worked side by side on one recent result,
+                and the experience shaped how ProofBench builds and checks its problems today.
+              </p>
+              <p class="meta-line">22 September – 3 October 2025 · Technische Universität Bergakademie Freiberg, Germany</p>
+            </div>
+            <figure>
+              <img src="assets/img/bench.jpg" width="760" height="760" alt="Pencil sketch of two QED boxes with arms and legs sitting on a park bench; one is reading a book.">
+            </figure>
+          </section>
+
+          <dl class="facts">
+            <div><dt>weeks in Freiberg</dt><dd>2</dd></div>
+            <div><dt>mathematicians and Lean experts</dt><dd>≈ 20</dd></div>
+            <div><dt>recent research result in focus</dt><dd>1</dd></div>
+          </dl>
+
+          <h4 class="rule">The mathematics</h4>
+          <div class="prose">
+            <p>
+              The workshop centred on a question from infinite graph theory. Call a graph <i>H</i> <em>ubiquitous</em> if
+              every graph that contains <i>n</i> disjoint copies of <i>H</i> as minors, for each finite <i>n</i>, must also
+              contain infinitely many disjoint copies. In 2002 Thomas Andreae conjectured that every locally finite graph is
+              ubiquitous. In 2023 Johannes Carmesin showed that this fails by constructing a counterexample
+              (<i>Journal of Combinatorial Theory, Series B</i> 162).
+            </p>
+            <p>
+              Carrying that construction all the way into Lean&nbsp;4 was the shared goal. The argument fills only a few
+              pages on paper, but it rests on infinite graphs, minors and disjoint unions, areas where Mathlib offers little
+              ready-made support.
+            </p>
+          </div>
+          <div class="code-block nowrap">
+            <pre><code data-lean>theorem exists_countable_simpleGraph_not_isUbiquitous :
+          ∃ (W : Type) (_ : Countable W) (H : SimpleGraph W), ¬ IsUbiquitous H := by
+        refine ⟨_, inferInstance, barbellRay, fun h ↦ ?_⟩
+        exact not_foldedUnion_barbellRay_nat_isMinor_decoratedGrid &lt;|
+          h _ _ foldedUnion_barbellRay_fin_isMinor_decoratedGrid</code></pre>
+          </div>
+          <p class="tt muted" style="font-size:12px;margin-top:8px">An excerpt of the Lean 4 code written during the workshop.</p>
+
+          <h4 class="rule">How we worked</h4>
+          <ol class="timeline">
+            <li>
+              <b>Mixed teams</b>
+              <p>Participants formed teams that paired combinatorial expertise with Lean experience, and each team took on part of the argument.</p>
+            </li>
+            <li>
+              <b>Smaller units</b>
+              <p>As the work progressed, the teams shrank. Small groups moved more easily between the mathematics and its formal verification.</p>
+            </li>
+            <li>
+              <b>Lean experts on call</b>
+              <p>The Lean specialists gradually left their fixed teams and became a shared resource, joining whichever group was stuck.</p>
+            </li>
+            <li>
+              <b>A tested workflow</b>
+              <p>Along the way the group developed procedures for splitting a complex proof into manageable formalization tasks, and gave the theorem sandwich its first trial.</p>
+            </li>
+          </ol>
+
+          <h4 class="rule">What we learned</h4>
+          <div class="lessons">
+            <div class="problem-item">
+              <span class="problem-title">Formalization is hard, even for experts</span>
+              <p>Even with a strong team, turning a recent research proof into checked Lean code took sustained effort. The gap between a convincing argument and a verified one is real.</p>
+            </div>
+            <div class="problem-item">
+              <span class="problem-title">Statements are where errors hide</span>
+              <p>Writing Lean statements that say exactly what the mathematics says was the most delicate step. Small slips were easy to make and hard to spot, which is why ProofBench now guards every statement with a theorem sandwich.</p>
+            </div>
+            <div class="problem-item">
+              <span class="problem-title">Plan before you formalize</span>
+              <p>Graph theory in Mathlib is still thin, so much time went into basic definitions. Mapping out the proof and its dependencies in advance with a blueprint catches problems early.</p>
+            </div>
+          </div>
+
+          <h4 class="rule">Why it mattered</h4>
+          <div class="prose">
+            <p>
+              The workshop showed that research-level formalization is a workable, and demanding, yardstick for AI
+              systems. It validated the pipeline that ProofBench uses to construct its problems and was the first real
+              test of the theorem sandwich, bringing pure mathematicians, Lean users and machine-learning researchers
+              to the same table.
+            </p>
+          </div>
+
+          <h4 class="rule">Participants</h4>
+          <ul class="participants">
+            <li>Justin Asher <span></span></li>
+            <li>Nathan Bowler <span>Hamburg</span></li>
+            <li>Johannes Carmesin <span>TU Freiberg</span></li>
+            <li>Joseph Devine <span>TU Freiberg</span></li>
+            <li>Sarah Frenkel <span>Birmingham</span></li>
+            <li>Matthias Hamann <span>Hamburg</span></li>
+            <li>Julian Holstein <span>Hamburg</span></li>
+            <li>Nicolai Kraus <span>Nottingham</span></li>
+            <li>Matt Kroeker <span>TU Freiberg</span></li>
+            <li>Jan Kurkofka <span>TU Freiberg</span></li>
+            <li>Nicola Lorenz <span>Hamburg</span></li>
+            <li>Aref Mohammadzadeh <span>Nottingham</span></li>
+            <li>Felix Pernegger <span>Bonn</span></li>
+            <li>Tim Planken <span>TU Freiberg</span></li>
+            <li>Auguste Poiroux <span>EPFL</span></li>
+            <li>Martin Schneider <span>TU Freiberg</span></li>
+            <li>Jacob Stegemann <span>Hamburg</span></li>
+            <li>Will Turner <span>TU Freiberg</span></li>
+            <li>Martin Winter <span>TU Berlin</span></li>
+          </ul>
+
+          <div class="cta-box">
+            <div>
+              <h4>Interested in a future workshop?</h4>
+              <p>We are glad to hear from mathematicians and Lean users who would like to take part in, or host, a future ProofBench workshop.</p>
+              <p class="cta-mails"><a href="mailto:Vaibhav.Bajpai@math.tu-freiberg.de">Vaibhav.Bajpai@math.tu-freiberg.de</a><a href="mailto:Utku.Okur@math.tu-freiberg.de">Utku.Okur@math.tu-freiberg.de</a></p>
+            </div>
+            <a class="btn" data-contact data-subject="ProofBench workshop" href="mailto:Vaibhav.Bajpai@math.tu-freiberg.de,Utku.Okur@math.tu-freiberg.de?subject=ProofBench%20workshop">Get in touch</a>
+          </div>
+          <button class="ws-close ws-close-end" type="button" data-ws-close>Close the workshop ↑</button>
         </div>
       </div>
     </section>
@@ -450,7 +576,7 @@
     <nav aria-label="Footer">
       <a href="problems.html">Problems</a>
       <a href="ten-challenges.html">Ten Challenges</a>
-      <a href="workshop.html">Workshop</a>
+      <a href="#workshop">Workshop</a>
       <a data-contact href="mailto:Vaibhav.Bajpai@math.tu-freiberg.de,Utku.Okur@math.tu-freiberg.de">Contact</a>
     </nav>
   </footer>

@@ -436,6 +436,15 @@ h3 { font-size: 17px; font-weight: 700; margin: 26px 0 10px; }
 .lessons { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 8px; }
 .lessons .problem-item { cursor: default; margin: 0; }
 .lessons .problem-item p { font-size: 15px; color: #333; margin-top: 6px; }
+/* workshop panel on the home page, opened from its card */
+.ws-panel { position: relative; margin-top: 24px; padding: 48px 48px 40px; background: var(--bg); border: 1px solid var(--ink); }
+.ws-panel[hidden] { display: none; }
+.ws-panel .ws-title { font-size: 34px; font-weight: 400; font-style: italic; line-height: 1.25; margin: 0 0 14px; }
+.ws-panel h4.rule { font-size: 21px; font-weight: 700; margin: 56px 0 20px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
+.ws-panel .cta-box h4 { margin: 0 0 4px; font-size: 21px; font-weight: 400; font-style: italic; }
+.ws-close { position: absolute; top: 14px; right: 16px; padding: 4px 8px; border: 1px solid var(--line); background: var(--bg); font-family: var(--tt); font-size: 12px; color: var(--muted); cursor: pointer; }
+.ws-close:hover { border-color: var(--ink); color: var(--ink); }
+.ws-close-end { position: static; display: block; margin: 28px auto 0; }
 .cta-box { margin-top: 56px; border: 1px solid var(--ink); padding: 28px; display: flex; justify-content: space-between; align-items: center; gap: 18px; flex-wrap: wrap; }
 .cta-box h3 { margin: 0 0 4px; font-size: 21px; font-weight: 400; font-style: italic; }
 .cta-box p { color: #333; font-size: 15px; }
@@ -485,6 +494,8 @@ h3 { font-size: 17px; font-weight: 700; margin: 26px 0 10px; }
   .ten-grid { grid-template-columns: repeat(5, 44px); }
   .ten-grid span { height: 44px; font-size: 18px; }
   .people, .participants, .facts { grid-template-columns: 1fr; }
+  .ws-panel { padding: 52px 18px 28px; }
+  .ws-panel .ws-title { font-size: 28px; }
   .facts div { border-left: 0; border-top: 1px solid var(--line); }
   .facts div:first-child { border-top: 0; }
   .legend li { grid-template-columns: 16px 1fr 2.4em; }
