@@ -4,8 +4,8 @@ name: site
 # (sent by its workflow notify-website.yml after every push) or a manual run first
 # regenerates the problem list and the counts from the problem database, commits them
 # if anything changed, and then publishes.
-# While proof-bench/proofbench is private, reading it needs the secret PROOFBENCH_TOKEN
-# (a fine-grained token with Contents read access to that repository).
+# While proof-bench/proofbench is private, reading it uses a short-lived key of the
+# proof-bench GitHub App (secrets PROOFBENCH_APP_ID and PROOFBENCH_APP_KEY).
 on:
   push:
     branches: [main]
@@ -25,8 +25,20 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      APP_ID: ${{ secrets.PROOFBENCH_APP_ID }}
     steps:
       - uses: actions/checkout@v4
+
+      - name: Create a key for reading proof-bench/proofbench
+        id: app
+        if: github.event_name != 'push' && env.APP_ID != ''
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ secrets.PROOFBENCH_APP_ID }}
+          private-key: ${{ secrets.PROOFBENCH_APP_KEY }}
+          owner: proof-bench
+          repositories: proofbench
 
       - name: Fetch the problem database
         if: github.event_name != 'push'
@@ -34,7 +46,7 @@ jobs:
         with:
           repository: proof-bench/proofbench
           path: .proofbench
-          token: ${{ secrets.PROOFBENCH_TOKEN || github.token }}
+          token: ${{ steps.app.outputs.token || github.token }}
           sparse-checkout: ProofBench/DATABASE
 
       - name: Regenerate the problem list and the counts
