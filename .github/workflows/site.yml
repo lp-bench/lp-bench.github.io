@@ -1,0 +1,75 @@
+name: site
+# Publishes the site with GitHub Pages (Settings → Pages → Source: GitHub Actions).
+# A push to main publishes the pages as they are. A signal from proof-bench/proofbench
+# (sent by its workflow notify-website.yml after every push) or a manual run first
+# regenerates the problem list and the counts from the problem database, commits them
+# if anything changed, and then publishes.
+# While proof-bench/proofbench is private, reading it needs the secret PROOFBENCH_TOKEN
+# (a fine-grained token with Contents read access to that repository).
+on:
+  push:
+    branches: [main]
+  repository_dispatch:
+    types: [proofbench-updated]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: site
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch the problem database
+        if: github.event_name != 'push'
+        uses: actions/checkout@v4
+        with:
+          repository: proof-bench/proofbench
+          path: .proofbench
+          token: ${{ secrets.PROOFBENCH_TOKEN || github.token }}
+          sparse-checkout: ProofBench/DATABASE
+
+      - name: Regenerate the problem list and the counts
+        if: github.event_name != 'push'
+        run: |
+          python3 scripts/build_problems.py .proofbench/ProofBench/DATABASE/Database.json
+          rm -rf .proofbench
+
+      - name: Commit if anything changed
+        if: github.event_name != 'push'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Problem list unchanged."
+          else
+            git commit -m "Update the problem list from proof-bench/proofbench"
+            git pull --rebase --quiet origin main
+            git push
+          fi
+
+      - name: Package the site
+        if: github.event.repository.private == false
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+  deploy:
+    needs: build
+    if: github.event.repository.private == false
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

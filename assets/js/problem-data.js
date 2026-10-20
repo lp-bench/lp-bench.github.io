@@ -1367,5 +1367,17 @@ window.PB_PROBLEMS = [
 "sub": "",
 "summary": "Matroids may be infinite (Bruhn–Diestel–Kriesell–Pendavingh–Wollan axioms); a matroid is finitary if all its circuits are finite. Two matroids M and N on a common ground set E satisfy intersection if some set J independent in both splits as J = J_M ⊔ J_N with cl_M(J_M) ∪ cl_N(J_N) = E. Nash-Williams' conjecture asserts that any two finitary matroids on a common ground set satisfy intersection. For finite matroids this is Edmonds' matroid intersection theorem; Joó proved the countable case, and a proof of the general finitary case using nonstandard analysis was announced in 2025 (Alam, arXiv:2501.04321) but is not yet refereed. Finitary matroids are tame, so this is the finitary case of Problem 112.",
 "lean": "theorem P114 {α : Type*} (M N : Matroid α) [M.Finitary] [N.Finitary] (hE : M.E = N.E) : M.SatisfiesIntersection N"
+},
+{
+"id": "115",
+"name": "Concavity of van der Waerden Numbers",
+"cat": "open",
+"note": "",
+"resolved": "",
+"msc": "05D10 Ramsey theory",
+"area": "Number theory",
+"sub": "",
+"summary": "For positive integers k and l, the two-colour van der Waerden number w(k,l) is the least n such that every red-blue colouring of {1,...,n} contains a red k-term or a blue l-term arithmetic progression; it exists by van der Waerden's theorem, and w(k,l) = w(l,k). The conjecture of Landman and Robertson states that w(k,l) >= w(k+1,l-1) for all k >= l >= 2: along each antidiagonal k + l = s, the numbers do not increase as the pair becomes less balanced. The formal statement colours {0,...,n-1}, which gives the same numbers.",
+"lean": "theorem P115 {k ℓ : ℕ} (hℓ : 2 ≤ ℓ) (hk : ℓ ≤ k) : VdWConcavity k ℓ"
 }
 ];

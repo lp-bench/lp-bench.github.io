@@ -4,12 +4,18 @@ Usage:
     python scripts/build_problems.py path/to/proofbench/ProofBench/DATABASE/Database.json
 
 Only test-taker fields are exported (id, name, difficulty, MSC, area, plain-language
-summary, formal statement). Re-run whenever the proofbench repo changes.
+summary, formal statement). The counts in the pages are filled in from the same data: an element
+with `data-pb="key"` gets the number as its text (and as `data-count`, for the animated counters),
+`data-pb-text="... {key} ..."` sets the element's text from a template, and `data-pb-<attribute>`
+sets that attribute from a template (for `<meta>` descriptions and `aria-label`s). Keys: total, open,
+research, calibration, graph, matroids, extremal, other. The workflow
+`.github/workflows/site.yml` runs this script whenever the proofbench repo is pushed.
 """
 
 import json
 import re
 import sys
+from collections import Counter
 from pathlib import Path
 
 AREAS = {
@@ -55,9 +61,56 @@ AREA_OVERRIDES = {
     "075": ("Combinatorics on words", ""),
     "074": ("Number theory", ""),
     "111": ("Number theory", ""),
+    "115": ("Number theory", ""),   # van der Waerden numbers: Ramsey theory on the integers
 }
 
-OUT = Path(__file__).resolve().parent.parent / "assets" / "js" / "problem-data.js"
+ROOT = Path(__file__).resolve().parent.parent
+OUT = ROOT / "assets" / "js" / "problem-data.js"
+
+
+def counts(problems: list[dict]) -> dict[str, int]:
+    """The numbers shown on the pages: categories and the split by primary MSC class."""
+    cat = Counter(p["cat"] for p in problems)
+    msc = Counter(p["msc"][:3] for p in problems)
+    total = len(problems)
+    graph, matroids, extremal = msc["05C"], msc["05B"], msc["05D"]
+    return {"total": total, "open": cat["open"], "research": cat["research"],
+            "calibration": cat["calibration"], "graph": graph, "matroids": matroids,
+            "extremal": extremal, "other": total - graph - matroids - extremal}
+
+
+TEXT_ELEMENT = re.compile(
+    r'<(?P<tag>[a-zA-Z][\w-]*)(?P<attrs>[^<>]*?\bdata-pb(?P<kind>|-text)="(?P<value>[^"]*)"[^<>]*)>'
+    r'(?P<text>[^<]*)(?=</(?P=tag)>)')
+ATTR_ELEMENT = re.compile(r'<[a-zA-Z][^<>]*\bdata-pb-(?!text=)[a-z-]+="[^"]*"[^<>]*>')
+ATTR_TEMPLATE = re.compile(r'\bdata-pb-(?!text=)(?P<attr>[a-z-]+)="(?P<template>[^"]*)"')
+
+
+def fill_counts(html: str, n: dict[str, int]) -> tuple[str, int]:
+    """Fill the `data-pb*` markers of a page; returns the new page and the number of markers."""
+    filled = 0
+
+    def text(m: re.Match) -> str:
+        nonlocal filled
+        filled += 1
+        attrs, value = m["attrs"], m["value"]
+        if m["kind"]:
+            return f"<{m['tag']}{attrs}>{value.format(**n)}"
+        attrs = re.sub(r'\bdata-count="\d+"', f'data-count="{n[value]}"', attrs)
+        return f"<{m['tag']}{attrs}>{n[value]}"
+
+    def attributes(m: re.Match) -> str:
+        nonlocal filled
+        tag = m[0]
+        for t in ATTR_TEMPLATE.finditer(m[0]):
+            filled += 1
+            value = t["template"].format(**n)
+            tag = re.sub(rf'(?<![\w-]){re.escape(t["attr"])}="[^"]*"', f'{t["attr"]}="{value}"', tag)
+        return tag
+
+    html = TEXT_ELEMENT.sub(text, html)
+    html = ATTR_ELEMENT.sub(attributes, html)
+    return html, filled
 
 
 def category(difficulty: str) -> str:
@@ -117,6 +170,12 @@ def main(db_path: str) -> None:
         encoding="utf-8",
     )
     print(f"wrote {len(problems)} problems to {OUT}")
+    n = counts(problems)
+    for page in sorted(ROOT.glob("*.html")):
+        html, filled = fill_counts(page.read_text(encoding="utf-8"), n)
+        page.write_text(html, encoding="utf-8")
+        print(f"{page.name}: {filled} counts filled")
+    print("counts:", n)
 
 
 if __name__ == "__main__":
