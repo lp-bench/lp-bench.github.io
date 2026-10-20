@@ -8,10 +8,9 @@ There is no build step and nothing to install.
 
 | File | Page |
 |---|---|
-| `index.html` | Home: hero, why ProofBench, problem set, theorem sandwich, evaluation, landscape, leaderboard, open source, team |
+| `index.html` | Home: hero, why ProofBench, problem set, theorem sandwich, evaluation, open source, leaderboard, landscape, keep exploring (with the inaugural workshop, Freiberg 2025, in a panel that opens from its card or from `index.html#workshop`), team |
 | `problems.html` | All 114 problems with summaries and Lean statements; each has a permanent link such as `problems.html#P042` |
 | `ten-challenges.html` | A card introducing the Ten Challenges sister project; it links to the project's own site, tenchallenges.github.io |
-| `workshop.html` | The inaugural ProofBench workshop (Freiberg, September–October 2025) |
 
 ## Layout
 
