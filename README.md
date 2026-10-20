@@ -23,7 +23,7 @@ assets/js/problems-page.js    problem list, filters and deep links
 assets/js/problem-data.js     GENERATED problem data, do not edit by hand
 assets/fonts/                 Computer Modern Unicode (CMU Serif, CMU Typewriter), subset to woff2, SIL OFL (see OFL.txt)
 assets/img/                   bench sketch, favicon, social preview (og.png)
-scripts/build_problems.py     regenerates problem-data.js from proofbench-statements
+scripts/build_problems.py     regenerates problem-data.js from the proofbench repo
 scripts/og.html               source of the link preview image og.png (render instructions inside)
 ```
 
@@ -41,7 +41,7 @@ python -m http.server 8000
 | Paper is on arXiv | `config.js`: set `paper.arxivId`; every "Paper" button becomes a link |
 | Repositories went public | `config.js`: set `released: true`; repository cards and problem files become links |
 | First results | `config.js`: add rows to `results`; the leaderboard replaces its placeholder |
-| Problem set changed | `python scripts/build_problems.py ../proofbench-statements/ProofBench/DATABASE/Database.json` |
+| Problem set changed | `python scripts/build_problems.py ../proofbench/ProofBench/DATABASE/Database.json` |
 | Area shown for a problem | `scripts/build_problems.py`: `AREA_OVERRIDES` (area and graph theory subarea), then re-run it |
 | Headline numbers (114, 32, 82, 87) | `index.html` hero statistics and section text |
 | Text on any page | the page's `.html` file |
@@ -49,7 +49,7 @@ python -m http.server 8000
 ## Launch checklist
 
 1. Paper announced on arXiv: put the id in `config.js` → `paper.arxivId`.
-2. Make `proofbench-statements`, `proofbench-eval-apptainer` and `inspect-apptainer` public.
+2. Make `proofbench`, `proofbench-eval-apptainer` and `inspect-apptainer` public.
 3. Set `released: true` in `config.js`.
 4. If the problem set changed since the last export, re-run `scripts/build_problems.py`.
 5. Commit and push to `main`. Pages redeploys in about a minute.
