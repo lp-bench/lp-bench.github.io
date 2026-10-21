@@ -26,15 +26,15 @@ window.PB_PROBLEMS = [
 },
 {
 "id": "003",
-"name": "Diagonal Ramsey Number Exponential Bounds (universal)",
+"name": "Caccetta–Häggkvist Conjecture (universal)",
 "cat": "open",
 "note": "",
 "resolved": "",
-"msc": "05D10 Ramsey theory",
+"msc": "05C20 Directed graphs (digraphs), tournaments; 05C38 Paths and cycles",
 "area": "Graph theory",
-"sub": "Extremal graph theory",
-"summary": "The diagonal Ramsey number R(t) is the least n such that every simple graph on n vertices contains a clique of size t or an independent set of size t (equivalently, every 2-colouring of the edges of the complete graph K_n yields a monochromatic K_t). Ramsey's theorem gives R(t) ≤ 4^t, and Erdős's probabilistic argument gives R(t) ≥ (√2)^t for large t, so the exponential growth rate of R(t) lies between √2 and 4. The scaled Ramsey problem asks, for each r ∈ ℕ, for explicit real numbers d₁ ≤ d₂ with d₁^t ≤ R(t) ≤ d₂^t for all sufficiently large t and a controlled gap |d₂ − d₁| ≤ (4 − √2)·0.98^r; as r → ∞ the gap tends to 0, pinning down the growth rate exactly. The case r = 0 is the Ramsey–Erdős bound, and the cases 1 ≤ r ≤ 3 follow from the recent exponential improvement of Campos, Griffiths, Morris and Sahasrabudhe together with the optimisation R(t) ≤ 3.8^t of Gupta, Ndiaye, Norin and Wei; the problem is open from r = 4 onwards.",
-"lean": "theorem P003 : RamseyBracket"
+"sub": "",
+"summary": "A digraph on a finite vertex set is a set of ordered pairs of vertices (arcs); loops are allowed. The out-degree of a vertex is the number of arcs leaving it, and a directed cycle of length k ≥ 1 is a sequence of k distinct vertices each joined by an arc to the cyclically next one. The Caccetta–Häggkvist conjecture (1978) states that for every r ≥ 1, every digraph on n vertices in which every vertex has out-degree at least r contains a directed cycle of length at most ⌈n/r⌉; the circulant digraph on Z_n with arcs i → i+1, …, i → i+r shows that the bound cannot be improved. The scaled problem asks, for a given r ≥ 1, for a proof of the conjecture at that r. The cases r ≤ 5 are known (Caccetta–Häggkvist for r = 2, Hamidoune for r = 3, Hoàng–Reed for r = 4, 5), as is the regime r ≤ √(n/2) (Shen); the problem is open from r = 6 onwards, and even the directed-triangle case r = ⌈n/3⌉ is open. The universal version asserts the conjecture for every r ≥ 1.",
+"lean": "theorem P003 : CaccettaHaggkvistConj"
 },
 {
 "id": "004",
@@ -1379,5 +1379,17 @@ window.PB_PROBLEMS = [
 "sub": "",
 "summary": "For positive integers k and l, the two-colour van der Waerden number w(k,l) is the least n such that every red-blue colouring of {1,...,n} contains a red k-term or a blue l-term arithmetic progression; it exists by van der Waerden's theorem, and w(k,l) = w(l,k). The conjecture of Landman and Robertson states that w(k,l) >= w(k+1,l-1) for all k >= l >= 2: along each antidiagonal k + l = s, the numbers do not increase as the pair becomes less balanced. The formal statement colours {0,...,n-1}, which gives the same numbers.",
 "lean": "theorem P115 {k ℓ : ℕ} (hℓ : 2 ≤ ℓ) (hk : ℓ ≤ k) : VdWConcavity k ℓ"
+},
+{
+"id": "116",
+"name": "Diagonal Ramsey Number Exponential Bounds (universal)",
+"cat": "open",
+"note": "",
+"resolved": "",
+"msc": "05D10 Ramsey theory",
+"area": "Graph theory",
+"sub": "Extremal graph theory",
+"summary": "The diagonal Ramsey number R(t) is the least n such that every simple graph on n vertices contains a clique of size t or an independent set of size t (equivalently, every 2-colouring of the edges of the complete graph K_n yields a monochromatic K_t). Ramsey's theorem gives R(t) ≤ 4^t, and Erdős's probabilistic argument gives R(t) ≥ (√2)^t for large t, so the exponential growth rate of R(t) lies between √2 and 4. The scaled Ramsey problem asks, for each r ∈ ℕ, for explicit real numbers d₁ ≤ d₂ with d₁^t ≤ R(t) ≤ d₂^t for all sufficiently large t and a controlled gap |d₂ − d₁| ≤ (4 − √2)·0.98^r; as r → ∞ the gap tends to 0, pinning down the growth rate exactly. The case r = 0 is the Ramsey–Erdős bound, and the cases 1 ≤ r ≤ 3 follow from the recent exponential improvement of Campos, Griffiths, Morris and Sahasrabudhe together with the optimisation R(t) ≤ 3.8^t of Gupta, Ndiaye, Norin and Wei; the problem is open from r = 4 onwards.",
+"lean": "theorem P116 : RamseyBracket"
 }
 ];
