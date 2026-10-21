@@ -34,7 +34,6 @@ T, A, G, E, R, N = ("Topological graph theory", "Algebraic & spectral graph theo
                     "Random graphs", "Enumerative graph theory")
 AREA_OVERRIDES = {
     # graph theory
-    "003": ("Graph theory", E),   # diagonal Ramsey numbers
     "009": ("Graph theory", E),   # union-closed sets; graph form via maximal stable sets
     "012": ("Graph theory", E),   # partial transversals = rainbow matchings in edge-coloured K_{n,n}
     "013": ("Graph theory", E),   # Beck-Fiala discrepancy of bounded-degree hypergraphs
@@ -54,6 +53,7 @@ AREA_OVERRIDES = {
     "102": ("Graph theory", R),   # sparse random matrices on random Tanner graphs
     "103": ("Graph theory", R),   # orders of the random bipartite graph B(n, n, p)
     "110": ("Graph theory", E),   # zero-sum blocks; zero-sum Ramsey theory
+    "116": ("Graph theory", E),   # diagonal Ramsey numbers
     # other fields
     "007": ("Discrete geometry", ""),
     "037": ("Group theory", ""),
