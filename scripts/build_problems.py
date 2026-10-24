@@ -56,6 +56,7 @@ AREA_OVERRIDES = {
     "116": ("Graph theory", E),   # diagonal Ramsey numbers
     # other fields
     "007": ("Discrete geometry", ""),
+    "026": ("Discrete geometry", ""),   # full cube adjacency by convex bodies (sphere diagrams)
     "037": ("Group theory", ""),
     "072": ("Combinatorics on words", ""),
     "075": ("Combinatorics on words", ""),
