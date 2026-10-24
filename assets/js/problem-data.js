@@ -15,13 +15,13 @@ window.PB_PROBLEMS = [
 {
 "id": "002",
 "name": "Excluded Minors of GF(pᵐ)-Representable Matroids (universal)",
-"cat": "open",
-"note": "",
+"cat": "research",
+"note": "Rota's conjecture; proof announced by Geelen, Gerards and Whittle in 2014, not published in full",
 "resolved": "",
 "msc": "05B35 Combinatorial aspects of matroids and geometric lattices",
 "area": "Matroids",
 "sub": "",
-"summary": "A matroid M = (E, I) consists of a finite ground set E and a family I of independent subsets such that ∅ is independent, subsets of independent sets are independent, and the exchange axiom holds (if I, J ∈ I with |I| < |J| then I ∪ {x} ∈ I for some x ∈ J \\ I). For a prime p and integer m ≥ 1, M is GF(pᵐ)-representable if its independent sets are exactly the linearly independent column-sets of some matrix over the finite field GF(pᵐ). Minors are formed by deletion and contraction; a minor is proper if it differs from M. The class of GF(pᵐ)-representable matroids is closed under minors, so it is characterised by its excluded minors — the matroids outside the class all of whose proper minors lie in it. By the Geelen–Gerards–Whittle theorem (formerly Rota's conjecture) this list is finite for every prime power. The challenge: for every r that is a prime power pᵐ, exhibit a complete explicit list L of these excluded minors — pairwise non-isomorphic, with every non-representable matroid having a minor isomorphic to a member of L — and prove it complete up to isomorphism. Known lists: U₂,₄ for GF(2) (Tutte); U₂,₅, U₃,₅, F₇, F₇* for GF(3) (Bixby, Seymour); and the GF(4) list (Geelen, Gerards, Kapoor).",
+"summary": "A matroid M = (E, I) consists of a finite ground set E and a family I of independent subsets such that ∅ is independent, subsets of independent sets are independent, and the exchange axiom holds (if I, J ∈ I with |I| < |J| then I ∪ {x} ∈ I for some x ∈ J \\ I). For a prime p and integer m ≥ 1, M is GF(pᵐ)-representable if its independent sets are exactly the linearly independent column-sets of some matrix over the finite field GF(pᵐ). Minors are formed by deletion and contraction; a minor is proper if it differs from M. The class of GF(pᵐ)-representable matroids is closed under minors, so it is characterised by its excluded minors — the matroids outside the class all of whose proper minors lie in it. By the Geelen–Gerards–Whittle theorem (formerly Rota's conjecture) this list is finite for every prime power. The challenge: for every r that is a prime power pᵐ, show that a complete finite list L of these excluded minors exists — pairwise non-isomorphic, with every non-representable matroid having a minor isomorphic to a member of L. This is Rota's conjecture itself (the formal statement cannot demand that L be given explicitly); its proof by Geelen, Gerards and Whittle has been announced but not published in full, so the problem is filed as a research result. Known lists: U₂,₄ for GF(2) (Tutte); U₂,₅, U₃,₅, F₇, F₇* for GF(3) (Bixby, Seymour); and the GF(4) list (Geelen, Gerards, Kapoor).",
 "lean": "theorem P002 (r p m : ℕ) [Fact p.Prime] (hm : 0 < m) (hr : r = p ^ m) : RotaConj p m"
 },
 {
@@ -69,7 +69,7 @@ window.PB_PROBLEMS = [
 "msc": "05C83 Graph minors",
 "area": "Graph theory",
 "sub": "",
-"summary": "A quasi-order (Q, ≤) is well-quasi-ordered (a wqo) if it has no infinite strictly descending chain and no infinite antichain. Better-quasi-order (bqo) is a strengthening of wqo, due to Nash-Williams, that — unlike wqo — is preserved under forming transfinite iterated power-sets; (Q, ≤) is bqo precisely when it is α-well-quasi-ordered for every ordinal α (in particular for ω₁). Robertson and Seymour famously proved that finite graphs are well-quasi-ordered under the minor relation (every infinite family of graphs has one that is a minor of another). This challenge is the conjectured strengthening: for every r, the finite simple graphs on r vertices are better-quasi-ordered under the minor relation. (The source document refines this into an ordinal-indexed hierarchy, asking for α-well-quasi-ordering of finite graphs — and of planar graphs for the even levels.)",
+"summary": "A quasi-order (Q, ≤) is well-quasi-ordered (a wqo) if it has no infinite strictly descending chain and no infinite antichain. Better-quasi-order (bqo) is a strengthening of wqo, due to Nash-Williams, that — unlike wqo — is preserved under forming transfinite iterated power-sets; (Q, ≤) is bqo precisely when it is α-well-quasi-ordered for every ordinal α (in particular for ω₁). Robertson and Seymour famously proved that finite graphs are well-quasi-ordered under the minor relation (every infinite family of graphs has one that is a minor of another). This challenge is the conjectured strengthening in ordinal-indexed form: for every ordinal r, the finite simple graphs (odd r) or the finite planar graphs (even r) are ⌊r/2⌋-well-quasi-ordered under the minor relation; over all r this says that finite graphs are better-quasi-ordered under minors.",
 "lean": "theorem P006 : GraphMinorWQOConj"
 },
 {
@@ -93,7 +93,7 @@ window.PB_PROBLEMS = [
 "msc": "05C65 Hypergraphs",
 "area": "Graph theory",
 "sub": "",
-"summary": "A hypergraph is r-uniform if every edge has exactly r vertices, and r-partite if its vertex set can be partitioned into r classes P₁,…,P_r meeting each edge in exactly one vertex of each class. A vertex cover is a set of vertices meeting every edge, and the cover number τ(H) is the least size of a vertex cover; the matching number ν(H) is the greatest number of pairwise-disjoint edges. Ryser's conjecture states that every r-partite r-uniform hypergraph H satisfies τ(H) ≤ (r − 1)·ν(H). For r = 2 this is König's theorem; r = 3 was proved by Aharoni via a topological method; it is open for all r ≥ 4.",
+"summary": "A hypergraph is r-uniform if every edge has exactly r vertices, and r-partite if its vertex set can be partitioned into r classes P₁,…,P_r meeting each edge in exactly one vertex of each class. A vertex cover is a set of vertices meeting every edge, and the cover number τ(H) is the least size of a vertex cover; the matching number ν(H) is the greatest number of pairwise-disjoint edges. Ryser's conjecture states that every r-partite r-uniform hypergraph H satisfies τ(H) ≤ (r − 1)·ν(H). For r = 2 this is König's theorem; r = 3 was proved by Aharoni via a topological method; it was open for all r ≥ 4 until October 2026, when OpenAI's math release gave counterexamples (not yet independently verified); the formal challenge asks for a proof of the negation.",
 "lean": "theorem P008 : ¬ RyserConjecture.{u}"
 },
 {
@@ -105,7 +105,7 @@ window.PB_PROBLEMS = [
 "msc": "05D05 Extremal set theory",
 "area": "Graph theory",
 "sub": "Extremal graph theory",
-"summary": "A finite family F of finite sets is union-closed if A ∪ B ∈ F whenever A, B ∈ F, and the density of an element x is the fraction |{F ∈ F : x ∈ F}| / |F| of members containing x. Frankl's union-closed sets conjecture asserts that every finite union-closed family other than {∅} and the empty family has an element of density at least 1/2. This challenge is a scaled version: for every r > 2, every nondegenerate finite union-closed family has an element of density at least 1/2 − 1/r, a bound that approaches the full 1/2 as r → ∞. The entropy method gives an unconditional density of about 0.382, which settles the small cases; the conjecture is open in general.",
+"summary": "A finite family F of finite sets is union-closed if A ∪ B ∈ F whenever A, B ∈ F, and the density of an element x is the fraction |{F ∈ F : x ∈ F}| / |F| of members containing x. Frankl's union-closed sets conjecture asserts that every finite union-closed family other than {∅} and the empty family has an element of density at least 1/2. The scaled version asks, for every r, for an element of density at least 1/2 − 1/(r+2); the formal challenge is the full conjecture with density 1/2. The entropy method gives an unconditional density of about 0.382, which settles the small cases; the conjecture is open in general.",
 "lean": "theorem P009 : UnionClosedConj F"
 },
 {
@@ -141,26 +141,26 @@ window.PB_PROBLEMS = [
 "msc": "05B15 Orthogonal arrays, Latin squares, Room squares",
 "area": "Graph theory",
 "sub": "Extremal graph theory",
-"summary": "Let S be a finite set with |S| = n. A latin square on S is a matrix M : S × S → S, with rows and columns both indexed by S and entries in S, in which no symbol is repeated within any row or any column; equivalently, for every column c the map r ↦ M(r, c) is injective, and for every row r the map c ↦ M(r, c) is injective. The number n is the size of M. A partial transversal of M is a set T ⊆ S × S of cells that lie in pairwise distinct rows, lie in pairwise distinct columns, and carry pairwise distinct symbols — formally, the projections (r, c) ↦ r and (r, c) ↦ c are each injective on T, and (r, c) ↦ M(r, c) is injective on T. Koksma's theorem states that every latin square of size n ≥ 7 has a partial transversal of size at least (2n + 1)/3.",
-"lean": "theorem P012 {hM : IsLatinSq M} {hN : Fintype.card S ≥ 7} : ∃ pt, IsPT M pt ∧ #pt ≥ (2 * (Fintype.card S) + 1) / 3"
+"summary": "Let S be a finite set with |S| = n. A latin square on S is a matrix M : S × S → S, with rows and columns both indexed by S and entries in S, in which no symbol is repeated within any row or any column; equivalently, for every column c the map r ↦ M(r, c) is injective, and for every row r the map c ↦ M(r, c) is injective. The number n is the size of M. A partial transversal of M is a set T ⊆ S × S of cells that lie in pairwise distinct rows, lie in pairwise distinct columns, and carry pairwise distinct symbols — formally, the projections (r, c) ↦ r and (r, c) ↦ c are each injective on T, and (r, c) ↦ M(r, c) is injective on T. Koksma's theorem states that every latin square of size n ≥ 7 has a partial transversal of size at least (2n + 1)/3, i.e. of size T with 3T ≥ 2n + 1.",
+"lean": "theorem P012 {hM : IsLatinSq M} {hN : Fintype.card S ≥ 7} : ∃ pt, IsPT M pt ∧ 3 * #pt ≥ 2 * (Fintype.card S) + 1"
 },
 {
 "id": "013",
 "name": "Beck–Fiala discrepancy theorem",
 "cat": "calibration",
-"note": "upper-end; statement and sandwich formalized; Lean reference pending",
+"note": "upper-end",
 "resolved": "",
 "msc": "05D05 Extremal set theory; 11K38 Discrepancy and irregularities of distribution",
 "area": "Graph theory",
 "sub": "Extremal graph theory",
-"summary": "Let V be a finite ground set and (A_i) an indexed finite family of subsets of V. Repeated member sets are allowed and counted separately. Suppose t >= 1 and each point belongs to at most t members of the family. The Beck–Fiala theorem gives a signing chi: V -> {-1,1} such that the absolute value of the sum of chi over each A_i is at most 2t-1. Empty ground sets, empty families and empty member sets are allowed. This is the classical linear bound, not the open O(sqrt(t)) discrepancy conjecture. The statement and sandwich implications are formalized; the floating-variables rounding theorem and a complete Lean reference proof remain pending.",
+"summary": "Let V be a finite ground set and (A_i) an indexed finite family of subsets of V. Repeated member sets are allowed and counted separately. Suppose t >= 1 and each point belongs to at most t members of the family. The Beck–Fiala theorem gives a signing chi: V -> {-1,1} such that the absolute value of the sum of chi over each A_i is at most 2t-1. Empty ground sets, empty families and empty member sets are allowed. This is the classical linear bound, not the open O(sqrt(t)) discrepancy conjecture.",
 "lean": "theorem P013 {V I : Type*} [Finite V] [Fintype I] (A : I → Finset V) (t : ℕ) (ht : 1 ≤ t) (hdegree : ∀ v, #{i | v ∈ A i} ≤ t) : BeckFiala.HasDiscrepancyAtMost A (2 * (t : ℤ) - 1)"
 },
 {
 "id": "014",
 "name": "No Rainbow Cycle in the Coordinate Edge-Colouring of the Hypercube",
-"cat": "research",
-"note": "",
+"cat": "calibration",
+"note": "elementary",
 "resolved": "",
 "msc": "05C15 Coloring of graphs and hypergraphs",
 "area": "Graph theory",
@@ -178,7 +178,7 @@ window.PB_PROBLEMS = [
 "area": "Matroids",
 "sub": "",
 "summary": "A matroid M on a finite ground set is a combinatorial abstraction of linear independence, given by a rank function on subsets of the ground set; the rank of M is the rank of the whole ground set, and a class of matroids is minor-closed if it is closed under deletions and contractions (taking minors). A flat is a closed set; the rank-1 flats are the points and the rank-2 flats are the lines. A line is ordinary (a two-point line) if it contains exactly two points, and more generally a rank-k flat is ordinary if it is the direct sum of a single point with a rank-(k−1) flat — the higher-rank analogue of an ordinary line. A matroid is complex-representable if it arises from a finite family of vectors in a complex vector space (i.e. is representable over ℂ). The theorem states that for every k ≥ 2, every complex-representable matroid of rank at least 4(k − 1) contains an ordinary flat of rank k. This is the ℂ-representable instance of a theorem of Geelen and Kroeker: for any minor-closed class of matroids admitting a two-point line above some fixed rank C, every member of rank at least C(k − 1) has an ordinary rank-k flat; the constant 4 comes from Kelly's theorem, that every complex-representable matroid of rank at least 4 has a two-point line.",
-"lean": "theorem P015 {k : ℕ} (hk : 2 ≤ k) {α : Type} (M : Matroid α) (hM : IsComplexRepresentable M) (hrank : M.eRank ≥ 4 * (k - 1)) : ∃ F : OrdinaryFlat M, M.eRk F.carrier = k"
+"lean": "theorem P015 {k : ℕ} (hk : 2 ≤ k) {α : Type} (M : Matroid α) [M.Finite] (hM : IsComplexRepresentable M) (hrank : M.eRank ≥ 4 * (k - 1)) : ∃ F : OrdinaryFlat M, M.eRk F.carrier = k"
 },
 {
 "id": "016",
@@ -213,7 +213,7 @@ window.PB_PROBLEMS = [
 "msc": "05C40 Connectivity",
 "area": "Graph theory",
 "sub": "",
-"summary": "Version 1 (set version): for subsets S, T ⊆ V(G) of a finite graph, the maximum number of pairwise vertex-disjoint S–T paths equals the minimum order of an S–T separation. Version 2 (vertex version): for distinct non-adjacent vertices s, t, the maximum number of internally vertex-disjoint s–t paths equals the minimum number of vertices whose removal separates s from t. The two versions are proved equivalent (`equivalence : menger_v1_prop ↔ menger_v2_prop`), so Version 2 serves as both an upper bound and a lower bound for the Version 1 goal.",
+"summary": "Version 1 (set version): for subsets S, T ⊆ V(G) of a finite graph, the maximum number of pairwise vertex-disjoint S–T paths equals the minimum order of an S–T separation. Version 2 (vertex version): for distinct non-adjacent vertices s, t, the maximum number of internally vertex-disjoint s–t paths equals the minimum number of vertices whose removal separates s from t. The two versions are equivalent; the formal challenge is Version 1.",
 "lean": "theorem P018 : menger_v1_prop"
 },
 {
@@ -237,7 +237,7 @@ window.PB_PROBLEMS = [
 "msc": "05C40 Connectivity",
 "area": "Graph theory",
 "sub": "",
-"summary": "Every finite 3-connected simple graph that is not a wheel has an edge whose deletion or contraction yields again a 3-connected simple graph (Tutte 1961, in the form used in proofs of Kuratowski's theorem). Companion problem: P017 states the other classical form of Tutte's 1961 Wheel Theorem (the iff contraction-sequence characterization from K4); the two formalizations are deliberately kept as distinct targets.",
+"summary": "Every finite 3-connected simple graph that is not a wheel has an edge e such that G − e is 3-connected, or e lies in no triangle and the contraction G/e (a simple graph) is 3-connected (Tutte 1961; Oxley, Matroid Theory, Theorem 8.8.4). The triangle condition is essential: contracting a rim edge of a wheel W_n with n ≥ 4 and merging parallel edges gives W_{n−1}. Companion problem: P017 states the other classical form of Tutte's 1961 Wheel Theorem (the iff contraction-sequence characterization from K4); the two formalizations are deliberately kept as distinct targets.",
 "lean": "theorem P020 (G : SimpleGraph V) (h_three_connected : IsThreeConnected G) (h_not_wheel : ¬ IsWheelGraph G) : ∃ u v : V, GoodTutteReductionEdge G u v"
 },
 {
@@ -255,8 +255,8 @@ window.PB_PROBLEMS = [
 {
 "id": "022",
 "name": "Finite Graphs are Ubiquitous",
-"cat": "research",
-"note": "",
+"cat": "calibration",
+"note": "upper-end",
 "resolved": "",
 "msc": "05C83 Graph minors",
 "area": "Graph theory",
@@ -302,15 +302,15 @@ window.PB_PROBLEMS = [
 },
 {
 "id": "026",
-"name": "Obstruction-improvement dichotomy for temporal sequences (Theorem 3.5)",
-"cat": "research",
+"name": "Full Cube Adjacency by Convex Bodies (universal)",
+"cat": "open",
 "note": "",
 "resolved": "",
-"msc": "05C83 Graph minors",
-"area": "Graph theory",
+"msc": "52A20 Convex sets in n dimensions; 05C62 Graph representations",
+"area": "Discrete geometry",
 "sub": "",
-"summary": "A temporal sequence is a finite sequence of edge-labelled finite graphs in which consecutive graphs are comparable by (label-respecting) subgraph containment; the formalization equips each member graph with flexibility parameters and tracks two auxiliary lists L and M of embedding data along the sequence. Theorem 3.5 of 'A Graph Minors Approach to Temporal Sequences' is the engine of the paper's inductive argument: for every nonempty temporal sequence T all of whose graphs are 2-connected, together with lists L, M and flexibility parameters, either T exhibits an explicit obstruction (an inconsistent window or an uncombinable configuration), or there is an improvement - a replacement sequence T' with lists L', M' and parameters that is strictly better in the paper's well-founded ordering. The full definitional stack (labelled graphs, windows, restriction, inconsistency, uncombinability, improvement) is specified in the problem file; the remaining obligation is the paper's long combinatorial proof.",
-"lean": "theorem P026 {n : ℕ} (T : TemporalSeq.{u} n) (L M : TempList T) (params : ∀ i : Fin n, FlexParams (T.graph i)) (hne : T.Nonempty) (h2c : T.TwoConnected) : IsObstructed T L M ∨ ∃ (T' : TemporalSeq.{u} n) (L' M' : TempList T') (params' : ∀ i : Fin n, FlexParams (T'.graph i)), IsImprovement T L M T' L' M' params params'"
+"summary": "A convex body in R^d is a compact convex set with nonempty interior. For convex bodies K_1, ..., K_n in R^d, the zone with label I ⊆ [n] is the set of points on none of the boundaries that lie in exactly the bodies K_j with j in I; two zones are adjacent when their closures meet along a relatively open patch of one boundary, and distinct boundaries may not share such a patch. The bodies realise the cube Q_n when all 2^n zones are nonempty and connected and the labelled region-adjacency graph is exactly Q_n. For arbitrary tame spheres, Q_n is realisable in R^2 exactly for n ≤ 3, in R^3 exactly for n ≤ 4 (an obstruction via the Conway–Gordon theorem), and in R^d for every n when d ≥ 4; for round spheres the threshold is n ≤ d + 1, and convex bodies are known to realise Q_n for n ≤ ⌊3d/2⌋. The problem asks whether, for every d ≥ 4, convex bodies realise every Q_n, or whether in some dimension there is a largest such n. These results come from unpublished notes (2026) and have not yet been independently reviewed.",
+"lean": "theorem P026 : ∀ d : ℕ, 4 ≤ d → ∀ n : ℕ, ConvexCubeRealizable d n"
 },
 {
 "id": "027",
@@ -321,8 +321,8 @@ window.PB_PROBLEMS = [
 "msc": "05C20 Directed graphs (digraphs), tournaments",
 "area": "Graph theory",
 "sub": "",
-"summary": "An oriented graph is a loopless directed graph with no 2-cycles (an orientation of a simple graph). For a vertex v, the first out-neighbourhood N+(v) is the set of vertices v points to, and the second out-neighbourhood N++(v) is the set of vertices at directed distance exactly two from v (reachable by a 2-step directed path but not out-neighbours of v). Seymour's Second Neighbourhood Conjecture (c. 1990) states that every finite oriented graph has a vertex v with |N+(v)| <= |N++(v)|. It is open in general; the tournament case is Dean's conjecture, proved by Fisher (1996).",
-"lean": "theorem P027 {V : Type*} [Finite V] (G : OrientedGraph V) : ∃ v, (G.outNeighborhood v).ncard ≤ (G.secondOutNeighborhood v).ncard"
+"summary": "An oriented graph is a loopless directed graph with no 2-cycles (an orientation of a simple graph). For a vertex v, the first out-neighbourhood N+(v) is the set of vertices v points to, and the second out-neighbourhood N++(v) is the set of vertices at directed distance exactly two from v (reachable by a 2-step directed path but not out-neighbours of v). Seymour's Second Neighbourhood Conjecture (c. 1990) states that every finite oriented graph has a vertex v with |N+(v)| <= |N++(v)|. The tournament case is Dean's conjecture, proved by Fisher (1996); the general case was open until October 2026, when a proof appeared in OpenAI's math release (Lean-checked, not yet independently verified). The formal statement requires the vertex set to be nonempty.",
+"lean": "theorem P027 {V : Type*} [Finite V] [Nonempty V] (G : OrientedGraph V) : ∃ v, (G.outNeighborhood v).ncard ≤ (G.secondOutNeighborhood v).ncard"
 },
 {
 "id": "028",
@@ -333,19 +333,19 @@ window.PB_PROBLEMS = [
 "msc": "05C40 Connectivity",
 "area": "Graph theory",
 "sub": "",
-"summary": "Tutte's classical decomposition splits a 2-connected graph canonically into 3-connected pieces, cycles and bonds arranged in a tree structure. The paper 'A Tutte-type canonical decomposition of 3- and 4-connected graphs' extends this one level up: every 3-connected finite graph admits a canonical tree-decomposition-like structure whose separators are the totally nested 4-separations, and whose torsos are classified into an explicit list of alternatives (quasi-5-connected pieces and the degenerate types listed in the paper). Main Theorem 1, stated in the problem file as MainTheorem1Statement, asserts the existence, canonicity (invariance under automorphisms) and torso classification of this decomposition for every 3-connected simple graph. The problem folder also contains sorry-free lower- and upper-bound companion files in the theorem-sandwich format.",
-"lean": "theorem P028 (G : SimpleGraph V) [DecidableRel G.Adj] : MainTheorem1Statement G"
+"summary": "Tutte's classical decomposition splits a 2-connected graph canonically into 3-connected pieces, cycles and bonds arranged in a tree structure. Kurkofka and Planken ('A Tutte-type canonical decomposition of 3- and 4-connected graphs') extend this one level up using tetra-separations: pairs (A, B) covering the vertex set whose separator, made of the vertices in A ∩ B and the edges between A \\ B and B \\ A, has size four, with every separator vertex having two neighbours on each side and the separator edges forming a matching. Main Theorem 1 (with Remark 1.2), stated in the problem file as MainTheorem1Statement, says that for every 4-connected finite graph G the mixed-tree-decomposition determined by the totally-nested tetra-separations (the separations induced by its oriented tree edges are exactly these, bijectively) exists, is invariant under the automorphisms of G, and that each of its torsos is quasi-5-connected, a cycle of triangle-torsos and 3-connected torsos on at most 5 vertices, a generalised double-wheel, or a thickened K_{4,m}, unless G itself is a sprinkled K_{4,m} with m ≥ 4.",
+"lean": "theorem P028 {V : Type u} [Finite V] (G : SimpleGraph V) : MainTheorem1Statement G"
 },
 {
 "id": "029",
 "name": "Reduction lemma for polychromatic colourings via shallow hitting sets (Lemma 3)",
-"cat": "research",
-"note": "",
+"cat": "calibration",
+"note": "medium",
 "resolved": "",
 "msc": "05C15 Colouring of graphs and hypergraphs",
 "area": "Graph theory",
 "sub": "",
-"summary": "In the range-capturing setting, a range family R is a family of subsets of R^d, and for a finite point set V the m-uniform hypergraph H(V,R,m) has as hyperedges the m-element subsets of V of the form V ∩ r with r ∈ R. A colouring of V with k colours is polychromatic for H(V,R,m) if every hyperedge contains all k colours, and m_R(k) is the least uniformity m such that every H(V,R,m) admits a polychromatic k-colouring. A set X ⊆ V is a t-shallow hitting set of H(V,R,m) if every hyperedge meets X in at least one and at most t vertices. A range family is shrinkable if every hyperedge of H(V,R,m) contains a hyperedge of H(V,R,m-1). The reduction lemma (Keszegh and Palvolgyi, Lemma 3 in the presentation of Planken and Ueckerdt, arXiv:2310.19982) states: if R is shrinkable and there is a constant t ≥ 1 such that for every uniformity m ≥ 1 every hypergraph H(V,R,m) admits a t-shallow hitting set, then m_R(k) ≤ t(k-1)+1 = O(k). This is the engine that converts each of the paper's geometric shallow-hitting theorems into a linear polychromatic-colouring bound. [Formalisation note 2026-09-08: the range-capturing predicates PolychromaticBound, HasUniformShallowHittingSets and Shrinkable are stated for point sets in general position (pairwise distinct coordinates), as in the paper; Shrinkable also requires uniformity m ≥ 1.]",
+"summary": "In the range-capturing setting, a range family R is a family of subsets of R^d, and for a finite point set V the m-uniform hypergraph H(V,R,m) has as hyperedges the m-element subsets of V of the form V ∩ r with r ∈ R. A colouring of V with k colours is polychromatic for H(V,R,m) if every hyperedge contains all k colours, and m_R(k) is the least uniformity m such that every H(V,R,m) admits a polychromatic k-colouring. A set X ⊆ V is a t-shallow hitting set of H(V,R,m) if every hyperedge meets X in at least one and at most t vertices. A range family is shrinkable if every hyperedge of H(V,R,m) contains a hyperedge of H(V,R,m-1). The reduction lemma (Keszegh and Palvolgyi, Lemma 3 in the presentation of Planken and Ueckerdt, arXiv:2310.19982) states: if R is shrinkable and there is a constant t ≥ 1 such that for every uniformity m ≥ 1 every hypergraph H(V,R,m) admits a t-shallow hitting set, then m_R(k) ≤ t(k-1)+1 = O(k). This is the engine that converts each of the paper's geometric shallow-hitting theorems into a linear polychromatic-colouring bound.",
 "lean": "theorem P029 (ranges : RangeFamily d) (t k : ℕ) (hk : 1 ≤ k) (hshrink : Shrinkable ranges) (hshallow : ∀ m : ℕ, 1 ≤ m → HasUniformShallowHittingSets ranges m t) : PolychromaticBound ranges k (t * (k - 1) + 1)"
 },
 {
@@ -357,8 +357,8 @@ window.PB_PROBLEMS = [
 "msc": "05C15 Colouring of graphs and hypergraphs",
 "area": "Graph theory",
 "sub": "",
-"summary": "In the range-capturing setting, a range family R is a family of subsets of R^d, and for a finite point set V the m-uniform hypergraph H(V,R,m) has as hyperedges the m-element subsets of V of the form V ∩ r with r ∈ R. A colouring of V with k colours is polychromatic for H(V,R,m) if every hyperedge contains all k colours, and m_R(k) is the least uniformity m such that every H(V,R,m) admits a polychromatic k-colouring. A set X ⊆ V is a t-shallow hitting set of H(V,R,m) if every hyperedge meets X in at least one and at most t vertices. A range family is shrinkable if every hyperedge of H(V,R,m) contains a hyperedge of H(V,R,m-1). For the family R_UH of unit-height axis-aligned rectangles [a,b] × [c,c+1] in the plane, Theorem 26 of Planken and Ueckerdt (arXiv:2310.19982) provides 63-shallow hitting sets at every uniformity and the sharper polychromatic bound m_{R_UH}(k) ≤ 12k - 7, obtained via the relation m_{R_UH}(k) ≤ 2·m_{R_BL∪R_TL}(k) - 1 rather than from the shallow hitting constant alone. [Formalisation note 2026-09-08: the range-capturing predicates PolychromaticBound, HasUniformShallowHittingSets and Shrinkable are stated for point sets in general position (pairwise distinct coordinates), as in the paper; Shrinkable also requires uniformity m ≥ 1.]",
-"lean": "theorem P030 (k : ℕ) (hk : 1 ≤ k) : ∀ m : ℕ, HasUniformShallowHittingSets unitHeightRectangles m 63 ∧ polychromaticParameter unitHeightRectangles k ≤ 12 * k - 7"
+"summary": "In the range-capturing setting, a range family R is a family of subsets of R^d, and for a finite point set V the m-uniform hypergraph H(V,R,m) has as hyperedges the m-element subsets of V of the form V ∩ r with r ∈ R. A colouring of V with k colours is polychromatic for H(V,R,m) if every hyperedge contains all k colours, and m_R(k) is the least uniformity m such that every H(V,R,m) admits a polychromatic k-colouring. A set X ⊆ V is a t-shallow hitting set of H(V,R,m) if every hyperedge meets X in at least one and at most t vertices. A range family is shrinkable if every hyperedge of H(V,R,m) contains a hyperedge of H(V,R,m-1). For the family R_UH of unit-height axis-aligned rectangles [a,b] × [c,c+1] in the plane, Theorem 26 of Planken and Ueckerdt (arXiv:2310.19982) provides 63-shallow hitting sets at every uniformity and the sharper polychromatic bound m_{R_UH}(k) ≤ 12k - 7, obtained via the relation m_{R_UH}(k) ≤ 2·m_{R_BL∪R_TL}(k) - 1 rather than from the shallow hitting constant alone.",
+"lean": "theorem P030 (k : ℕ) (hk : 1 ≤ k) : (∀ m : ℕ, 1 ≤ m → HasUniformShallowHittingSets unitHeightRectangles m 63) ∧ polychromaticParameter unitHeightRectangles k ≤ 12 * k - 7"
 },
 {
 "id": "031",
@@ -369,8 +369,8 @@ window.PB_PROBLEMS = [
 "msc": "05C15 Colouring of graphs and hypergraphs",
 "area": "Graph theory",
 "sub": "",
-"summary": "In the range-capturing setting, a range family R is a family of subsets of R^d, and for a finite point set V the m-uniform hypergraph H(V,R,m) has as hyperedges the m-element subsets of V of the form V ∩ r with r ∈ R. A colouring of V with k colours is polychromatic for H(V,R,m) if every hyperedge contains all k colours, and m_R(k) is the least uniformity m such that every H(V,R,m) admits a polychromatic k-colouring. A set X ⊆ V is a t-shallow hitting set of H(V,R,m) if every hyperedge meets X in at least one and at most t vertices. A range family is shrinkable if every hyperedge of H(V,R,m) contains a hyperedge of H(V,R,m-1). For the family R_ST of axis-aligned strips in R^d (sets {x : a ≤ x_i ≤ b} for a coordinate i), Theorem 5 of Planken and Ueckerdt (arXiv:2310.19982) asserts a dimension-dependent constant t such that every hypergraph H(V,R_ST,m) admits a t-shallow hitting set, for every uniformity m. Combined with the reduction lemma this yields the linear bound m_{R_ST}(k) = O_d(k). [Formalisation note 2026-09-08: the range-capturing predicates PolychromaticBound, HasUniformShallowHittingSets and Shrinkable are stated for point sets in general position (pairwise distinct coordinates), as in the paper; Shrinkable also requires uniformity m ≥ 1.]",
-"lean": "theorem P031 (d : ℕ) : ∃ t : ℕ, ∀ m : ℕ, HasUniformShallowHittingSets (stripFamily d) m t"
+"summary": "In the range-capturing setting, a range family R is a family of subsets of R^d, and for a finite point set V the m-uniform hypergraph H(V,R,m) has as hyperedges the m-element subsets of V of the form V ∩ r with r ∈ R. A colouring of V with k colours is polychromatic for H(V,R,m) if every hyperedge contains all k colours, and m_R(k) is the least uniformity m such that every H(V,R,m) admits a polychromatic k-colouring. A set X ⊆ V is a t-shallow hitting set of H(V,R,m) if every hyperedge meets X in at least one and at most t vertices. A range family is shrinkable if every hyperedge of H(V,R,m) contains a hyperedge of H(V,R,m-1). For the family R_ST of axis-aligned strips in R^d (sets {x : a ≤ x_i ≤ b} for a coordinate i), Theorem 5 of Planken and Ueckerdt (arXiv:2310.19982) asserts a dimension-dependent constant t such that every hypergraph H(V,R_ST,m) admits a t-shallow hitting set, for every uniformity m. Combined with the reduction lemma this yields the linear bound m_{R_ST}(k) = O_d(k).",
+"lean": "theorem P031 (d : ℕ) : ∃ t : ℕ, ∀ m : ℕ, 1 ≤ m → HasUniformShallowHittingSets (stripFamily d) m t"
 },
 {
 "id": "032",
@@ -381,8 +381,8 @@ window.PB_PROBLEMS = [
 "msc": "05C15 Colouring of graphs and hypergraphs",
 "area": "Graph theory",
 "sub": "",
-"summary": "In the range-capturing setting, a range family R is a family of subsets of R^d, and for a finite point set V the m-uniform hypergraph H(V,R,m) has as hyperedges the m-element subsets of V of the form V ∩ r with r ∈ R. A colouring of V with k colours is polychromatic for H(V,R,m) if every hyperedge contains all k colours, and m_R(k) is the least uniformity m such that every H(V,R,m) admits a polychromatic k-colouring. A set X ⊆ V is a t-shallow hitting set of H(V,R,m) if every hyperedge meets X in at least one and at most t vertices. A range family is shrinkable if every hyperedge of H(V,R,m) contains a hyperedge of H(V,R,m-1). For the family R_BL of bottomless rectangles [a,b] × (-∞,c] in the plane, Theorem 14 of Planken and Ueckerdt (arXiv:2310.19982) asserts that every hypergraph H(V,R_BL,m) admits a 10-shallow hitting set, for every uniformity m. Via the reduction lemma this gives m_{R_BL}(k) ≤ 10(k-1)+1. [Formalisation note 2026-09-08: the range-capturing predicates PolychromaticBound, HasUniformShallowHittingSets and Shrinkable are stated for point sets in general position (pairwise distinct coordinates), as in the paper; Shrinkable also requires uniformity m ≥ 1.]",
-"lean": "theorem P032 : ∀ m : ℕ, HasUniformShallowHittingSets bottomlessRectangles m 10"
+"summary": "In the range-capturing setting, a range family R is a family of subsets of R^d, and for a finite point set V the m-uniform hypergraph H(V,R,m) has as hyperedges the m-element subsets of V of the form V ∩ r with r ∈ R. A colouring of V with k colours is polychromatic for H(V,R,m) if every hyperedge contains all k colours, and m_R(k) is the least uniformity m such that every H(V,R,m) admits a polychromatic k-colouring. A set X ⊆ V is a t-shallow hitting set of H(V,R,m) if every hyperedge meets X in at least one and at most t vertices. A range family is shrinkable if every hyperedge of H(V,R,m) contains a hyperedge of H(V,R,m-1). For the family R_BL of bottomless rectangles [a,b] × (-∞,c] in the plane, Theorem 14 of Planken and Ueckerdt (arXiv:2310.19982) asserts that every hypergraph H(V,R_BL,m) admits a 10-shallow hitting set, for every uniformity m. Via the reduction lemma this gives m_{R_BL}(k) ≤ 10(k-1)+1.",
+"lean": "theorem P032 : ∀ m : ℕ, 1 ≤ m → HasUniformShallowHittingSets bottomlessRectangles m 10"
 },
 {
 "id": "033",
@@ -393,43 +393,43 @@ window.PB_PROBLEMS = [
 "msc": "05C15 Colouring of graphs and hypergraphs",
 "area": "Graph theory",
 "sub": "",
-"summary": "In the range-capturing setting, a range family R is a family of subsets of R^d, and for a finite point set V the m-uniform hypergraph H(V,R,m) has as hyperedges the m-element subsets of V of the form V ∩ r with r ∈ R. A colouring of V with k colours is polychromatic for H(V,R,m) if every hyperedge contains all k colours, and m_R(k) is the least uniformity m such that every H(V,R,m) admits a polychromatic k-colouring. A set X ⊆ V is a t-shallow hitting set of H(V,R,m) if every hyperedge meets X in at least one and at most t vertices. A range family is shrinkable if every hyperedge of H(V,R,m) contains a hyperedge of H(V,R,m-1). For the union family R_BL ∪ R_TL of bottomless rectangles [a,b] × (-∞,c] and topless rectangles [a,b] × [c,∞) in the plane, Theorem 25 of Planken and Ueckerdt (arXiv:2310.19982) asserts that every hypergraph H(V, R_BL ∪ R_TL, m) admits a 21-shallow hitting set, for every uniformity m. Via the reduction lemma this gives m_{R_BL∪R_TL}(k) ≤ 21(k-1)+1, the key input to the unit-height rectangle bound. [Formalisation note 2026-09-08: the range-capturing predicates PolychromaticBound, HasUniformShallowHittingSets and Shrinkable are stated for point sets in general position (pairwise distinct coordinates), as in the paper; Shrinkable also requires uniformity m ≥ 1.]",
-"lean": "theorem P033 : ∀ m : ℕ, HasUniformShallowHittingSets (bottomlessRectangles ∪ toplessRectangles) m 21"
+"summary": "In the range-capturing setting, a range family R is a family of subsets of R^d, and for a finite point set V the m-uniform hypergraph H(V,R,m) has as hyperedges the m-element subsets of V of the form V ∩ r with r ∈ R. A colouring of V with k colours is polychromatic for H(V,R,m) if every hyperedge contains all k colours, and m_R(k) is the least uniformity m such that every H(V,R,m) admits a polychromatic k-colouring. A set X ⊆ V is a t-shallow hitting set of H(V,R,m) if every hyperedge meets X in at least one and at most t vertices. A range family is shrinkable if every hyperedge of H(V,R,m) contains a hyperedge of H(V,R,m-1). For the union family R_BL ∪ R_TL of bottomless rectangles [a,b] × (-∞,c] and topless rectangles [a,b] × [c,∞) in the plane, Theorem 25 of Planken and Ueckerdt (arXiv:2310.19982) asserts that every hypergraph H(V, R_BL ∪ R_TL, m) admits a 21-shallow hitting set, for every uniformity m. Via the reduction lemma this gives m_{R_BL∪R_TL}(k) ≤ 21(k-1)+1.",
+"lean": "theorem P033 : ∀ m : ℕ, 1 ≤ m → HasUniformShallowHittingSets (bottomlessRectangles ∪ toplessRectangles) m 21"
 },
 {
 "id": "034",
 "name": "Shrinkability of axis-aligned strips",
-"cat": "research",
-"note": "",
+"cat": "calibration",
+"note": "short",
 "resolved": "",
 "msc": "05C15 Colouring of graphs and hypergraphs",
 "area": "Graph theory",
 "sub": "",
-"summary": "In the range-capturing setting, a range family R is a family of subsets of R^d, and for a finite point set V the m-uniform hypergraph H(V,R,m) has as hyperedges the m-element subsets of V of the form V ∩ r with r ∈ R. A colouring of V with k colours is polychromatic for H(V,R,m) if every hyperedge contains all k colours, and m_R(k) is the least uniformity m such that every H(V,R,m) admits a polychromatic k-colouring. A set X ⊆ V is a t-shallow hitting set of H(V,R,m) if every hyperedge meets X in at least one and at most t vertices. A range family is shrinkable if every hyperedge of H(V,R,m) contains a hyperedge of H(V,R,m-1). This problem asks for the shrinkability of the strip family R_ST in R^d: every hyperedge of H(V,R_ST,m) contains a hyperedge of H(V,R_ST,m-1). Geometrically, a strip capturing m points of V can be narrowed to capture exactly m-1 of them. Shrinkability is the side condition required by the reduction lemma to convert shallow hitting sets into polychromatic bounds. [Formalisation note 2026-09-08: the range-capturing predicates PolychromaticBound, HasUniformShallowHittingSets and Shrinkable are stated for point sets in general position (pairwise distinct coordinates), as in the paper; Shrinkable also requires uniformity m ≥ 1.]",
+"summary": "In the range-capturing setting, a range family R is a family of subsets of R^d, and for a finite point set V the m-uniform hypergraph H(V,R,m) has as hyperedges the m-element subsets of V of the form V ∩ r with r ∈ R. A colouring of V with k colours is polychromatic for H(V,R,m) if every hyperedge contains all k colours, and m_R(k) is the least uniformity m such that every H(V,R,m) admits a polychromatic k-colouring. A set X ⊆ V is a t-shallow hitting set of H(V,R,m) if every hyperedge meets X in at least one and at most t vertices. A range family is shrinkable if every hyperedge of H(V,R,m) contains a hyperedge of H(V,R,m-1). This problem asks for the shrinkability of the strip family R_ST in R^d: every hyperedge of H(V,R_ST,m) contains a hyperedge of H(V,R_ST,m-1). Geometrically, a strip capturing m points of V can be narrowed to capture exactly m-1 of them. Shrinkability is the side condition required by the reduction lemma to convert shallow hitting sets into polychromatic bounds.",
 "lean": "theorem P034 (d : ℕ) : Shrinkable (stripFamily d)"
 },
 {
 "id": "035",
 "name": "Shrinkability of bottomless rectangles",
-"cat": "research",
-"note": "",
+"cat": "calibration",
+"note": "short",
 "resolved": "",
 "msc": "05C15 Colouring of graphs and hypergraphs",
 "area": "Graph theory",
 "sub": "",
-"summary": "In the range-capturing setting, a range family R is a family of subsets of R^d, and for a finite point set V the m-uniform hypergraph H(V,R,m) has as hyperedges the m-element subsets of V of the form V ∩ r with r ∈ R. A colouring of V with k colours is polychromatic for H(V,R,m) if every hyperedge contains all k colours, and m_R(k) is the least uniformity m such that every H(V,R,m) admits a polychromatic k-colouring. A set X ⊆ V is a t-shallow hitting set of H(V,R,m) if every hyperedge meets X in at least one and at most t vertices. A range family is shrinkable if every hyperedge of H(V,R,m) contains a hyperedge of H(V,R,m-1). This problem asks for the shrinkability of the bottomless-rectangle family R_BL in the plane: every hyperedge of H(V,R_BL,m) contains a hyperedge of H(V,R_BL,m-1). Geometrically, a bottomless rectangle capturing m points can be shrunk (raising the bottom is impossible, so one narrows the sides or lowers the top) to capture exactly m-1 of them. [Formalisation note 2026-09-08: the range-capturing predicates PolychromaticBound, HasUniformShallowHittingSets and Shrinkable are stated for point sets in general position (pairwise distinct coordinates), as in the paper; Shrinkable also requires uniformity m ≥ 1.]",
+"summary": "In the range-capturing setting, a range family R is a family of subsets of R^d, and for a finite point set V the m-uniform hypergraph H(V,R,m) has as hyperedges the m-element subsets of V of the form V ∩ r with r ∈ R. A colouring of V with k colours is polychromatic for H(V,R,m) if every hyperedge contains all k colours, and m_R(k) is the least uniformity m such that every H(V,R,m) admits a polychromatic k-colouring. A set X ⊆ V is a t-shallow hitting set of H(V,R,m) if every hyperedge meets X in at least one and at most t vertices. A range family is shrinkable if every hyperedge of H(V,R,m) contains a hyperedge of H(V,R,m-1). This problem asks for the shrinkability of the bottomless-rectangle family R_BL in the plane: every hyperedge of H(V,R_BL,m) contains a hyperedge of H(V,R_BL,m-1). Geometrically, a bottomless rectangle capturing m points can be shrunk to capture exactly m-1 of them.",
 "lean": "theorem P035 : Shrinkable bottomlessRectangles"
 },
 {
 "id": "036",
 "name": "Shrinkability of the union of bottomless and topless rectangles",
-"cat": "research",
-"note": "",
+"cat": "calibration",
+"note": "short",
 "resolved": "",
 "msc": "05C15 Colouring of graphs and hypergraphs",
 "area": "Graph theory",
 "sub": "",
-"summary": "In the range-capturing setting, a range family R is a family of subsets of R^d, and for a finite point set V the m-uniform hypergraph H(V,R,m) has as hyperedges the m-element subsets of V of the form V ∩ r with r ∈ R. A colouring of V with k colours is polychromatic for H(V,R,m) if every hyperedge contains all k colours, and m_R(k) is the least uniformity m such that every H(V,R,m) admits a polychromatic k-colouring. A set X ⊆ V is a t-shallow hitting set of H(V,R,m) if every hyperedge meets X in at least one and at most t vertices. A range family is shrinkable if every hyperedge of H(V,R,m) contains a hyperedge of H(V,R,m-1). This problem asks for the shrinkability of the union family R_BL ∪ R_TL in the plane: every hyperedge of H(V, R_BL ∪ R_TL, m) contains a hyperedge of H(V, R_BL ∪ R_TL, m-1). Together with the 21-shallow hitting sets of Theorem 25 and the reduction lemma, this yields the linear polychromatic bound for the union family. [Formalisation note 2026-09-08: the range-capturing predicates PolychromaticBound, HasUniformShallowHittingSets and Shrinkable are stated for point sets in general position (pairwise distinct coordinates), as in the paper; Shrinkable also requires uniformity m ≥ 1.]",
+"summary": "In the range-capturing setting, a range family R is a family of subsets of R^d, and for a finite point set V the m-uniform hypergraph H(V,R,m) has as hyperedges the m-element subsets of V of the form V ∩ r with r ∈ R. A colouring of V with k colours is polychromatic for H(V,R,m) if every hyperedge contains all k colours, and m_R(k) is the least uniformity m such that every H(V,R,m) admits a polychromatic k-colouring. A set X ⊆ V is a t-shallow hitting set of H(V,R,m) if every hyperedge meets X in at least one and at most t vertices. A range family is shrinkable if every hyperedge of H(V,R,m) contains a hyperedge of H(V,R,m-1). This problem asks for the shrinkability of the union family R_BL ∪ R_TL in the plane: every hyperedge of H(V, R_BL ∪ R_TL, m) contains a hyperedge of H(V, R_BL ∪ R_TL, m-1). Together with the 21-shallow hitting sets of Theorem 25 and the reduction lemma, this yields the linear polychromatic bound for the union family.",
 "lean": "theorem P036 : Shrinkable (bottomlessRectangles ∪ toplessRectangles)"
 },
 {
@@ -441,7 +441,7 @@ window.PB_PROBLEMS = [
 "msc": "20F65 Geometric group theory",
 "area": "Group theory",
 "sub": "",
-"summary": "Stallings' theorem characterizes the infinite finitely generated groups with more than one end as those splitting over a finite subgroup. The paper 'Towards a Stallings-type theorem for finite groups' by Carmesin, Kontogeorgiou, Kurkofka and Turner develops a finite analogue in which ends are replaced by r-local separators of Cayley graphs. The formalized main theorem states, for a finite nilpotent group Γ of nilpotency class at most n and any r ≥ max(4^{n+1}, 20), the equivalence (TFAE) of three assertions: (I) some Cayley graph of Γ has an r-local separator of size at most two; (II) Γ has a generating set whose Cayley graph either has small order or admits such a separator structure; (III) Γ factors through a cyclic quotient of the corresponding kind. The problem file fixes the covering-graph vocabulary (r-local coverings via closed-neighbourhood bijections) explicitly.",
+"summary": "Stallings' theorem characterizes the infinite finitely generated groups with more than one end as those splitting over a finite subgroup. The paper 'Towards a Stallings-type theorem for finite groups' by Carmesin, Kontogeorgiou, Kurkofka and Turner develops a finite analogue in which ends are replaced by r-local separators of Cayley graphs. The formalized main theorem states, for a finite nilpotent group Γ of nilpotency class at most n and any r ≥ max(4^{n+1}, 20), the equivalence (TFAE) of three assertions: (I) the r-local covering of some Cayley graph of Γ has at least two ends separated by at most two vertices; (II) some Cayley graph of Γ has an r-local cutvertex or an r-local 2-separator, and |Γ| > r; (III) Γ is isomorphic to C_i × C_j with i > r and j ∈ {1, 2}. The r-local covering G_r (the covering whose characteristic subgroup is generated by the closed walks of length at most r) is characterised intrinsically: a covering map (closed-neighbourhood bijections) with connected cover, in which distinct lifts of a vertex are at distance greater than r and every closed walk of the cover is transformed into the trivial walk by inserting and deleting closed subwalks of length at most r.",
 "lean": "theorem P037 [Finite Γ] [Group.IsNilpotent Γ] {n r : ℕ} (hclass : Group.nilpotencyClass Γ ≤ n) (hr : max (4 ^ (n + 1)) 20 ≤ r) : [AssertionI Γ r, AssertionII Γ r, AssertionIII Γ r].TFAE"
 },
 {
@@ -483,8 +483,8 @@ window.PB_PROBLEMS = [
 {
 "id": "041",
 "name": "3-SAT as an allocation-constraint system",
-"cat": "research",
-"note": "",
+"cat": "calibration",
+"note": "elementary",
 "resolved": "",
 "msc": "68R05 Combinatorics in computer science; 03B05 Propositional logic",
 "area": "Graph theory",
@@ -844,7 +844,7 @@ window.PB_PROBLEMS = [
 "id": "071",
 "name": "Bipartite Unique-Neighbour Expanders via Ramanujan Graphs",
 "cat": "research",
-"note": "",
+"note": "existence form of Asherov–Dinur Theorem 1; the polynomial-time clause is not asserted",
 "resolved": "",
 "msc": "05C48 Expander graphs; 05C50 Graphs and linear algebra",
 "area": "Graph theory",
@@ -885,7 +885,7 @@ window.PB_PROBLEMS = [
 "msc": "11B37 Recurrences; 37P99 Arithmetic and non-Archimedean dynamical systems",
 "area": "Number theory",
 "sub": "",
-"summary": "The Collatz map sends an even number n to n/2 and an odd n to 3n+1. The Collatz conjecture (1937) asserts that iterating this map from any positive integer eventually reaches 1. It has been verified for all n < 2^68 (Barina 2020); Tao (2019) proved that almost all orbits attain almost bounded values; and any nontrivial cycle would have length at least 17,087,915 (Eliahou 1993, since improved). The conjecture is equivalent to the conjunction of two statements: no orbit diverges, and the only cycle is 1 -> 4 -> 2 -> 1; the sandwich formalizes this equivalence in both directions.",
+"summary": "The Collatz map sends an even number n to n/2 and an odd n to 3n+1. The Collatz conjecture (1937) asserts that iterating this map from any positive integer eventually reaches 1. It has been verified for all n < 2^68 (Barina 2020); Tao (2019) proved that almost all orbits attain almost bounded values; and any nontrivial cycle would have length at least 17,087,915 (Eliahou 1993, since improved). The conjecture is equivalent to the conjunction of two statements: no orbit diverges, and the only cycle is 1 -> 4 -> 2 -> 1.",
 "lean": "theorem P074 : ∀ n : ℕ, 0 < n → CollatzReachesOne n"
 },
 {
@@ -939,13 +939,13 @@ window.PB_PROBLEMS = [
 {
 "id": "079",
 "name": "Antipodal Edge-Colourings of the Hypercube",
-"cat": "open",
-"note": "",
+"cat": "research",
+"note": "open until July 2026; proof claimed by Wu and Yang, arXiv:2607.19276, not yet independently verified",
 "resolved": "",
 "msc": "05C15 Coloring of graphs and hypergraphs; 05C38 Paths and cycles",
 "area": "Graph theory",
 "sub": "",
-"summary": "Let d >= 2 and two-colour the edges of the d-dimensional hypercube Q_d so that antipodal edges (an edge and its image under complementing every coordinate) receive opposite colours; no properness is imposed. Norine's conjecture states that some pair of antipodal vertices is then joined by a monochromatic path. The stronger conjecture that every two-colouring of Q_d admits an antipodal path with at most one colour change implies it. Open in general.",
+"summary": "Let d >= 2 and two-colour the edges of the d-dimensional hypercube Q_d so that antipodal edges (an edge and its image under complementing every coordinate) receive opposite colours; no properness is imposed. Norine's conjecture states that some pair of antipodal vertices is then joined by a monochromatic path. The stronger conjecture that every two-colouring of Q_d admits an antipodal path with at most one colour change implies it. A proof for all d ≥ 2 was claimed in July 2026 (Wu–Yang, arXiv:2607.19276); it has not yet been independently verified.",
 "lean": "theorem P079 : ∀ (d : ℕ), 2 ≤ d → ∀ c : Sym2 (Q d) → Bool, IsAntipodalColoring d c → ∃ (x : Q d) (w : (H d).Walk x (antipode x)) (b : Bool), IsMonochromatic c w b"
 },
 {
@@ -981,7 +981,7 @@ window.PB_PROBLEMS = [
 "msc": "05C76 Graph operations; 05C69 Dominating sets, independent sets, cliques",
 "area": "Graph theory",
 "sub": "",
-"summary": "A pebbling configuration assigns a nonnegative integer to each vertex of a graph. A legal move removes two pebbles from one vertex and adds one to an adjacent vertex. The pebbling number π(G) is the least n such that every configuration of n pebbles can place a pebble at any prescribed root using finitely many legal moves. Graham's conjecture asserts π(G □ H) ≤ π(G)π(H) for all finite connected simple graphs G and H, where □ is the Cartesian product. The formalization proves that the threshold exists and that requiring exactly n or at least n pebbles gives the same definition. The conjecture is open; the companion DISPROVE file asks for finite connected factors violating the inequality.",
+"summary": "A pebbling configuration assigns a nonnegative integer to each vertex of a graph. A legal move removes two pebbles from one vertex and adds one to an adjacent vertex. The pebbling number π(G) is the least n such that every configuration of n pebbles can place a pebble at any prescribed root using finitely many legal moves. Graham's conjecture asserts π(G □ H) ≤ π(G)π(H) for all finite connected simple graphs G and H, where □ is the Cartesian product. The threshold exists, and requiring exactly n or at least n pebbles gives the same number. The conjecture is open; the companion DISPROVE file asks for finite connected factors violating the inequality.",
 "lean": "theorem P082 : ∀ {V : Type u} {W : Type v} [Fintype V] [Fintype W] [DecidableEq V] [DecidableEq W] (G : SimpleGraph V) (H : SimpleGraph W), G.Connected → H.Connected → pebblingNumber (G □ H) ≤ pebblingNumber G * pebblingNumber H"
 },
 {
@@ -993,7 +993,7 @@ window.PB_PROBLEMS = [
 "msc": "05C05 Trees; 05C69 Dominating sets, independent sets, cliques",
 "area": "Graph theory",
 "sub": "",
-"summary": "A legal pebbling move removes two pebbles from a vertex and places one at an adjacent vertex. The pebbling number is the least size for which every configuration can reach every prescribed root by finitely many legal moves. For the path on n + 1 vertices, this number is exactly 2^n, for all n ≥ 0. This classical solved problem is an elementary calibration task reusing P082's definitions. A complete Lean solution is supplied, including arbitrary roots and the one-vertex case.",
+"summary": "A legal pebbling move removes two pebbles from a vertex and places one at an adjacent vertex. The pebbling number is the least size for which every configuration can reach every prescribed root by finitely many legal moves. For the path on n + 1 vertices, this number is exactly 2^n, for all n ≥ 0. This classical solved problem is an elementary calibration task reusing P082's definitions.",
 "lean": "theorem P083 (n : ℕ) : pebblingNumber (pathGraph (n + 1)) = 2 ^ n"
 },
 {
@@ -1017,7 +1017,7 @@ window.PB_PROBLEMS = [
 "msc": "11K60 Diophantine approximation; 11J13 Simultaneous homogeneous approximation, linear forms",
 "area": "Graph theory",
 "sub": "Topological graph theory",
-"summary": "For any k ≥ 1 nonzero integer speeds v₁,…,v_k, there is a real time t such that every t vᵢ is at distance at least 1/(k+1) from the nearest integer. This is the stationary-runner integer formulation: k speeds correspond to k+1 runners. Negative and repeated speeds are allowed. The full conjecture remains open; recent preprints report computer-assisted proofs through fourteen runners, not a general solution. The sandwich proves an exact finite rational search for each fixed speed vector, preserving equality at the threshold.",
+"summary": "For any k ≥ 1 nonzero integer speeds v₁,…,v_k, there is a real time t such that every t vᵢ is at distance at least 1/(k+1) from the nearest integer. This is the stationary-runner integer formulation: k speeds correspond to k+1 runners. Negative and repeated speeds are allowed. The full conjecture remains open; recent preprints report computer-assisted proofs through fourteen runners, not a general solution.",
 "lean": "theorem P085 (k : ℕ) (hk : 1 ≤ k) (v : Fin k → ℤ) (hv : ∀ i, v i ≠ 0) : ∃ t : ℝ, ∀ i, (1 : ℝ) / (k + 1) ≤ ‖((t * v i : ℝ) : UnitAddCircle)‖"
 },
 {
@@ -1029,38 +1029,38 @@ window.PB_PROBLEMS = [
 "msc": "05C15 Coloring of graphs and hypergraphs; 05C05 Trees",
 "area": "Graph theory",
 "sub": "",
-"summary": "Let G be a nonempty finite simple graph isomorphic to a (not necessarily induced) subgraph of an n-dimensional hypercube. Give its edges a proper colouring: edges sharing a vertex have distinct colours. Then every finite tree T with at most δ(G) edges has a rainbow copy in G, meaning an injective edge-preserving vertex map under which distinct edges of T receive distinct colours. Here δ(G) is the minimum degree. This is Theorem 1.2 of Crawford–Sankar–Schildkraut–Spiro, Rainbow Trees in Hypercubes (2025). In particular, every proper edge-colouring of Q_n contains every tree with at most n edges as a rainbow copy. P014 concerns the absence of rainbow cycles in the coordinate colouring; this is a different result. The Lean benchmark statement is registered; its full proof and substantive sandwich remain to be formalized.",
+"summary": "Let G be a nonempty finite simple graph isomorphic to a (not necessarily induced) subgraph of an n-dimensional hypercube. Give its edges a proper colouring: edges sharing a vertex have distinct colours. Then every finite tree T with at most δ(G) edges has a rainbow copy in G, meaning an injective edge-preserving vertex map under which distinct edges of T receive distinct colours. Here δ(G) is the minimum degree. This is Theorem 1.2 of Crawford–Sankar–Schildkraut–Spiro, Rainbow Trees in Hypercubes (2025). In particular, every proper edge-colouring of Q_n contains every tree with at most n edges as a rainbow copy. P014 concerns the absence of rainbow cycles in the coordinate colouring; this is a different result.",
 "lean": "theorem P086 {V W C : Type*} [Fintype V] [Nonempty V] [Fintype W] (n : ℕ) (G : SimpleGraph V) [DecidableRel G.Adj] (ι : G →g H n) (hι : Injective ι) (c : G.lineGraph.Coloring C) (T : SimpleGraph W) [DecidableRel T.Adj] (hT : T.IsTree) (hsize : T.edgeFinset.card ≤ G.minDegree) : ∃ f : T →g G, Injective f ∧ Injective (c ∘ f.mapEdgeSet)"
 },
 {
 "id": "087",
 "name": "Galvin's Bipartite List-Edge-Colouring Theorem",
 "cat": "calibration",
-"note": "upper-end; proved in literature; Lean proof pending",
+"note": "upper-end",
 "resolved": "",
 "msc": "05C15 Coloring of graphs and hypergraphs",
 "area": "Graph theory",
 "sub": "",
-"summary": "Let M be a finite loopless bipartite multigraph, with parallel edges retained as distinct edge objects. Suppose every vertex is incident with at most d edges. For each edge e, choose a finite list L(e) of at least d allowed colours from an arbitrary common palette. Galvin's theorem asserts that one can select a colour c(e) from every list so that any two distinct edges with a common endpoint have different colours. No positivity condition on d is needed: the empty-edge case is included. The formal statement uses two-colourability of the underlying simple graph for bipartiteness, an explicit loop exclusion, and injectivity on incident edge sets for properness. This is a proved theorem and an upper-end calibration target, not an open list-colouring conjecture. Its full Lean proof is pending. A proven reduction derives Dinitz's theorem on choosing representatives from an n-by-n array of lists, distinct in each row and column.",
+"summary": "Let M be a finite loopless bipartite multigraph, with parallel edges retained as distinct edge objects. Suppose every vertex is incident with at most d edges. For each edge e, choose a finite list L(e) of at least d allowed colours from an arbitrary common palette. Galvin's theorem asserts that one can select a colour c(e) from every list so that any two distinct edges with a common endpoint have different colours. No positivity condition on d is needed: the empty-edge case is included. The formal statement uses two-colourability of the underlying simple graph for bipartiteness, an explicit loop exclusion, and injectivity on incident edge sets for properness. This is a proved theorem and an upper-end calibration target, not an open list-colouring conjecture. A proven reduction derives Dinitz's theorem on choosing representatives from an n-by-n array of lists, distinct in each row and column.",
 "lean": "theorem P087 {V E C : Type*} [Finite V] [Fintype E] [DecidableEq V] (d : ℕ) (M : Multigraph V E) (hloop : ∀ e, ¬M.IsLoop e) (hbi : M.toSimpleGraph.Colorable 2) (hdegree : ∀ v, (M.incidenceFinset v).card ≤ d) (L : E → Finset C) (hL : ∀ e, d ≤ (L e).card) : ∃ c : E → C, (∀ e, c e ∈ L e) ∧ ∀ v, Set.InjOn c ↑(M.incidenceFinset v)"
 },
 {
 "id": "088",
 "name": "Elementary Ramsey Binomial Bound",
 "cat": "calibration",
-"note": "elementary; full Lean reference proof",
+"note": "elementary",
 "resolved": "",
 "msc": "05C55 Generalized Ramsey theory",
 "area": "Graph theory",
 "sub": "",
-"summary": "For positive integers r and s, every finite simple graph with at least choose(r+s−2,r−1) vertices contains a clique of size r or an independent set of size s. This is the classical Erdős–Szekeres binomial upper bound for two-colour Ramsey numbers, not P003's modern exponential improvement. The full reference Lean proof is supplied: induction on the two target sizes splits the remaining vertices into neighbours and non-neighbours of one vertex and uses Pascal's identity. This is an elementary solved calibration problem. The benchmark file retains its exercise placeholder; the reference proof is kept separately.",
+"summary": "For positive integers r and s, every finite simple graph with at least choose(r+s−2,r−1) vertices contains a clique of size r or an independent set of size s. This is the classical Erdős–Szekeres binomial upper bound for two-colour Ramsey numbers, not P003's modern exponential improvement.",
 "lean": "theorem P088 {V : Type*} [Fintype V] (G : SimpleGraph V) (r s : ℕ) (hr : 1 ≤ r) (hs : 1 ≤ s) (h : (r + s - 2).choose (r - 1) ≤ Fintype.card V) : (∃ t : Finset V, G.IsNClique r t) ∨ ∃ t : Finset V, Gᶜ.IsNClique s t"
 },
 {
 "id": "089",
 "name": "Erdős–Szekeres Monotone Subsequence Theorem",
 "cat": "calibration",
-"note": "elementary; full Lean reference proof",
+"note": "elementary",
 "resolved": "",
 "msc": "05D10 Ramsey theory; 06A05 Total order",
 "area": "Graph theory",
@@ -1072,7 +1072,7 @@ window.PB_PROBLEMS = [
 "id": "090",
 "name": "Restricted Eigenvalues of Strongly Regular Graphs",
 "cat": "calibration",
-"note": "short; full Lean reference proof",
+"note": "short",
 "resolved": "",
 "msc": "05C50 Graphs and linear algebra (matrices, eigenvalues, etc.); 05E30 Association schemes, strongly regular graphs",
 "area": "Graph theory",
@@ -1084,7 +1084,7 @@ window.PB_PROBLEMS = [
 "id": "091",
 "name": "Bollobás's Uniform Set-Pairs Inequality",
 "cat": "calibration",
-"note": "medium; full Lean reference proof",
+"note": "medium",
 "resolved": "",
 "msc": "05D05 Extremal set theory",
 "area": "Graph theory",
@@ -1096,36 +1096,36 @@ window.PB_PROBLEMS = [
 "id": "092",
 "name": "Friendship Theorem (Erdős–Rényi–Sós)",
 "cat": "calibration",
-"note": "medium; statement and sandwich formalized; Lean reference pending",
+"note": "medium",
 "resolved": "",
 "msc": "05C75 Structural characterization of families of graphs; 05C50 Graphs and linear algebra",
 "area": "Graph theory",
 "sub": "",
-"summary": "In a nonempty finite simple graph, suppose every pair of distinct vertices has exactly one common neighbour, whether or not the pair is adjacent. Then there is a vertex adjacent to every other vertex. Equivalently, the graph consists of triangles sharing a common central vertex; the singleton graph is included as the degenerate case with no triangles. This is the proved friendship theorem of Erdős, Rényi and Sós (1966). The Lean statement and sandwich implications are formalized; the full Lean reference proof is pending.",
+"summary": "In a nonempty finite simple graph, suppose every pair of distinct vertices has exactly one common neighbour, whether or not the pair is adjacent. Then there is a vertex adjacent to every other vertex. Equivalently, the graph consists of triangles sharing a common central vertex; the singleton graph is included as the degenerate case with no triangles. This is the proved friendship theorem of Erdős, Rényi and Sós (1966).",
 "lean": "theorem P092 {V : Type*} [Finite V] [Nonempty V] (G : SimpleGraph V) (h : ∀ u v, u ≠ v → ∃! w, G.Adj u w ∧ G.Adj v w) : ∃ c, ∀ v, v ≠ c → G.Adj c v"
 },
 {
 "id": "093",
 "name": "Dirac's Hamiltonian-Cycle Theorem",
 "cat": "calibration",
-"note": "medium; statement and sandwich formalized; Lean reference pending",
+"note": "medium",
 "resolved": "",
 "msc": "05C45 Eulerian and Hamiltonian graphs",
 "area": "Graph theory",
 "sub": "",
-"summary": "A finite simple graph G with n >= 3 vertices has a Hamiltonian cycle if 2 deg(v) >= n for every vertex v. The statement uses Mathlib's Hamiltonian predicate, whose singleton convention is excluded by n >= 3. This is Dirac's proved theorem (1952). The Lean statement and sandwich implications are formalized; a complete Lean reference proof is pending.",
+"summary": "A finite simple graph G with n >= 3 vertices has a Hamiltonian cycle if 2 deg(v) >= n for every vertex v. The statement uses Mathlib's Hamiltonian predicate, whose singleton convention is excluded by n >= 3. This is Dirac's proved theorem (1952).",
 "lean": "theorem P093 {V : Type*} [Fintype V] [DecidableEq V] (G : SimpleGraph V) [DecidableRel G.Adj] (hn : 3 ≤ Fintype.card V) (hdeg : ∀ v, Fintype.card V ≤ 2 * G.degree v) : G.IsHamiltonian"
 },
 {
 "id": "094",
 "name": "Explicit Lossless Vertex Expanders (Hsieh–Lubotzky–Mohanty–Reiner–Zhang, Theorem 2.2)",
 "cat": "research",
-"note": "",
+"note": "existence form of HLMRZ Theorem 2.2; the paper's algorithmic clause is not asserted",
 "resolved": "",
 "msc": "05C48 Expander graphs; 05C50 Graphs and linear algebra",
 "area": "Graph theory",
 "sub": "",
-"summary": "Theorem 2.2 of Hsieh, Lubotzky, Mohanty, Reiner and Zhang (2025): for every eps in (0,1] there is k = k(eps) such that for every beta in (0,1] there is d_0 with the following property: for all dL, dR >= d_0 with beta <= dL/dR <= beta + eps there is an infinite family of (k dL, k dR)-biregular bipartite graphs on Theta(n) vertices that are two-sided (1 - eps)-vertex expanders, i.e. for some eta > 0 every set S of vertices on one side with |S| <= eta times that side has at least (1 - eps) times (degree times |S|) neighbours. The paper's polynomial-time construction clause is not asserted; only existence is.",
+"summary": "Theorem 2.2 of Hsieh, Lubotzky, Mohanty, Reiner and Zhang (2025): for every eps in (0,1] there is k = k(eps) such that for every beta in (0,1] there is d_0 with the following property: for all dL, dR >= d_0 with beta <= dL/dR <= beta + eps there is an infinite family of (k dL, k dR)-biregular bipartite graphs on Theta(n) vertices that are two-sided (1 - eps)-vertex expanders, i.e. for some eta > 0 every set S of vertices on one side with |S| <= eta times that side has at least (1 - eps) times (degree times |S|) neighbours. The paper's polynomial-time construction clause is not asserted; only existence is. Existence alone (even with k = 1 and without the ratio window) also follows from the probabilistic method, so the formal problem is the existence statement in the parameter form of Theorem 2.2, not the paper's explicit construction.",
 "lean": "theorem P094 {eps : ℝ} (heps0 : 0 < eps) (heps1 : eps ≤ 1) : ∃ k : ℕ, 0 < k ∧ ∀ beta : ℝ, 0 < beta → beta ≤ 1 → ∃ d₀ : ℕ, 0 < d₀ ∧ ∀ dL dR : ℕ, d₀ ≤ dL → d₀ ≤ dR → beta * (dR : ℝ) ≤ (dL : ℝ) → (dL : ℝ) ≤ (beta + eps) * (dR : ℝ) → ∃ Z : ℕ → BipartiteGraph, (∀ n, (Z n).IsBiregular (k * dL) (k * dR)) ∧ HasThetaNVertices Z ∧ IsTwoSidedVertexExpanderFamily Z (k * dL) (k * dR) (1 - eps)"
 },
 {
@@ -1149,7 +1149,7 @@ window.PB_PROBLEMS = [
 "msc": "05C65 Hypergraphs; 05C31 Graph polynomials; 15A69 Multilinear algebra, tensor calculus",
 "area": "Graph theory",
 "sub": "",
-"summary": "Theorem 4.10 of Li, Su and Fallat (2023): for an r-uniform hypertree T with at least one edge with m edges (r >= 2), the characteristic polynomial of its adjacency tensor factors as phi_T = prod over connected subgraphs H of T of phi_H^{a_H}, where phi_H is the matching polynomial of H, a_H = b^{m - e(H) - |bd(H)|} c^{e(H)} (b - c)^{|bd(H)|}, b = (r-1)^{r-1}, c = r^{r-2}, and bd(H) is the set of edges of T meeting H but not in H; single vertices contribute the factor lambda with boundary the star of the vertex. The characteristic polynomial is defined concretely through the Macaulay determinant formula as the polynomial quotient of two explicit matrix characteristic polynomials. Exactness and agreement with the ordinary adjacency characteristic polynomial are proved for r = 2; the general resultant bridge and exact-division proof remain unformalized.",
+"summary": "Theorem 4.10 of Li, Su and Fallat (2023): for an r-uniform hypertree T with at least one edge with m edges (r >= 2), the characteristic polynomial of its adjacency tensor factors as phi_T = prod over connected subgraphs H of T of phi_H^{a_H}, where phi_H is the matching polynomial of H, a_H = b^{m - e(H) - |bd(H)|} c^{e(H)} (b - c)^{|bd(H)|}, b = (r-1)^{r-1}, c = r^{r-2}, and bd(H) is the set of edges of T meeting H but not in H; single vertices contribute the factor lambda with boundary the star of the vertex. The characteristic polynomial is defined concretely through the Macaulay determinant formula as the polynomial quotient of two explicit matrix characteristic polynomials.",
 "lean": "theorem P096 {r : ℕ} (hr : 2 ≤ r) {E : EdgeSet} (hT : IsRTree r E) : charPoly r E = (∏ v ∈ vertices E, (Polynomial.X : Polynomial ℤ) ^ aExp r E.card 0 (degree E v)) * ∏ F ∈ connectedSubgraphs E, matchingPoly r F ^ aExp r E.card F.card (boundary E F).card"
 },
 {
@@ -1168,13 +1168,13 @@ window.PB_PROBLEMS = [
 "id": "098",
 "name": "Mantel's Theorem",
 "cat": "calibration",
-"note": "short/medium; full independent Lean reference proof",
+"note": "short/medium",
 "resolved": "",
 "msc": "05C35 Extremal problems in graph theory",
 "area": "Graph theory",
 "sub": "",
-"summary": "Every triangle-free finite simple graph on n vertices has at most floor(n^2/4) edges. Triangle-free means that the complete graph on three vertices has no graph embedding into G. Empty and singleton graphs are allowed. The owner's independent degree-sum/Cauchy–Schwarz Lean proof is integrated, and a separate proctor upper bound derives the result from Mathlib's general Turán theorem.",
-"lean": "theorem P098 {V : Type} (G : SimpleGraph V) [Fintype V] [DecidableRel G.Adj] {htf : triangle_free G} : Finset.card (G.edgeSet.toFinset) ≤ (Fintype.card V)^2 / 4"
+"summary": "Every triangle-free finite simple graph on n vertices has at most floor(n^2/4) edges. Triangle-free means that the complete graph on three vertices has no graph embedding into G. Empty and singleton graphs are allowed. It is the triangle case of Turán's theorem.",
+"lean": "theorem P098 {htf : triangle_free G} : Finset.card (G.edgeSet.toFinset) ≤ (Fintype.card V)^2 / 4"
 },
 {
 "id": "099",
@@ -1221,8 +1221,8 @@ window.PB_PROBLEMS = [
 "msc": "60B20 Random matrices (probabilistic aspects); 15B52 Random matrices (algebraic aspects)",
 "area": "Graph theory",
 "sub": "Random graphs",
-"summary": "Theorem 1.1 of Coja-Oghlan, Gao, Hahn-Klimroth, Lee, Muller and Rolvien (2021): let d and k >= 3 be degree laws with finite (2+eta)-th moments, let the gcds of their supports be coprime to the field order q, and let chi be a law on the nonzero field elements; if Phi(z) < Phi(0) for all 0 < z <= 1 (the full rank condition (1.3)), then the random sparse matrix A_n(d, k, chi) over F_q, with independent nonzero coefficients on the edges of a uniformly random simple bipartite Tanner graph with the prescribed degrees, has full row rank with high probability as n tends to infinity along multiples of the check-degree gcd.",
-"lean": "theorem P102 (F : Type*) [Field F] [Fintype F] (P : DegreeParameters) (χ : PMF F) (hχ : ∀ x ∈ χ.support, x ≠ 0) (η : Real) (hη : 0 < η) (hmoment_d : Summable fun r => P.variableDegree.mass r * (r : Real) ^ (2 + η)) (hmoment_k : Summable fun r => P.checkDegree.mass r * (r : Real) ^ (2 + η)) (kgcd : Nat) (hkgcd : P.checkDegree.IsSupportGCD kgcd) (hcoprime : FieldOrderCoprime (F"
+"summary": "Theorem 1.1 of Coja-Oghlan, Gao, Hahn-Klimroth, Lee, Muller and Rolvien (2021): let d and k >= 3 be degree laws with finite (2+eta)-th moments, let the gcd of the support of d be coprime to the field order q, and let chi be a law on the nonzero field elements; if Phi(z) < Phi(0) for all 0 < z <= 1 (the full rank condition (1.3)), then the random sparse matrix A_n(d, k, chi) over F_q, with independent nonzero coefficients on the edges of a uniformly random simple bipartite Tanner graph with the prescribed degrees, has full row rank with high probability as n tends to infinity along multiples of the check-degree gcd.",
+"lean": "theorem P102 (F : Type*) [Field F] [Fintype F] (P : DegreeParameters) (χ : PMF F) (hχ : ∀ x ∈ χ.support, x ≠ 0) (η : Real) (hη : 0 < η) (hmoment_d : Summable fun r => P.variableDegree.mass r * (r : Real) ^ (2 + η)) (hmoment_k : Summable fun r => P.checkDegree.mass r * (r : Real) ^ (2 + η)) (kgcd : Nat) (hkgcd : P.checkDegree.IsSupportGCD kgcd) (hcoprime : FieldOrderCoprime (F := F) P) (hphi : P.StrictPhiCondition) : AsymptoticallyAlmostSurely fun t => fullRowRankProbability (randomMatrixLaw F P χ (kgcd * t)).toMeasure"
 },
 {
 "id": "103",
@@ -1245,7 +1245,7 @@ window.PB_PROBLEMS = [
 "msc": "05C80 Random graphs",
 "area": "Graph theory",
 "sub": "",
-"summary": "Theorem 1.5 of Gao, Isaev and Perez-Gimenez (2025): for d = d(n) with dn even and d <= n - 1, (a) if d = n - O(log^4 n) there are p_*, p^* = (1 + o(1)) d/n and couplings of G(n,p_*), G(n,d), G(n,p^*) with G(n,p_*) contained in G(n,d) contained in G(n,p^*) with probability 1 - o(1) (the Kim–Vu sandwich conjecture for very large degrees); (b) if d = omega(log n) and d = O(log^4 n) the same holds with p_* = (1 - o(1)) d/n and p^* = (8 + o(1)) d/n; (c) if d = o(log n), for every fixed epsilon > 0 there are couplings with p_* = (1 - epsilon) d/n and p^* = (1 + epsilon) d/n up to the paper's stated error terms.",
+"summary": "Theorem 1.5 of Gao, Isaev and Perez-Gimenez (2025): for d = d(n) with dn even and d <= n - 1, (a) if d = n - O(log^4 n) there are p_*, p^* = (1 + o(1)) d/n and couplings of G(n,p_*), G(n,d), G(n,p^*) with G(n,p_*) contained in G(n,d) contained in G(n,p^*) with probability 1 - o(1) (the Kim–Vu sandwich conjecture for very large degrees); (b) if d = omega(log n) and d = O(log^4 n) the same holds with p_* = (1 - o(1)) d/n and p^* = (8 + o(1)) d/n; (c) if d = o(log n), for every fixed epsilon > 0 there is a coupling with G(n,d) contained in G(n, p_n) with probability 1 - o(1), where p_n = (1 + epsilon) log n / n for even n and (2 + epsilon) log n / n for odd n; (d) for every c > 0 there is C > 0 such that, whenever d <= c log n, G(n,d) embeds into G(n, C log n / n) with probability 1 - o(1).",
 "lean": "theorem P104 : (∀ d : ℕ → ℕ, (∀ n, (regularSequence n (d n)).IsGraphical) → (∃ C : ℝ, ∀ᶠ n : ℕ in atTop, (n : ℝ) - d n ≤ C * (Real.log n) ^ 4) → ∃ pLow pUp : ℕ → ℝ, Tendsto (fun n : ℕ => pLow n / ((d n : ℝ) / n)) atTop (𝓝 1) ∧ Tendsto (fun n : ℕ => pUp n / ((d n : ℝ) / n)) atTop (𝓝 1) ∧ ∃ κ : ∀ n : ℕ, Coupling3 (binomialGraph n (pLow n)) (randomRegularGraph n (d n)) (binomialGraph n (pUp n)), Tendsto (fun n => (κ n).sandwichProb) atTop (𝓝 1)) ∧ (∀ d : ℕ → ℕ, (∀ n, (regularSequence n (d n)).IsGraphical) → Tendsto (fun n : ℕ => (d n : ℝ) / Real.log n) atTop atTop → (∃ C : ℝ, ∀ᶠ n : ℕ in atTop, (d n : ℝ) ≤ C * (Real.log n) ^ 4) → ∃ pLow pUp : ℕ → ℝ, Tendsto (fun n : ℕ => pLow n / ((d n : ℝ) / n)) atTop (𝓝 1) ∧ Tendsto (fun n : ℕ => pUp n / ((d n : ℝ) / n)) atTop (𝓝 8) ∧ ∃ κ : ∀ n : ℕ, Coupling3 (binomialGraph n (pLow n)) (randomRegularGraph n (d n)) (binomialGraph n (pUp n)), Tendsto (fun n => (κ n).sandwichProb) atTop (𝓝 1)) ∧ (∀ d : ℕ → ℕ, (∀ n, (regularSequence n (d n)).IsGraphical) → Tendsto (fun n : ℕ => (d n : ℝ) / Real.log n) atTop (𝓝 0) → ∀ ε : ℝ, 0 < ε → ∃ κ : ∀ n : ℕ, Coupling (randomRegularGraph n (d n)) (binomialGraph n (logThreshold ε n)), Tendsto (fun n => (κ n).embedProb) atTop (𝓝 1)) ∧ (∀ c : ℝ, 0 < c → ∃ C : ℝ, 0 < C ∧ ∀ d : ℕ → ℕ, (∀ n, (regularSequence n (d n)).IsGraphical) → (∀ᶠ n : ℕ in atTop, (d n : ℝ) ≤ c * Real.log n) → ∃ κ : ∀ n : ℕ, Coupling (randomRegularGraph n (d n)) (binomialGraph n (C * Real.log n / n)), Tendsto (fun n => (κ n).embedProb) atTop (𝓝 1))"
 },
 {
@@ -1300,7 +1300,7 @@ window.PB_PROBLEMS = [
 "id": "109",
 "name": "Two Vertices of Equal Degree",
 "cat": "calibration",
-"note": "elementary; full Lean reference proof",
+"note": "elementary",
 "resolved": "",
 "msc": "05C07 Vertex degrees",
 "area": "Graph theory",
@@ -1312,7 +1312,7 @@ window.PB_PROBLEMS = [
 "id": "110",
 "name": "A Zero-Sum Block of Consecutive Integers",
 "cat": "calibration",
-"note": "elementary; full Lean reference proof",
+"note": "elementary",
 "resolved": "",
 "msc": "11B75 Other combinatorial number theory; 05D10 Ramsey theory",
 "area": "Graph theory",
@@ -1324,7 +1324,7 @@ window.PB_PROBLEMS = [
 "id": "111",
 "name": "A Consecutive Pair Among n + 1 Numbers from [2n]",
 "cat": "calibration",
-"note": "elementary; full Lean reference proof",
+"note": "elementary",
 "resolved": "",
 "msc": "11B75 Other combinatorial number theory; 05D05 Extremal set theory",
 "area": "Number theory",
@@ -1359,13 +1359,13 @@ window.PB_PROBLEMS = [
 {
 "id": "114",
 "name": "Nash-Williams' Matroid Intersection Conjecture (finitary matroids)",
-"cat": "research",
-"note": "proof announced by I. Alam, arXiv:2501.04321 (2025), using nonstandard analysis; not yet refereed",
+"cat": "open",
+"note": "",
 "resolved": "",
 "msc": "05B35 Combinatorial aspects of matroids and geometric lattices",
 "area": "Matroids",
 "sub": "",
-"summary": "Matroids may be infinite (Bruhn–Diestel–Kriesell–Pendavingh–Wollan axioms); a matroid is finitary if all its circuits are finite. Two matroids M and N on a common ground set E satisfy intersection if some set J independent in both splits as J = J_M ⊔ J_N with cl_M(J_M) ∪ cl_N(J_N) = E. Nash-Williams' conjecture asserts that any two finitary matroids on a common ground set satisfy intersection. For finite matroids this is Edmonds' matroid intersection theorem; Joó proved the countable case, and a proof of the general finitary case using nonstandard analysis was announced in 2025 (Alam, arXiv:2501.04321) but is not yet refereed. Finitary matroids are tame, so this is the finitary case of Problem 112.",
+"summary": "Matroids may be infinite (Bruhn–Diestel–Kriesell–Pendavingh–Wollan axioms); a matroid is finitary if all its circuits are finite. Two matroids M and N on a common ground set E satisfy intersection if some set J independent in both splits as J = J_M ⊔ J_N with cl_M(J_M) ∪ cl_N(J_N) = E. Nash-Williams' conjecture asserts that any two finitary matroids on a common ground set satisfy intersection. For finite matroids this is Edmonds' matroid intersection theorem; Joó proved the countable case; a proof of the general finitary case claimed in 2025 (Alam, arXiv:2501.04321) was withdrawn, so the conjecture is open. Finitary matroids are tame, so this is the finitary case of Problem 112.",
 "lean": "theorem P114 {α : Type*} (M N : Matroid α) [M.Finitary] [N.Finitary] (hE : M.E = N.E) : M.SatisfiesIntersection N"
 },
 {
@@ -1389,7 +1389,7 @@ window.PB_PROBLEMS = [
 "msc": "05D10 Ramsey theory",
 "area": "Graph theory",
 "sub": "Extremal graph theory",
-"summary": "The diagonal Ramsey number R(t) is the least n such that every simple graph on n vertices contains a clique of size t or an independent set of size t (equivalently, every 2-colouring of the edges of the complete graph K_n yields a monochromatic K_t). Ramsey's theorem gives R(t) ≤ 4^t, and Erdős's probabilistic argument gives R(t) ≥ (√2)^t for large t, so the exponential growth rate of R(t) lies between √2 and 4. The scaled Ramsey problem asks, for each r ∈ ℕ, for explicit real numbers d₁ ≤ d₂ with d₁^t ≤ R(t) ≤ d₂^t for all sufficiently large t and a controlled gap |d₂ − d₁| ≤ (4 − √2)·0.98^r; as r → ∞ the gap tends to 0, pinning down the growth rate exactly. The case r = 0 is the Ramsey–Erdős bound, and the cases 1 ≤ r ≤ 3 follow from the recent exponential improvement of Campos, Griffiths, Morris and Sahasrabudhe together with the optimisation R(t) ≤ 3.8^t of Gupta, Ndiaye, Norin and Wei; the problem is open from r = 4 onwards.",
+"summary": "The diagonal Ramsey number R(t) is the least n such that every simple graph on n vertices contains a clique of size t or an independent set of size t (equivalently, every 2-colouring of the edges of the complete graph K_n yields a monochromatic K_t). Ramsey's theorem gives R(t) ≤ 4^t, and Erdős's probabilistic argument gives R(t) ≥ (√2)^t for large t, so the exponential growth rate of R(t) lies between √2 and 4. The scaled Ramsey problem asks, for each r ∈ ℕ, for explicit real numbers d₁ ≤ d₂ with d₁^t ≤ R(t) ≤ d₂^t for all sufficiently large t and a controlled gap |d₂ − d₁| ≤ (4 − √2)·0.96^r; as r → ∞ the gap tends to 0, pinning down the growth rate exactly. The case r = 0 is the Ramsey–Erdős bound, and the case r = 1 follows from the exponential improvement of Campos, Griffiths, Morris and Sahasrabudhe together with the optimisation R(t) ≤ 3.8^t of Gupta, Ndiaye, Norin and Wei; the problem is open from r = 2 onwards.",
 "lean": "theorem P116 : RamseyBracket"
 }
 ];
