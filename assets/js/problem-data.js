@@ -303,13 +303,13 @@ window.PB_PROBLEMS = [
 {
 "id": "026",
 "name": "Full Cube Adjacency by Convex Bodies (universal)",
-"cat": "open",
+"cat": "research",
 "note": "",
 "resolved": "",
 "msc": "52A20 Convex sets in n dimensions; 05C62 Graph representations",
 "area": "Discrete geometry",
 "sub": "",
-"summary": "A convex body in R^d is a compact convex set with nonempty interior. For convex bodies K_1, ..., K_n in R^d, the zone with label I ⊆ [n] is the set of points on none of the boundaries that lie in exactly the bodies K_j with j in I; two zones are adjacent when their closures meet along a relatively open patch of one boundary, and distinct boundaries may not share such a patch. The bodies realise the cube Q_n when all 2^n zones are nonempty and connected and the labelled region-adjacency graph is exactly Q_n. For arbitrary tame spheres, Q_n is realisable in R^2 exactly for n ≤ 3, in R^3 exactly for n ≤ 4 (an obstruction via the Conway–Gordon theorem), and in R^d for every n when d ≥ 4; for round spheres the threshold is n ≤ d + 1, and convex bodies are known to realise Q_n for n ≤ ⌊3d/2⌋. The problem asks whether, for every d ≥ 4, convex bodies realise every Q_n, or whether in some dimension there is a largest such n. These results come from unpublished notes (2026) and have not yet been independently reviewed.",
+"summary": "A convex body in R^d is a compact convex set with nonempty interior. For convex bodies K_1, ..., K_n in R^d, the zone with label I ⊆ [n] is the set of points on none of the boundaries that lie in exactly the bodies K_j with j in I; two zones are adjacent when their closures meet along a relatively open patch of one boundary, and distinct boundaries may not share such a patch. The bodies realise the cube Q_n when all 2^n zones are nonempty and connected and the labelled region-adjacency graph is exactly Q_n. For arbitrary tame spheres, Q_n is realisable in R^2 exactly for n ≤ 3, in R^3 exactly for n ≤ 4 (an obstruction via the Conway–Gordon theorem), and in R^d for every n when d ≥ 4; for round spheres the threshold is n ≤ d + 1, and convex bodies are known to realise Q_n for n ≤ ⌊3d/2⌋. The theorem states that, for every d ≥ 4, convex bodies, like tame spheres, realise every Q_n. These results come from unpublished notes (2026) and have not yet been independently reviewed.",
 "lean": "theorem P026 : ∀ d : ℕ, 4 ≤ d → ∀ n : ℕ, ConvexCubeRealizable d n"
 },
 {
