@@ -1391,5 +1391,17 @@ window.PB_PROBLEMS = [
 "sub": "Extremal graph theory",
 "summary": "The diagonal Ramsey number R(t) is the least n such that every simple graph on n vertices contains a clique of size t or an independent set of size t (equivalently, every 2-colouring of the edges of the complete graph K_n yields a monochromatic K_t). Ramsey's theorem gives R(t) ≤ 4^t, and Erdős's probabilistic argument gives R(t) ≥ (√2)^t for large t, so the exponential growth rate of R(t) lies between √2 and 4. The scaled Ramsey problem asks, for each r ∈ ℕ, for explicit real numbers d₁ ≤ d₂ with d₁^t ≤ R(t) ≤ d₂^t for all sufficiently large t and a controlled gap |d₂ − d₁| ≤ (4 − √2)·0.96^r; as r → ∞ the gap tends to 0, pinning down the growth rate exactly. The case r = 0 is the Ramsey–Erdős bound, and the case r = 1 follows from the exponential improvement of Campos, Griffiths, Morris and Sahasrabudhe together with the optimisation R(t) ≤ 3.8^t of Gupta, Ndiaye, Norin and Wei; the problem is open from r = 2 onwards.",
 "lean": "theorem P116 : RamseyBracket"
+},
+{
+"id": "117",
+"name": "Vizing's Theorem, Constructively (no Classical.choice)",
+"cat": "research",
+"note": "constructive track: no Classical.choice",
+"resolved": "",
+"msc": "05C15 Coloring of graphs and hypergraphs",
+"area": "Graph theory",
+"sub": "",
+"summary": "Let G be a finite simple graph. A proper edge-colouring of G assigns a colour to each edge so that any two edges sharing a common endpoint receive different colours, and Δ(G), the maximum degree of G, is the largest number of edges incident with any single vertex. Vizing's theorem states that G has a proper edge-colouring with Δ(G) + 1 colours. This challenge asks for a constructive proof, without the axiom of choice: in Lean, the proof may depend on propext and Quot.sound but not on Classical.choice. The graph is given on the vertices 0, …, n − 1 with decidable adjacency, so a proof amounts to an algorithm, such as the one of Misra and Gries (1992), which colours the edges one at a time, rotating a fan of edges at a vertex and swapping two colours along an alternating path where necessary.",
+"lean": "theorem P117 {n : Nat} (G : FinGraph n) : G.EdgeColourable (G.maxDegree + 1)"
 }
 ];
