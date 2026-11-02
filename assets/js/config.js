@@ -14,7 +14,7 @@ window.PB_CONFIG = {
       url: "https://github.com/proof-bench/proofbench",
       lang: "Lean 4",
       blurb: "Everything a model is allowed to see: one challenge file per problem, the negated form of every open problem, and the library of definitions that Mathlib does not yet provide.",
-      facts: "114 challenge files · Lean 4.34.1",
+      facts: "117 challenge files · Lean 4.34.1",
     },
     {
       name: "QEDRank",

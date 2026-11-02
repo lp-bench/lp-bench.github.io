@@ -327,7 +327,7 @@
       ["FormalProofBench", "fproof", "graduate", "Graduate-level problems paired with Lean 4 statements, kept private."],
       ["LeanEval", "fproof", "research", "The Lean FRO’s research-level formalization benchmark, scored with Comparator."],
       ["LeanOpenProblems", "fproof", "research", "Epoch AI’s framework for open conjectures stated in Lean."],
-      ["ProofBench", "fproof", "research", "Research-level combinatorics and graph theory in Lean 4, including 32 open problems, with statements guarded by theorem sandwiches and a single evaluation protocol for every model.", true],
+      ["ProofBench", "fproof", "research", "Research-level combinatorics and graph theory in Lean 4, including 33 open problems, with statements guarded by theorem sandwiches and a single evaluation protocol for every model.", true],
     ];
     body.innerHTML = ROWS.map(([key, a, b]) => {
       const cells = LEVELS.map(([lvl, label]) => {
