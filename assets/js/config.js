@@ -17,18 +17,11 @@ window.PB_CONFIG = {
       facts: "114 challenge files · Lean 4.34.1",
     },
     {
-      name: "proofbench-eval-apptainer",
-      url: "https://github.com/proof-bench/proofbench-eval-apptainer",
+      name: "QEDRank",
+      url: "https://github.com/proof-bench/QEDRank",
       lang: "Python",
-      blurb: "The evaluation harness on Inspect AI: one agent loop, one toolset and one budget for every model, with grading by Lean and Comparator.",
+      blurb: "The evaluation harness on Inspect AI: one agent loop, one toolset and one budget for every model, with grading by Lean and Comparator. It includes a drop-in Apptainer sandbox for HPC clusters where Docker is unavailable and users have no root access.",
       facts: "Docker or Apptainer · Slurm-ready",
-    },
-    {
-      name: "inspect-apptainer",
-      url: "https://github.com/proof-bench/inspect-apptainer",
-      lang: "Python",
-      blurb: "A drop-in Apptainer sandbox for Inspect AI, for HPC clusters where Docker is unavailable and users have no root access.",
-      facts: "Works with any Inspect evaluation",
     },
   ],
 
