@@ -32,7 +32,7 @@ window.PB_CONFIG = {
     },
   ],
 
-  // Leaderboard rows. Leave empty until results are published.
+  // Leaderboard rows. Leave empty until results are published; then also remove "hidden" from #leaderboard in index.html.
   // { model: "provider/name", search: false, open: 0, research: 0, calibration: 0, cost: "$0" }
   results: [],
 
