@@ -306,7 +306,7 @@
   (function landscape() {
     const body = $("[data-landscape]");
     if (!body) return;
-    const ROWS = [["answer", "Informal", "final answer"], ["iproof", "Informal", "proof"], ["fproof", "Formal", "proof"]];
+    const ROWS = [["answer", "Informal", "final answer"], ["iproof", "Informal", "proof-based"], ["fproof", "Formal", "proof-based"]];
     const LEVELS = [["competition", "Competition"], ["undergraduate", "Undergraduate"], ["graduate", "Graduate"], ["research", "Research"]];
     const B = [
       ["HLE", "answer", "graduate", "Thousands of expert-level questions across many disciplines, designed to resist memorization and web lookup."],
@@ -326,7 +326,8 @@
       ["AMBER", "fproof", "graduate", "Applied mathematics in Lean 4, where solutions must be constructed before they are verified."],
       ["FormalProofBench", "fproof", "graduate", "Graduate-level problems paired with Lean 4 statements, kept private."],
       ["LeanEval", "fproof", "research", "The Lean FRO’s research-level formalization benchmark, scored with Comparator."],
-      ["LeanOpenProblems", "fproof", "research", "Epoch AI’s framework for open conjectures stated in Lean."],
+      ["Formal Conjectures", "fproof", "research", "Google DeepMind’s open collection of research-level problems in Lean 4, maintained by a community of contributors, with over a thousand open conjectures."],
+      ["ArXivLean", "fproof", "research", "Research problems drawn from recent arXiv papers and formalized in Lean, refreshed every three months by a team at ETH Zurich and INSAIT."],
       ["ProofBench", "fproof", "research", "Research-level combinatorics and graph theory in Lean 4, including 33 open problems, with statements guarded by theorem sandwiches and a single evaluation protocol for every model.", true],
     ];
     body.innerHTML = ROWS.map(([key, a, b]) => {
