@@ -1185,7 +1185,7 @@ window.PB_PROBLEMS = [
 "msc": "05C15 Coloring of graphs and hypergraphs; 57Q15 Triangulating manifolds",
 "area": "Graph theory",
 "sub": "",
-"summary": "Theorem 1 of Planken (2024): for d >= 2 and a triangulation C of the d-sphere, the 1-skeleton of C has a proper (d+2)-colouring if and only if C has a subdivision in which the number of (d-1)-cells incident with every (d-2)-cell is divisible by three; for d = 3 both are equivalent to the maximal subdivision of C (every chamber subdivided) having a 2-edge-colouring without monochromatic 2-cells. A triangulation is a finite family of (d+1)-element chambers on natural-number vertices whose barycentric realisation is homeomorphic to the d-sphere; subdivisions replace a chamber by the d+1 chambers through a new vertex.",
+"summary": "Theorem 1 of Planken (2024): for d >= 2 and a triangulation C of the d-sphere, the 1-skeleton of C has a proper (d+2)-colouring if and only if C has a subdivision in which the number of (d-1)-cells incident with every (d-2)-cell is divisible by three; for d = 3 both are equivalent to the maximal subdivision of C (every chamber subdivided) having a 2-edge-colouring without monochromatic 2-cells. A triangulation is a finite family of (d+1)-element chambers on natural-number vertices whose barycentric realisation is homeomorphic to the d-sphere and whose vertex links are combinatorial (d-1)-spheres (defined recursively in the same way, so that the triangulation is piecewise linear, as in the source); subdivisions replace a chamber by the d+1 chambers through a new vertex.",
 "lean": "theorem P099 (d : ℕ) (_hd : 2 ≤ d) (C : Triangulation d) : (C.skeleton.Colorable (d + 2) ↔ C.Subdividable) ∧ (d = 3 → (C.skeleton.Colorable (d + 2) ↔ C.MaximalSubdivisionBichromatic))"
 },
 {
