@@ -51,13 +51,13 @@ window.PB_PROBLEMS = [
 {
 "id": "005",
 "name": "Erdős–Hajnal Conjecture for Paths (universal)",
-"cat": "open",
+"cat": "research",
 "note": "",
 "resolved": "",
 "msc": "05C55 Generalized Ramsey theory",
 "area": "Graph theory",
 "sub": "",
-"summary": "In a simple graph, a clique is a set of pairwise-adjacent vertices and an independent set is a set of pairwise-non-adjacent vertices, and G is H-free if it has no induced subgraph isomorphic to H. The Erdős–Hajnal conjecture states that for each graph H there is a constant c_H > 0 such that every H-free graph on n vertices contains a clique or independent set of size at least n^(c_H) — a polynomial guarantee, far larger than the logarithmic size forced in general graphs. This challenge is the parametrized case H = P_r, the path on r vertices: for every r there is a constant c_r > 0 such that every P_r-free finite graph G has a clique or independent set of size at least |V(G)|^(c_r). The case r = 5 has recently been resolved (Nguyen, Scott and Seymour).",
+"summary": "In a simple graph, a clique is a set of pairwise-adjacent vertices and an independent set is a set of pairwise-non-adjacent vertices, and G is H-free if it has no induced subgraph isomorphic to H. The Erdős–Hajnal conjecture states that for each graph H there is a constant c_H > 0 such that every H-free graph on n vertices contains a clique or independent set of size at least n^(c_H) — a polynomial guarantee, far larger than the logarithmic size forced in general graphs. This challenge is the parametrized case H = P_r, the path on r vertices: for every r there is a constant c_r > 0 such that every P_r-free finite graph G has a clique or independent set of size at least |V(G)|^(c_r). The case r = 5 was proved by Nguyen, Scott and Seymour. In October 2026 the conjecture was proved for all r (Nguyen, arXiv:2610.24887), and Google DeepMind released a proof found by its Cogentic system with a Lean formalization (github.com/google-deepmind/superhuman, FutureMath/Erdos-Hajnal), so the problem is a research result with a public formal proof.",
 "lean": "theorem P005 : EHforPaths"
 },
 {
