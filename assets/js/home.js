@@ -328,7 +328,7 @@
       ["LeanEval", "fproof", "research", "The Lean FRO’s research-level formalization benchmark, scored with Comparator."],
       ["Formal Conjectures", "fproof", "research", "Google DeepMind’s open collection of research-level problems in Lean 4, maintained by a community of contributors, with over a thousand open conjectures."],
       ["ArXivLean", "fproof", "research", "Research problems drawn from recent arXiv papers and formalized in Lean, refreshed every three months by a team at ETH Zurich and INSAIT."],
-      ["ProofBench", "fproof", "research", "Research-level combinatorics and graph theory in Lean 4, including 33 open problems, with statements guarded by theorem sandwiches and a single evaluation protocol for every model.", true],
+      ["LPBench", "fproof", "research", "Research-level combinatorics and graph theory in Lean 4, including 32 open problems, with statements guarded by theorem sandwiches and a single evaluation protocol for every model.", true],
     ];
     body.innerHTML = ROWS.map(([key, a, b]) => {
       const cells = LEVELS.map(([lvl, label]) => {
@@ -349,7 +349,7 @@
       note.innerHTML = `<b>${esc(x[0])}</b> <i>· ${row[1].toLowerCase()} ${row[2]} · ${lvl.toLowerCase()} level</i><br>${esc(x[3])}`;
     }
     ["pointerover", "focusin", "click"].forEach((ev) => body.addEventListener(ev, (e) => { const b = e.target.closest(".bm"); if (b) select(b.dataset.bm); }));
-    select("ProofBench");
+    select("LPBench");
   })();
 
   /* ---------- leaderboard ---------- */

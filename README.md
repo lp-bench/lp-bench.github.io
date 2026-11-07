@@ -1,6 +1,6 @@
 # lp-bench.github.io
 
-The ProofBench website, served by GitHub Pages at https://lp-bench.github.io.
+The LPBench website, served by GitHub Pages at https://lp-bench.github.io.
 Plain HTML, CSS and JavaScript; no build step. Open `index.html` locally to preview.
 Publishing runs through GitHub Actions (`.github/workflows/site.yml`; Settings → Pages →
 Source: GitHub Actions).

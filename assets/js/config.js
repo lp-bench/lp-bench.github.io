@@ -1,7 +1,7 @@
 // Everything that changes on launch day lives here.
 window.PB_CONFIG = {
   // Flip to true when the paper is on arXiv and the repositories are public.
-  released: false,
+  released: true,
 
   paper: {
     arxivId: "",      // e.g. "2610.12345" — turns the "Paper" buttons into links
