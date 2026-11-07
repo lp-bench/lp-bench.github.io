@@ -11,14 +11,14 @@ window.PB_CONFIG = {
   repos: [
     {
       name: "proofbench",
-      url: "https://github.com/proof-bench/proofbench",
+      url: "https://github.com/lp-bench/proofbench",
       lang: "Lean 4",
       blurb: "Everything a model is allowed to see: one challenge file per problem, the negated form of every open problem, and the library of definitions that Mathlib does not yet provide.",
       facts: "117 challenge files · Lean 4.34.1",
     },
     {
       name: "QEDRank",
-      url: "https://github.com/proof-bench/QEDRank",
+      url: "https://github.com/lp-bench/QEDRank",
       lang: "Python",
       blurb: "The evaluation harness on Inspect AI: one agent loop, one toolset and one budget for every model, with grading by Lean and Comparator. It includes a drop-in Apptainer sandbox for HPC clusters where Docker is unavailable and users have no root access.",
       facts: "Docker or Apptainer · Slurm-ready",

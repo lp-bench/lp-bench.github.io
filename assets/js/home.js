@@ -384,7 +384,7 @@
       const status = CFG.released ? "View on GitHub →" : "Public with the paper";
       return `
         <${tag} class="problem-item"${href}>
-          <span class="problem-meta-inline">proof-bench / ${esc(r.lang)}</span>
+          <span class="problem-meta-inline">lp-bench / ${esc(r.lang)}</span>
           <span class="repo-name">${esc(r.name)}</span>
           <span class="repo-blurb">${esc(r.blurb)}</span>
           <span class="repo-facts">${esc(r.facts)}</span>
