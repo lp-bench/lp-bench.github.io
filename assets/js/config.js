@@ -10,8 +10,8 @@ window.PB_CONFIG = {
 
   repos: [
     {
-      name: "proofbench",
-      url: "https://github.com/lp-bench/proofbench",
+      name: "lp-bench",
+      url: "https://github.com/lp-bench/lp-bench",
       lang: "Lean 4",
       blurb: "Everything a model is allowed to see: one challenge file per problem, the negated form of every open problem, and the library of definitions that Mathlib does not yet provide.",
       facts: "117 challenge files · Lean 4.34.1",

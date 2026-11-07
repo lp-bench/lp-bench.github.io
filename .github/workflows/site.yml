@@ -1,10 +1,10 @@
 name: site
 # Publishes the site with GitHub Pages (Settings → Pages → Source: GitHub Actions).
-# A push to main publishes the pages as they are. A signal from lp-bench/proofbench
+# A push to main publishes the pages as they are. A signal from lp-bench/lp-bench
 # (sent by its workflow notify-website.yml after every push) or a manual run first
 # regenerates the problem list and the counts from the problem database, commits them
 # if anything changed, and then publishes.
-# While lp-bench/proofbench is private, reading it uses a short-lived key of the
+# While lp-bench/lp-bench is private, reading it uses a short-lived key of the
 # proof-bench GitHub App (secrets PROOFBENCH_APP_ID and PROOFBENCH_APP_KEY).
 on:
   push:
@@ -30,7 +30,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Create a key for reading lp-bench/proofbench
+      - name: Create a key for reading lp-bench/lp-bench
         id: app
         if: github.event_name != 'push' && env.APP_ID != ''
         uses: actions/create-github-app-token@v2
@@ -38,13 +38,13 @@ jobs:
           app-id: ${{ secrets.PROOFBENCH_APP_ID }}
           private-key: ${{ secrets.PROOFBENCH_APP_KEY }}
           owner: lp-bench
-          repositories: proofbench
+          repositories: lp-bench
 
       - name: Fetch the problem database
         if: github.event_name != 'push'
         uses: actions/checkout@v4
         with:
-          repository: lp-bench/proofbench
+          repository: lp-bench/lp-bench
           path: .proofbench
           token: ${{ steps.app.outputs.token || github.token }}
           sparse-checkout: ProofBench/DATABASE
@@ -64,7 +64,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "Problem list unchanged."
           else
-            git commit -m "Update the problem list from lp-bench/proofbench"
+            git commit -m "Update the problem list from lp-bench/lp-bench"
             git pull --rebase --quiet origin main
             git push
           fi

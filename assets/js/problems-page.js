@@ -2,7 +2,7 @@
 (() => {
   "use strict";
   const { CFG, reduceMotion, $, $$, esc, fold, highlightLean, showTip, hideTip, copy, PROBLEMS, BY_ID, CAT_LABEL, CAT_ORDER, challengeSource } = window.PB;
-  const STATEMENTS_REPO = "https://github.com/lp-bench/proofbench";
+  const STATEMENTS_REPO = "https://github.com/lp-bench/lp-bench";
   const list = $("[data-list]");
   const state = { q: "", cat: "all", area: "all", active: null };
 

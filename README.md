@@ -10,5 +10,5 @@ Source: GitHub Actions).
 * `assets/js/problem-data.js`: problem list, generated from the proofbench repo by
   `scripts/build_problems.py`; do not edit by hand. The script also fills the counts in the
   pages, at the elements marked `data-pb`, `data-pb-text` or `data-pb-<attribute>` (see the
-  script's docstring). It runs automatically after every push to lp-bench/proofbench,
+  script's docstring). It runs automatically after every push to lp-bench/lp-bench,
   which signals this repository, and on demand (Actions → site → Run workflow).
