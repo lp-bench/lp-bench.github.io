@@ -1,4 +1,4 @@
-// Shared helpers for every ProofBench page.
+// Shared helpers for every LPBench page.
 (() => {
   "use strict";
   document.documentElement.classList.add("js");
@@ -88,7 +88,7 @@
     }
   });
 
-  /* GitHub menus (header and hero): one open at a time, close on outside click or Escape */
+  /* Menus (GitHub in the header and hero, Contact in the footer): one open at a time, close on outside click or Escape */
   const ghMenus = $$(".gh-menu");
   ghMenus.forEach((m) => m.addEventListener("toggle", () => {
     if (m.open) ghMenus.forEach((o) => { if (o !== m) o.open = false; });

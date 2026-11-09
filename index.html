@@ -26,6 +26,7 @@
       <ul class="header-nav">
         <li><a href="index.html" aria-current="page">Home</a></li>
         <li><a href="problems.html">Problems</a></li>
+        <li><a href="benchmark.html">Benchmark Evaluation</a></li>
         <li><a href="ten-challenges.html">Ten Challenges</a></li>
         <li>
           <details class="gh-menu nav-gh">
@@ -391,7 +392,7 @@
             </div>
             <div class="explore-body">
               <p class="label">Freiberg, autumn 2025</p>
-              <h3>The ProofBench workshop</h3>
+              <h3>The LPBench workshop</h3>
               <p>Two weeks, about twenty mathematicians and Lean experts, and a recent research result taken into Lean together. The first real test of the LPBench method.</p>
               <span class="go">Read about the workshop ↓</span>
             </div>
@@ -401,7 +402,7 @@
           <button class="ws-close" type="button" data-ws-close>Close ×</button>
           <section class="ws-hero">
             <div class="page-intro">
-              <h3 class="ws-title" id="workshop-title">The ProofBench Workshop</h3>
+              <h3 class="ws-title" id="workshop-title">The LPBench Workshop</h3>
               <p>
                 The first steps of the project were taken at this workshop. Approximately twenty participants took part,
                 including research mathematicians with a combinatorics background and a smaller group of Lean experts.
@@ -553,19 +554,107 @@
             <li>We formalize it in Lean&nbsp;4, with you or independently, and build its theorem sandwich.</li>
             <li>The statement joins the benchmark.</li>
           </ol>
-          <a class="btn" data-contact data-subject="LPBench: problem proposal" href="#">Propose a problem</a>
+          <a class="btn" data-contact data-propose-open aria-haspopup="dialog" data-subject="LPBench: problem proposal" href="#">Propose a problem</a>
         </div>
       </div>
     </section>
+
+    <!-- ============ PROPOSE A PROBLEM ============ -->
+    <dialog class="propose" aria-labelledby="propose-title" data-propose>
+      <button type="button" class="ws-close" data-propose-close aria-label="Close the form">Close ✕</button>
+      <p class="label">Contribute</p>
+      <h3 id="propose-title">Propose a problem</h3>
+      <form data-propose-form>
+        <p class="propose-intro">Send us a result, a conjecture or a question from your area of research. We will reply by email.</p>
+        <fieldset>
+          <legend>About you</legend>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="pp-name">Full name</label>
+              <input id="pp-name" name="Name" type="text" autocomplete="name" required autofocus>
+            </div>
+            <div class="form-group">
+              <label for="pp-email">Email</label>
+              <input id="pp-email" name="email" type="email" autocomplete="email" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="pp-affiliation">Affiliation</label>
+            <input id="pp-affiliation" name="Affiliation" type="text" autocomplete="organization" required>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Your problem</legend>
+          <div class="form-group">
+            <label for="pp-title">Problem title</label>
+            <input id="pp-title" name="Problem title" type="text" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="pp-type">Type</label>
+              <select id="pp-type" name="Type" required>
+                <option value="" disabled selected>Choose one</option>
+                <option>Result</option>
+                <option>Conjecture</option>
+                <option>Question</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="pp-area">Area or MSC class <span class="optional">(optional)</span></label>
+              <input id="pp-area" name="Area or MSC class" type="text">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="pp-statement">Statement</label>
+            <textarea id="pp-statement" name="Statement" rows="6" placeholder="State it as precisely as you can. LaTeX is welcome." required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="pp-source">Source or reference <span class="optional">(optional)</span></label>
+            <input id="pp-source" name="Source or reference" type="text" placeholder="A paper, an arXiv number or a link">
+          </div>
+          <div class="form-group">
+            <label for="pp-notes">Notes <span class="optional">(optional)</span></label>
+            <textarea id="pp-notes" name="Notes" rows="3" placeholder="Known progress, or why the problem matters"></textarea>
+          </div>
+          <label class="propose-check">
+            <input name="Would like to help with the Lean formalization" type="checkbox" value="Yes">
+            <span>I would like to help formalize it in Lean&nbsp;4.</span>
+          </label>
+        </fieldset>
+        <div class="visually-hidden" aria-hidden="true">
+          <label for="pp-honey">Leave this empty</label>
+          <input id="pp-honey" name="_honey" type="text" tabindex="-1" autocomplete="off">
+        </div>
+        <p class="form-hint">Your details are used only to handle this proposal. The form is delivered by email through <a href="https://formsubmit.co/">FormSubmit</a>.</p>
+        <div class="form-actions">
+          <button class="btn" type="submit">Send proposal</button>
+          <button class="btn btn-secondary" type="button" data-propose-close>Cancel</button>
+        </div>
+        <p class="propose-status" role="alert" data-propose-status hidden></p>
+      </form>
+      <div class="propose-sent" data-propose-sent hidden>
+        <p>Thank you. Your proposal has been sent, and we will reply to <b data-propose-reply></b>.</p>
+        <div class="form-actions">
+          <button class="btn" type="button" data-propose-close>Close</button>
+        </div>
+      </div>
+    </dialog>
   </main>
 
   <footer class="footer">
     <span>LPBench · a formal benchmark for research-level mathematics</span>
     <nav aria-label="Footer">
       <a href="problems.html">Problems</a>
+      <a href="benchmark.html">Benchmark Evaluation</a>
       <a href="ten-challenges.html">Ten Challenges</a>
       <a href="#workshop">Workshop</a>
-      <a data-contact href="mailto:Vaibhav.Bajpai@math.tu-freiberg.de,Utku.Okur@math.tu-freiberg.de">Contact</a>
+      <details class="gh-menu foot-contact">
+        <summary>Contact</summary>
+        <ul class="gh-menu-list">
+          <li><a href="mailto:Vaibhav.Bajpai@math.tu-freiberg.de"><b>Vaibhav Bajpai</b><span>Vaibhav.Bajpai@math.tu-freiberg.de</span></a></li>
+          <li><a href="mailto:Utku.Okur@math.tu-freiberg.de"><b>Utku Okur</b><span>Utku.Okur@math.tu-freiberg.de</span></a></li>
+        </ul>
+      </details>
     </nav>
   </footer>
 

@@ -1,4 +1,4 @@
-/* ProofBench — shared styles. Built on the Ten Challenges UI: Computer Modern, black and white, hairline borders; deep navy front-page hero. */
+/* LPBench — shared styles. Built on the Ten Challenges UI: Computer Modern, black and white, hairline borders; deep navy front-page hero. */
 
 @font-face { font-family: "CMU Serif"; src: url("../fonts/cmunrm.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
 @font-face { font-family: "CMU Serif"; src: url("../fonts/cmunbx.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
@@ -44,7 +44,7 @@ p a, li a, .link { color: var(--accent); }
 b, strong { font-weight: 700; }
 code { font-family: var(--tt); font-size: 0.92em; background: #f0f0f0; padding: 1px 4px; }
 pre code { background: none; padding: 0; font-family: var(--mono); font-variant-ligatures: none; }
-button, input, select { font: inherit; color: inherit; }
+button, input, select, textarea { font: inherit; color: inherit; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 [hidden] { display: none !important; }
 .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
@@ -84,6 +84,7 @@ button, input, select { font: inherit; color: inherit; }
 .btn-secondary:hover { background: var(--ink); color: #fff; }
 .btn[aria-disabled="true"] { background: transparent; color: var(--muted); border: 1px dashed var(--muted); cursor: default; }
 .btn-small { font-size: 11px; padding: 4px 10px; }
+.btn:disabled { opacity: .6; cursor: wait; }
 
 /* ---------- page shell ---------- */
 .main { max-width: 960px; margin: 0 auto; padding: 56px var(--gutter) 96px; }
@@ -156,8 +157,9 @@ h3 { font-size: 17px; font-weight: 700; margin: 26px 0 10px; }
 .form-group { margin-bottom: 18px; }
 .form-group label { display: block; font-family: var(--tt); font-size: 12px; text-transform: uppercase; letter-spacing: .04em; margin-bottom: 6px; color: #333; }
 .form-group label .optional { color: #888; text-transform: none; letter-spacing: 0; font-size: 11px; }
-.form-group input, .form-group select { width: 100%; padding: 10px 12px; border: 1px solid var(--line); background: var(--bg); font-family: var(--serif); font-size: 15px; border-radius: 0; transition: border-color .2s; }
-.form-group input:focus, .form-group select:focus { outline: none; border-color: var(--ink); }
+.form-group input, .form-group select, .form-group textarea { width: 100%; padding: 10px 12px; border: 1px solid var(--line); background: var(--bg); font-family: var(--serif); font-size: 15px; border-radius: 0; transition: border-color .2s; }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--ink); }
+.form-group textarea { display: block; line-height: 1.5; resize: vertical; }
 .form-actions { display: flex; gap: 12px; margin-top: 6px; align-items: center; flex-wrap: wrap; }
 .form-hint { font-family: var(--tt); font-size: 12px; color: var(--muted); }
 
@@ -220,6 +222,14 @@ h3 { font-size: 17px; font-weight: 700; margin: 26px 0 10px; }
 .nav-gh summary:hover, .nav-gh[open] summary { color: var(--ink); }
 .gh-icon { display: block; fill: currentColor; }
 .nav-gh .gh-menu-list { left: auto; right: 0; top: calc(100% + 14px); font-size: 16px; }
+/* footer variant: the panel opens upward from the footer's right edge */
+.footer { position: relative; }
+.foot-contact { position: static; }
+.foot-contact summary { gap: 7px; color: #333; cursor: pointer; }
+.foot-contact summary:hover, .foot-contact[open] summary { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+.foot-contact summary::after { width: 5px; height: 5px; transform: translateY(1px) rotate(-135deg); }
+.foot-contact[open] summary::after { transform: translateY(-2px) rotate(45deg); }
+.foot-contact .gh-menu-list { left: auto; right: var(--gutter); top: auto; bottom: calc(100% + 8px); }
 .hero .btn { background: #fff; color: #000; border-color: #fff; }
 .hero .btn:hover { background: transparent; color: #fff; }
 .hero .btn-secondary { background: transparent; color: #fff; border-color: rgba(255, 255, 255, .45); }
@@ -452,6 +462,50 @@ h3 { font-size: 17px; font-weight: 700; margin: 26px 0 10px; }
 .cta-mails a { color: var(--ink); border-bottom: 1px solid var(--line); }
 .cta-mails a:hover { border-bottom-color: var(--ink); text-decoration: none; }
 
+/* ======================================================================
+   BENCHMARK EVALUATION PAGE
+   ====================================================================== */
+.page-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin: 22px 0 0; }
+.workflows { display: grid; grid-template-columns: 1fr; gap: 24px; }
+.workflow { display: flex; flex-direction: column; border: 1px solid var(--ink); background: var(--bg); padding: 26px 28px 28px; }
+.workflow > * { min-width: 0; }
+.wf-glyph { font-size: 44px; line-height: 1; color: var(--accent); margin-bottom: 14px; }
+.workflow .label { margin-bottom: 6px; }
+.workflow h3 { font-size: 24px; font-weight: 400; margin: 0 0 10px; }
+.workflow > p:not(.label):not(.wf-glyph):not(.wf-note) { font-size: 15.5px; color: #333; }
+.wf-list { list-style: none; margin: 18px 0 18px; border-top: 1px solid var(--line); columns: 2; column-gap: 36px; }
+.wf-list li { font-size: 14.5px; line-height: 1.5; padding: 7px 0 7px 18px; border-bottom: 1px solid var(--line-soft); position: relative; break-inside: avoid; }
+.wf-list li::before { content: ""; position: absolute; left: 0; top: 14px; width: 6px; height: 6px; background: var(--ink); }
+.workflow .wf-note { font-family: var(--tt); font-size: 12.5px; line-height: 1.6; color: var(--muted); margin-bottom: 22px; }
+.workflow .btn { align-self: flex-start; }
+.records { list-style: none; }
+.records li { display: grid; grid-template-columns: 11em 1fr; gap: 4px 24px; padding: 18px 0 20px; border-bottom: 1px solid var(--line); }
+.records li > * { min-width: 0; }
+.rec-type { font-family: var(--tt); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); padding-top: 4px; }
+.records h3 { font-size: 18px; margin: 0 0 4px; }
+.records p { font-size: 15.5px; color: #333; }
+.code-caption { font-family: var(--tt); font-size: 12px; color: var(--muted); margin-top: 8px; }
+
+/* ======================================================================
+   PROPOSE A PROBLEM: form in a dialog, opened from the Contribute block
+   ====================================================================== */
+.propose { width: min(680px, calc(100vw - 2 * var(--gutter))); max-height: calc(100vh - 40px); max-height: calc(100dvh - 40px); margin: auto; padding: 40px 44px 36px; border: 1px solid var(--ink); background: var(--bg); color: var(--ink); }
+.propose::backdrop { background: rgba(0, 38, 76, .6); }
+html:has(.propose[open]) { overflow: hidden; }
+.propose .label { margin-bottom: 8px; }
+.propose h3 { font-size: 30px; font-weight: 400; font-style: italic; line-height: 1.25; margin: 0 0 10px; }
+.propose-intro { font-size: 15.5px; color: #333; }
+.propose fieldset { border: 0; margin-top: 26px; min-width: 0; }
+.propose legend { width: 100%; font-size: 18px; font-weight: 700; padding-bottom: 8px; margin-bottom: 18px; border-bottom: 1px solid var(--line); }
+.propose .form-row > * { min-width: 0; }
+.propose .form-group input, .propose .form-group select { height: 47px; }
+.propose-check { display: flex; gap: 10px; align-items: baseline; margin-bottom: 18px; font-size: 15px; color: #333; cursor: pointer; }
+.propose .form-hint { margin-bottom: 16px; line-height: 1.6; }
+.propose-status { margin-top: 14px; font-size: 14.5px; color: var(--bad); }
+.propose-status a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.propose-sent { margin-top: 18px; }
+.propose-sent p { margin-bottom: 20px; font-size: 16px; color: #222; overflow-wrap: anywhere; }
+
 /* ---------- motion & responsive ---------- */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -492,6 +546,10 @@ h3 { font-size: 17px; font-weight: 700; margin: 26px 0 10px; }
   .ten-grid { grid-template-columns: repeat(5, 44px); }
   .ten-grid span { height: 44px; font-size: 18px; }
   .people, .participants, .facts { grid-template-columns: 1fr; }
+  .wf-list { columns: 1; }
+  .propose { width: calc(100vw - 20px); padding: 48px 18px 24px; }
+  .workflow { padding: 22px 20px 24px; }
+  .records li { grid-template-columns: 1fr; }
   .ws-panel { padding: 52px 18px 28px; }
   .ws-panel .ws-title { font-size: 28px; }
   .facts div { border-left: 0; border-top: 1px solid var(--line); }

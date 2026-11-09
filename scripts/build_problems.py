@@ -1,4 +1,4 @@
-"""Generate assets/js/problem-data.js from the ProofBench problem database.
+"""Generate assets/js/problem-data.js from the LPBench problem database.
 
 Usage:
     python scripts/build_problems.py path/to/proofbench/ProofBench/DATABASE/Database.json
@@ -24,7 +24,7 @@ AREAS = {
     "05D": "Extremal set theory",
 }
 
-# Hand-checked areas. ProofBench is anchored in graph theory, so problems with a graph-theoretic
+# Hand-checked areas. LPBench is anchored in graph theory, so problems with a graph-theoretic
 # reading are listed under "Graph theory" with one of six subareas, whatever their primary MSC class:
 # topological, algebraic & spectral, geometric & planar, extremal, random, enumerative.
 # The remaining problems name their own field. The headline counts on the front page follow the

@@ -29,6 +29,10 @@ window.PB_CONFIG = {
   // { model: "provider/name", search: false, open: 0, research: 0, calibration: 0, cost: "$0" }
   results: [],
 
-  // Every "Contact" and "Get in touch" link writes to all of these.
+  // Every "Contact" and "Get in touch" link writes to all of these. The "Propose a problem" form goes to
+  // the address in proposeEndpoint, with a copy to the others.
   contact: ["Vaibhav.Bajpai@math.tu-freiberg.de", "Utku.Okur@math.tu-freiberg.de"],
+
+  // FormSubmit turns the "Propose a problem" form into an email. Leave empty to make the button a plain email link.
+  proposeEndpoint: "https://formsubmit.co/ajax/Vaibhav.Bajpai@math.tu-freiberg.de",
 };

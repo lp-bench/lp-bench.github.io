@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Benchmark Evaluation · LPBench</title>
+  <meta name="description" content="QEDRank: evaluate language models on corpora of formal mathematics problems with Lean-verified, statistically analysed results, or compare Lean formalisation benchmarks with each other.">
+  <meta property="og:title" content="Benchmark Evaluation · LPBench">
+  <meta property="og:image" content="https://lp-bench.github.io/assets/img/og.png">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/cmunrm.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="header">
+    <a class="brand" href="index.html"><span class="qed" aria-hidden="true"></span>LPBench</a>
+    <nav aria-label="Main">
+      <ul class="header-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="problems.html">Problems</a></li>
+        <li><a href="benchmark.html" aria-current="page">Benchmark Evaluation</a></li>
+        <li><a href="ten-challenges.html">Ten Challenges</a></li>
+        <li>
+          <details class="gh-menu nav-gh">
+            <summary aria-label="GitHub repositories" title="GitHub repositories"><svg class="gh-icon" viewBox="0 0 16 16" width="20" height="20" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></summary>
+            <ul class="gh-menu-list">
+              <li><a href="https://github.com/lp-bench/lp-bench"><b>lp-bench</b><span data-pb-text="The {total} problem statements in Lean 4">The 117 problem statements in Lean 4</span></a></li>
+              <li><a href="https://github.com/lp-bench/QEDRank"><b>QEDRank</b><span>The evaluation harness and its Apptainer sandbox</span></a></li>
+            </ul>
+          </details>
+        </li>
+        <li><span class="btn btn-small" aria-disabled="true" data-paper-link data-label-live="Paper ↗">Paper · Oct 2026</span></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" class="main">
+    <section class="page-intro">
+      <h1>Benchmark Evaluation</h1>
+      <p>
+        QEDRank is a benchmark evaluation platform for formal mathematics. It provides two complementary
+        workflows: evaluate how effectively language models solve a selected corpus of formal mathematics
+        problems, with Lean-verified, statistically analysed results, or compare different benchmark datasets to
+        understand their scope, difficulty, coverage, and model performance.
+      </p>
+      <p class="meta-line">Lean 4 · Mathlib · every answer is checked by the pinned Lean 4 toolchain; no composite score is ever computed</p>
+      <div class="page-ctas">
+        <a class="btn" href="https://qedrank.vercel.app/">Open QEDRank ↗</a>
+      </div>
+      <ul class="subnav">
+        <li><a href="#workflows">Workflows</a></li>
+        <li><a href="#more">More tools</a></li>
+        <li><a href="#reporting">How results are reported</a></li>
+      </ul>
+    </section>
+
+    <dl class="facts">
+      <div><dt>models in the roster: Claude, GPT, Qwen, GLM, DeepSeek</dt><dd>10</dd></div>
+      <div><dt>benchmarks to compare with, from miniF2F to LeanEval</dt><dd>9</dd></div>
+      <div><dt>benchmark targets: main theorem · upper · lower · disproof</dt><dd>4</dd></div>
+    </dl>
+
+    <h2 class="rule" id="workflows">Two workflows</h2>
+    <div class="workflows">
+      <article class="workflow reveal">
+        <p class="wf-glyph" aria-hidden="true">∀</p>
+        <p class="label">Workflow 1</p>
+        <h3>Evaluate Models</h3>
+        <p>
+          Evaluate one or more language models on a selected benchmark corpus. Generate Lean&nbsp;4
+          formalizations, verify them with the Lean compiler, and compare model performance across correctness,
+          auditability, reliability, efficiency, and difficulty.
+        </p>
+        <ul class="wf-list" aria-label="Measures">
+          <li><b>Verified proof rate (pass@1)</b> — primary metric</li>
+          <li>Audit-clean rate — proofs passing axiom and forbidden-import checks</li>
+          <li>Lean compilation success rate</li>
+          <li>Statement fidelity rate</li>
+          <li>Statement-match classification</li>
+          <li>Pass@k performance for k = 1–16</li>
+          <li>Attempt statuses and failure classes</li>
+          <li>Abstention, timeout, unresolved, and infrastructure-error rates</li>
+          <li>Latency, Lean compilation time, and token usage</li>
+          <li>Estimated cost per attempt and per verified proof</li>
+          <li>Performance by difficulty and subject area</li>
+          <li>Performance on the common-problem subset</li>
+          <li>Performance of different LLMs on your own dataset (e.g. LPBench)</li>
+          <li>95% confidence intervals and exact denominators</li>
+        </ul>
+        <p class="wf-note">Models: Claude Fable 5.1, Claude Opus 5.5, GPT-6 Astra, GPT-6 Sol, GPT-5.6 Terra, GPT-5.4, and Qwen3, Qwen3.5, GLM-5.3 Flash and DeepSeek V4 Flash served by GWDG Chat AI.</p>
+        <a class="btn btn-secondary" href="https://qedrank.vercel.app/benchmark">Open Evaluate Models ↗</a>
+      </article>
+
+      <article class="workflow reveal">
+        <p class="wf-glyph" aria-hidden="true">∃</p>
+        <p class="label">Workflow 2</p>
+        <h3>Compare Benchmarks</h3>
+        <p>
+          Compare your benchmark corpus with other mathematical formalization benchmarks to understand how they
+          differ in scale, scope, difficulty, coverage, reliability, and model performance. The analysis also
+          examines dataset overlap and duplication, theorem categories, formalization environments, confidence
+          intervals, and the potential for future progress across each benchmark.
+        </p>
+        <ul class="wf-list" aria-label="Comparison areas">
+          <li>Number of problems as published</li>
+          <li>Number of problems measured</li>
+          <li>Release date, source, task type, and judging method</li>
+          <li>Mathematical domain and MSC subject coverage</li>
+          <li>Largest subject area</li>
+          <li>Difficulty-level distribution</li>
+          <li>Research-level and open-problem share</li>
+          <li>Theorem, definition, lemma, and construction-problem types</li>
+          <li>Formalization language, Lean and Mathlib versions</li>
+          <li>Theorem signature complexity</li>
+          <li>Statement length, including used definitions</li>
+          <li>Longest 10% of statements by token length</li>
+          <li>Theorems per file and definitions per file</li>
+          <li>Reference-proof availability and quality</li>
+          <li>Proof length, proof-term size, tactics, and automation share</li>
+          <li>Statements with contradictory or vacuous hypotheses</li>
+          <li>Linter warnings and reference defects</li>
+          <li>Dataset overlap and duplication</li>
+          <li>Model verified-proof rate by benchmark</li>
+          <li>Coverage differences between models and benchmarks</li>
+          <li>Headroom for future progress</li>
+        </ul>
+        <p class="wf-note">Benchmarks: miniF2F, PutnamBench, FormalMATH, MSC-180, ProofNet, CombiBench, LeanEval, AMBER and FormalProofBench, or any other benchmark by its URL.</p>
+        <a class="btn btn-secondary" href="https://qedrank.vercel.app/versus">Open Compare Benchmarks ↗</a>
+      </article>
+    </div>
+
+    <h2 class="rule" id="more">More tools</h2>
+    <ul class="records">
+      <li class="reveal">
+        <span class="rec-type">Results</span>
+        <div>
+          <h3>Evaluation</h3>
+          <p>Explore a finished run: verified proof rates, statement fidelity, Pass@1 and Pass@k performance, error patterns, latency, token usage, cost, and results by difficulty and subject area. A run is loaded from the local run server or from its result files.</p>
+          <a class="more-link" href="https://qedrank.vercel.app/evaluation">Open Evaluation ↗</a>
+        </div>
+      </li>
+      <li class="reveal">
+        <span class="rec-type">Landscape</span>
+        <div>
+          <h3>Benchmark Landscape</h3>
+          <p>LPBench and the Lean benchmarks on one chart: benchmark size against the best reported success rate. Statement statistics are measured with one protocol for every benchmark; sizes and best results come from the original papers or public leaderboards, with links to the sources.</p>
+          <a class="more-link" href="https://qedrank.vercel.app/compare">Open Benchmark Landscape ↗</a>
+        </div>
+      </li>
+      <li class="reveal">
+        <span class="rec-type">Single problem</span>
+        <div>
+          <h3>Convert a Problem</h3>
+          <p>Send one statement to every selected model and compare the Lean&nbsp;4 answers side by side, with latency, tokens and your own rating. Answers are not compiled here; to verify them with Lean, use Evaluate Models.</p>
+          <a class="more-link" href="https://qedrank.vercel.app/convert">Open Convert a Problem ↗</a>
+        </div>
+      </li>
+    </ul>
+
+    <h2 class="rule" id="reporting">How results are reported</h2>
+    <div class="prose">
+      <ul>
+        <li>A challenge file states the theorem and leaves its proof as <code>sorry</code>. That <code>sorry</code> is the task, and every answer is checked against the untouched statement.</li>
+        <li>Verified success is the strict primary endpoint: the answer compiles, uses no <code>sorry</code> and no new axioms, and leaves the statement unchanged.</li>
+        <li>Every rate is reported as numerator over eligible denominator at pass@1–16, with a 95% paper-cluster bootstrap interval.</li>
+        <li>Statement fidelity, compilation and audit are reported alongside verified success and are never folded into one score. No weighted composite is computed.</li>
+      </ul>
+    </div>
+    <div class="code-block">
+      <pre><code data-lean>-- Prove that the square root of 2 is irrational.
+theorem sqrt_two_irrational : Irrational (√2) := by
+  sorry</code></pre>
+    </div>
+    <p class="code-caption">An illustrative challenge file. The statement is fixed; a model has to replace the sorry with a proof that Lean accepts.</p>
+
+    <div class="cta-box reveal">
+      <div>
+        <h3>Try QEDRank</h3>
+        <p>Evaluate models or compare benchmarks in the browser at <a href="https://qedrank.vercel.app/">qedrank.vercel.app</a>.</p>
+      </div>
+      <a class="btn" href="https://qedrank.vercel.app/">Open QEDRank ↗</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <span>LPBench · a formal benchmark for research-level mathematics</span>
+    <nav aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="problems.html">Problems</a>
+      <a href="ten-challenges.html">Ten Challenges</a>
+      <a href="index.html#workshop">Workshop</a>
+      <details class="gh-menu foot-contact">
+        <summary>Contact</summary>
+        <ul class="gh-menu-list">
+          <li><a href="mailto:Vaibhav.Bajpai@math.tu-freiberg.de"><b>Vaibhav Bajpai</b><span>Vaibhav.Bajpai@math.tu-freiberg.de</span></a></li>
+          <li><a href="mailto:Utku.Okur@math.tu-freiberg.de"><b>Utku Okur</b><span>Utku.Okur@math.tu-freiberg.de</span></a></li>
+        </ul>
+      </details>
+    </nav>
+  </footer>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/common.js"></script>
+</body>
+</html>

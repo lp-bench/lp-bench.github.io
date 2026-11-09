@@ -29,6 +29,78 @@
     window.addEventListener("hashchange", () => { if (location.hash === "#workshop") { set(true); scrollTo(panel); } });
   })();
 
+  /* ---------- "Propose a problem" form in a dialog ---------- */
+  (function proposeForm() {
+    const dialog = $("[data-propose]");
+    const opener = $("[data-propose-open]");
+    // Without any of these the button stays a plain email link.
+    if (!dialog || !opener || !dialog.showModal || !CFG.proposeEndpoint) return;
+    const form = $("[data-propose-form]", dialog);
+    const sent = $("[data-propose-sent]", dialog);
+    const status = $("[data-propose-status]", dialog);
+    const submit = $('button[type="submit"]', form);
+    const contact = [].concat(CFG.contact || []);
+    const primary = decodeURIComponent(CFG.proposeEndpoint.split("/").pop());
+    const subject = (data) => `LPBench problem proposal: ${data["Problem title"]}`;
+
+    const fields = () => Object.fromEntries(Array.from(new FormData(form)).filter(([, v]) => String(v).trim()));
+    const emailLink = (data) => {
+      const body = Object.entries(data).filter(([k]) => !k.startsWith("_")).map(([k, v]) => `${k}: ${v}`).join("\n\n");
+      return `mailto:${contact.join(",")}?subject=${encodeURIComponent(subject(data))}&body=${encodeURIComponent(body)}`;
+    };
+
+    opener.addEventListener("click", (e) => {
+      e.preventDefault();
+      form.hidden = false;
+      sent.hidden = true;
+      status.hidden = true;
+      dialog.showModal();
+    });
+    $$("[data-propose-close]", dialog).forEach((b) => b.addEventListener("click", () => dialog.close()));
+    // A click on the backdrop closes the form; what was typed stays for the next time it opens.
+    dialog.addEventListener("click", (e) => {
+      if (e.target !== dialog) return;
+      const r = dialog.getBoundingClientRect();
+      if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) dialog.close();
+    });
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const data = fields();
+      const label = submit.textContent;
+      submit.disabled = true;
+      submit.textContent = "Sending…";
+      status.hidden = true;
+      try {
+        const res = await fetch(CFG.proposeEndpoint, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify({
+            ...data,
+            _subject: subject(data),
+            _cc: contact.filter((a) => a.toLowerCase() !== primary.toLowerCase()).join(","),
+            _template: "table",
+            _captcha: "false",
+          }),
+        });
+        const reply = await res.json();
+        // The service answers 200 with success "false" too, for example before the form has been activated.
+        if (String(reply.success) !== "true") throw new Error(reply.message);
+        $("[data-propose-reply]", sent).textContent = data.email;
+        form.reset();
+        form.hidden = true;
+        sent.hidden = false;
+        $("[data-propose-close]", sent).focus();
+      } catch (err) {
+        status.innerHTML = `Your proposal could not be sent, but your text is still here. <a href="${esc(emailLink(data))}">Send it from your email program instead</a>.`;
+        status.hidden = false;
+      } finally {
+        submit.disabled = false;
+        submit.textContent = label;
+      }
+    });
+  })();
+
   /* ---------- hero: drifting graph ---------- */
   (function heroGraph() {
     const canvas = $(".hero-graph");
