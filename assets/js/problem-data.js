@@ -1403,5 +1403,17 @@ window.PB_PROBLEMS = [
 "sub": "",
 "summary": "Let G be a finite simple graph. A proper edge-colouring of G assigns a colour to each edge so that any two edges sharing a common endpoint receive different colours, and Δ(G), the maximum degree of G, is the largest number of edges incident with any single vertex. Vizing's theorem states that G has a proper edge-colouring with Δ(G) + 1 colours. This challenge asks for a constructive proof, without the axiom of choice: in Lean, the proof may depend on propext and Quot.sound but not on Classical.choice. The graph is given on the vertices 0, …, n − 1 with decidable adjacency, so a proof amounts to an algorithm, such as the one of Misra and Gries (1992), which colours the edges one at a time, rotating a fan of edges at a vertex and swapping two colours along an alternating path where necessary.",
 "lean": "theorem P117 {n : Nat} (G : FinGraph n) : G.EdgeColourable (G.maxDegree + 1)"
+},
+{
+"id": "118",
+"name": "The Corner Lemma for the Cube (Bourneuf–Carmesin–Kurkofka–Planken, Lemma 4.1)",
+"cat": "research",
+"note": "",
+"resolved": "",
+"msc": "05C40 Connectivity; 52B05 Combinatorial properties of polytopes and polyhedra (number of faces, shortest paths, etc.)",
+"area": "Graph theory",
+"sub": "",
+"summary": "Lemma 4.1 of Bourneuf, Carmesin, Kurkofka and Planken (2026). The faces of the cube {0,1}^3 are the sets obtained by fixing some coordinates; a weighting lam assigns a natural number to every edge, every 2-dimensional face and the cube itself. The value of a cut, that is, of a partition of the eight vertices into two sets, is the total weight of the faces that contain both endvertices of an edge between the two sets. Suppose each of the three coordinate cuts (first coordinate zero against one, and so on) has value k, and suppose that for some vertex cover R of the cube graph every cut with a vertex of R on each side has value at least k. Then lam is a k-flower: all 2-dimensional faces have weight zero, the six edges at some pair of antipodal vertices have weight zero, the six other edges have a common weight l <= k/2, and the cube has weight k - 2l. In the source the lemma describes how three pairwise crossing separations of a graph can cross.",
+"lean": "theorem P118 (lam : Face → ℕ) (k : ℕ) (hcoord : ∀ i : Fin 3, cutValue lam (Finset.univ.filter fun v => v i = false) = k) (R : Finset Vertex) (hR : ∀ u w, Adj u w → u ∈ R ∨ w ∈ R) (hcut : ∀ A : Finset Vertex, (∃ r ∈ R, r ∈ A) → (∃ r ∈ R, r ∉ A) → k ≤ cutValue lam A) : IsFlower lam k"
 }
 ];
