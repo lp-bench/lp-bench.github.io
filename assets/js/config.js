@@ -4,7 +4,8 @@ window.PB_CONFIG = {
   released: true,
 
   paper: {
-    arxivId: "",      // e.g. "2610.12345" — turns the "Paper" buttons into links
+    url: "https://zenodo.org/records/24195212",  // the preprint on Zenodo; turns the "Paper" buttons into links
+    arxivId: "",      // e.g. "2610.12345"; used when url is empty
     year: 2026,
   },
 

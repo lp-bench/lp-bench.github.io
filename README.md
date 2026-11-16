@@ -5,7 +5,7 @@ Plain HTML, CSS and JavaScript; no build step. Open `index.html` locally to prev
 Publishing runs through GitHub Actions (`.github/workflows/site.yml`; Settings → Pages →
 Source: GitHub Actions).
 
-* `assets/js/config.js`: everything that changes on launch day (`released`, arXiv id,
+* `assets/js/config.js`: everything that changes on launch day (`released`, paper link,
   repositories, leaderboard rows, contact).
 * `assets/js/problem-data.js`: problem list, generated from the proofbench repo by
   `scripts/build_problems.py`; do not edit by hand. The script also fills the counts in the

@@ -74,7 +74,7 @@
 
   /* paper links (header and hero) */
   const P = CFG.paper || {};
-  const paperUrl = P.arxivId ? `https://arxiv.org/abs/${P.arxivId}` : "";
+  const paperUrl = P.url || (P.arxivId ? `https://arxiv.org/abs/${P.arxivId}` : "");
   $$("[data-paper-link]").forEach((el) => {
     if (paperUrl) {
       const a = document.createElement("a");
